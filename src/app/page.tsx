@@ -1,14 +1,13 @@
-import Link from "next/link";
-
-import { CreatePost } from "~/app/_components/create-post";
+import React from "react";
 import { api } from "~/trpc/server";
-import Navbar from "./_components/navbar";
+import Intro from "./_components/intro";
 
 export default async function Home() {
   const hello = await api.post.hello.query({ text: "from tRPC" });
 
   return (
-    <main className="w-screen h-screen">
+    <main className="flex flex-col items-center px-4">
+        <Intro />
     </main>
   );
 }

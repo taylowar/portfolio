@@ -5,6 +5,15 @@
 await import("./src/env.mjs");
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+    images: {
+        remotePatterns: [ 
+            {
+                protocol: "https",
+                hostname: "scontent.fmbx2-1.fna.fbcdn.net",
+            },
+        ],
+    }
+};
 
 export default config;
