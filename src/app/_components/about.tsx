@@ -15,7 +15,7 @@ export default function About() {
     }}
     >
         <SectionHeading>About me</SectionHeading>
-        <p className='mb-3'>My progrogramming adventure starts when I was 14 and I got my first laptop. I had only one wish: playing Minecraft. I was not able to buy myself a copy of the game but luckely I saw a post on the Minecraft forum website which stated that minecraft modders that post their mods on said forum get a change of acquiring a copy of the minecraft game as a gift. &quot Why not? Java minecraft modding cannot be that hard, can it?&quot</p>
+        <p className='mb-3'>My progrogramming adventure starts when I was 14 and I got my first laptop. I had only one wish: playing Minecraft. I was not able to buy myself a copy of the game but luckely I saw a post on the Minecraft forum website which stated that minecraft modders that post their mods on said forum get a change of acquiring a copy of the minecraft game as a gift. <q>Why not? Java minecraft modding cannot be that hard, can it?</q></p>
         <p></p>
     </motion.section>
   )
