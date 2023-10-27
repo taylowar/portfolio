@@ -46,7 +46,7 @@ export default function Intro() {
                         </motion.span>
                     </div>
                 </div> 
-                <motion.p
+                <motion.h1
                     className='my-10 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl'
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
@@ -55,7 +55,7 @@ export default function Intro() {
                     <span>I am a <u>software engineer</u> with <b>10 years of experience</b>. </span>             
                     <span>I enjoy <i>music, math, building websites & apps</i>. </span>            
                     <span>My current focus is <b>React(Next.js)</b>. </span>            
-                </motion.p>
+                </motion.h1>
 
                 <motion.div
                 className='flex flex-col sm:flex-row place-content-center gap-2 px-4 text-lg font-medium' 
