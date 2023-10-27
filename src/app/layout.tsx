@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Tilen Okretič Portfolio",
+  title: "Tilen Okretič",
   description: "Website dedicated to showcase Tilen Okretič",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
