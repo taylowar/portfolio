@@ -81,9 +81,10 @@ export default function Intro() {
                         href="https://github.com/pwnker"
                         target='_blank'
                         title="github"
-                        className='group flex bg-white px-4 py-3 items-center gap-2 border-black/8 rounded-full outline-none focus:scale-105 hover:cursor-pointer hover:scale-110 transition'
+                        className='group flex bg-white px-7 py-3 items-center gap-2 border-black/8 rounded-full outline-none focus:scale-105 hover:cursor-pointer hover:scale-110 transition'
                     >
-                        <Image src="/github.svg" width="28" height="28" alt="github" className='opacity-90 group-hover:scale-105'/>
+                        GitHub
+                        <Image src="/github.svg" width="28" height="28" alt="github" className='opacity-60 group-hover:translate-x-1 group-hover:scale-120 transition'/>
                     </a>
                 </motion.div>
             </section>
