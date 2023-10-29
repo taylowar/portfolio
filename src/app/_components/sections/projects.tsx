@@ -12,7 +12,7 @@ export default function Projects() {
     return (
             <section
 	           id="projects"
-	           className='text-center scroll-mt-28'
+	           className='text-center mb-28 scroll-mt-28'
 	           ref={ref}
             >
                 <SectionHeading>my projects</SectionHeading>
