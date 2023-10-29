@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function Intro() {
     return (
-            <section className='mb-28 max-w-[50rem] text-center sm:mb-0'>
+            <section className='mt-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-28'>
                 <div className='flex place-content-center'>
                     <div className='relative'>
                         <motion.div

@@ -14,6 +14,7 @@ export default function Home() {
         <About />
         <Devider />
         <Projects />
+        <Devider />
     </main>
   );
 }

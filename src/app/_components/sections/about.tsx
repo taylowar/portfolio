@@ -7,12 +7,13 @@ import { motion } from 'framer-motion';
 export default function About() {
   return (
     <motion.section
-    className='mb-28 max-w-[45rem] text-center leading-8 sm:mb-40'
-    initial={{y: 100, opacity: 0}}
-    animate={{y: 0, opacity: 1}}
-    transition={{
-        delay: 0.175
-    }}
+       id="about"
+	   className='max-w-[45rem] text-center leading-8 sm:mb-40 scroll-mt-28'
+	   initial={{y: 100, opacity: 0}}
+	   animate={{y: 0, opacity: 1}}
+	   transition={{
+	       delay: 0.175
+	   }}
     >
         <SectionHeading>About me</SectionHeading>
         <p className='mb-3'>My programming adventure started when I was 14 and I got my first laptop. I had only one wish: playing Minecraft. I was not able to buy myself a copy of the game, but lucky for me, I saw a post on the Minecraft forum website that stated that Minecraft modders that post their mods on said forum get a chance to acquire a copy of the game as a gift.<br />

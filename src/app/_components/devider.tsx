@@ -12,6 +12,6 @@ export default function Devider() {
     transition={{
         delay: 0.125
     }}
-    ></motion.div>
+    />
   )
 }
