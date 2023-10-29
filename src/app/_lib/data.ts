@@ -1,4 +1,3 @@
-import { warn } from 'console';
 import boatConfiguratorPng from '../../../public/alfastreet_boat_configurator.png'
 import rackConfiguratorPng from '../../../public/kingsbox_rack_configurator.png'
 

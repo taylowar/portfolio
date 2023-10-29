@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import type { PROJECT_DATA } from "../lib/data";
+import type { PROJECT_DATA } from "../_lib/data";
 
 type ProjectProps = (typeof PROJECT_DATA)[number]; 
 

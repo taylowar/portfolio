@@ -4,10 +4,22 @@ import React from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useSectionInView } from '~/app/_lib/hooks';
 
 export default function Intro() {
+
+    const { ref } = useSectionInView('#home', 0.5);
+
     return (
-            <section className='mt-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-28'>
+            <section
+                className='
+                    mt-28
+                    max-w-[50rem]
+                    text-center
+                    sm:mb-0
+                    scroll-mt-28'
+                ref={ref}
+                >
                 <div className='flex place-content-center'>
                     <div className='relative'>
                         <motion.div
