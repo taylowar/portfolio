@@ -4,8 +4,7 @@ import React from 'react'
 import SectionHeading from '../section-heading';
 import { useSectionInView } from '~/app/_lib/hooks';
 import { SKILL_DATA } from '~/app/_lib/data';
-import { animate, motion } from 'framer-motion';
-import { once } from 'events';
+import { motion } from 'framer-motion';
 
 const fadeInAnimationVar = {
     initial: {
