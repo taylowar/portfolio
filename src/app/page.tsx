@@ -4,6 +4,7 @@ import Devider from "./_components/devider";
 import About from "./_components/sections/about";
 import Projects from "./_components/sections/projects";
 import Skills from "./_components/sections/skils";
+import Experience from "./_components/sections/experience";
 
 export default function Home() {
 //  const hello = await api.post.hello.query({ text: "from tRPC" });
@@ -15,6 +16,7 @@ export default function Home() {
         <About />
         <Projects />
         <Skills />
+        <Experience />
     </main>
   );
 }
