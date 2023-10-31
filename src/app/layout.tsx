@@ -1,4 +1,5 @@
 import "~/styles/globals.css";
+import "react-vertical-timeline-component/style.min.css";
 
 import { Anonymous_Pro } from "next/font/google";
 import { headers } from "next/headers";

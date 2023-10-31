@@ -13,7 +13,10 @@ const config = {
                 hostname: "scontent.fmbx2-1.fna.fbcdn.net",
             },
         ],
-    }
+    },
+    experimental: {
+        serverActions: true,
+    },
 };
 
 export default config;

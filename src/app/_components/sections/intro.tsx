@@ -5,9 +5,13 @@ import Image from 'next/image'
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useSectionInView } from '~/app/_lib/hooks';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { useSectionContext } from '~/app/_context/section-context';
 
 export default function Intro() {
-
+    const { setActive, setLastClickTime } = useSectionContext();
     const { ref } = useSectionInView('#home', 0.5);
 
     return (
@@ -79,24 +83,51 @@ export default function Intro() {
                 >
                     <Link href="#contact"
                         className='group flex bg-gray-900 text-white px-7 py-3 items-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 hover:bg-gray-950 active:scale-100 transition'
+                        onClick={() => {
+                            setActive('#contact');
+                            setLastClickTime(Date.now());
+                        }}
                     >Contect me here
-                        <Image src="/arrow-top-right.svg" width="24" height="24" alt="phone-out" className="opacity-70 group-hover:translate-x-[0.15rem] group-hover:-translate-y-[0.15rem] group-hover:scale-120 transition"/>
+                        <FontAwesomeIcon
+                            icon={faPaperPlane}
+                            className="opacity-70 group-hover:translate-x-[0.15rem] group-hover:-translate-y-[0.15rem] group-hover:scale-120 transition"
+                        />
                     </Link>
                     <a 
-                      className='group flex bg-white px-7 py-3 items-center gap-2 border border-black/8 rounded-full outline-none focus:scale-105 hover:cursor-pointer hover:scale-105 active:scale-100 transition'
+                      className='group flex bg-white px-7 py-3 items-center gap-2 my-border-black rounded-full outline-none focus:scale-105 hover:cursor-pointer hover:scale-105 active:scale-100 transition'
                       href='/CV.pdf'
                       download={true}
                     >Download CV
-                        <Image src="/download.svg" width="24" height="24" alt="download" className="opacity-60 group-hover:translate-y-[0.15rem] transition"/>
+                        <FontAwesomeIcon 
+                            icon={faDownload}
+                            className="opacity-60 group-hover:translate-y-[0.15rem] transition"
+                        />
                     </a>
                     <a
                         href="https://github.com/pwnker"
                         target='_blank'
                         title="github"
-                        className='group flex bg-white px-7 py-3 items-center gap-2 border-black/8 rounded-full outline-none focus:scale-105 hover:cursor-pointer hover:scale-110 transition'
+                        className='
+                            group
+                            flex
+                            bg-white
+                            px-7
+                            py-3
+                            items-center
+                            gap-2
+                            my-border-black
+                            rounded-full
+                            outline-none
+                            focus:scale-105
+                            hover:cursor-pointer
+                            hover:scale-110
+                            transition'
                     >
                         GitHub
-                        <Image src="/github.svg" width="28" height="28" alt="github" className='opacity-60 group-hover:translate-x-1 group-hover:scale-120 transition'/>
+                        <FontAwesomeIcon
+                            icon={faGithub}
+                            className='opacity-60 group-hover:translate-x-1 group-hover:scale-120 transition'
+                        />
                     </a>
                 </motion.div>
             </section>

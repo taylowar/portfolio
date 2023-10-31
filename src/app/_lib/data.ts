@@ -1,5 +1,8 @@
+import React from 'react';
 import boatConfiguratorPng from '../../../public/alfastreet_boat_configurator.png'
 import rackConfiguratorPng from '../../../public/kingsbox_rack_configurator.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBeer, faGraduationCap, faMedal, faRocket } from '@fortawesome/free-solid-svg-icons';
 
 export const LINKS = [
     {
@@ -59,4 +62,28 @@ export const SKILL_DATA = [
     'C',
     'Docker',
     'Python'
+] as const;
+
+export const EXPERIENCE_DATA = [
+    {
+        title: "Minecraft modding",
+        location: "Slovenia",
+        description: "I started to learn Java - my first programing language. I was learning from youtube and other free internet resoures.",
+        icon: faRocket,
+        date: '2014'
+    },
+    {
+        title: "Gone viral",
+        location: "The internet",
+        description: `I was claborating with some friends I met online on a minecraft mod called "Roots". After about a year of development the project went viral and has reached over 5 milion downloads.`,
+        icon: faMedal,
+        date: '2017'
+    },
+    {
+        title: "Graduated High School",
+        location: "Slovenia",
+        description: "I graduated from my tehnical school lol",
+        icon: faGraduationCap, 
+        date: '2019'
+    }
 ] as const;
