@@ -22,7 +22,7 @@ export function useSectionContext() {
     const ctx = useContext(SectionContext);
     
     if (ctx === null) {
-        throw new Error("Section context lost! You shoudl access useSectionContext whitin SectionContextProvide!")
+        throw new Error('Section context lost! You shoudl access useSectionContext whitin SectionContextProvide!')
     }
 
     return ctx; 
@@ -31,7 +31,7 @@ export function useSectionContext() {
 export default function SectionContextProvider({children}: Props) {
     const [ active, setActive ] = useState<SectionHash>(location.hash as SectionHash || LINKS[0].hash);
     const [ lastClickTime, setLastClickTime ] = useState(0);
-
+    
     return (
         <SectionContext.Provider value={{
             active,

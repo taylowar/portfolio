@@ -10,9 +10,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useInView } from 'react-intersection-observer';
 
 function ExperienceItem({item}: {item: (typeof EXPERIENCE_DATA)[number]}) {
-  const { ref, inView } = useInView({ threshold: 0 })
+    const { ref, inView } = useInView({ threshold: 0 })
     return (
-        <div ref={ref} className='vertical-timeline-element'>
+        <div ref={ref} className="vertical-timeline-element">
             <VerticalTimelineElement
                 visible={inView}
                 contentStyle={{
@@ -32,9 +32,9 @@ function ExperienceItem({item}: {item: (typeof EXPERIENCE_DATA)[number]}) {
                     fontSize: '1.5rem',
                 }}
             >
-                <h3 className='font-semibold capitalize'>{item.title}</h3>
-                <p className='font-normal !mt-0'>{item.location}</p>
-                <p className='!mt-1 !font-normal text-gray-700'>
+                <h3 className="font-semibold capitalize">{item.title}</h3>
+                <p className="font-normal !mt-0">{item.location}</p>
+                <p className="!mt-1 !font-normal text-gray-700">
                     {item.description}
                 </p>
             </VerticalTimelineElement>
@@ -46,19 +46,19 @@ export default function Experience() {
     const { ref } = useSectionInView('#experience', 0.2);
 
     return (
-            <section
-                id="experience"
-                ref={ref}
-                className="mb-28 max-w-[45rem] scroll-mt-28 text-center leading-8 sm:mb-40"
-            >
-                <SectionHeading>
+        <section
+            id="experience"
+            ref={ref}
+            className="mb-28 max-w-[45rem] scroll-mt-28 text-center leading-8 sm:mb-40"
+        >
+            <SectionHeading>
                     My Experience
-                </SectionHeading>
-                <VerticalTimeline lineColor='' animate={true}>
+            </SectionHeading>
+            <VerticalTimeline lineColor="" animate={true}>
                 {EXPERIENCE_DATA.map((exp, index) => (
-                     <ExperienceItem item={exp} key={index} />
+                    <ExperienceItem item={exp} key={index} />
                 ))}   
-                </VerticalTimeline>
-            </section>
+            </VerticalTimeline>
+        </section>
     );
 }

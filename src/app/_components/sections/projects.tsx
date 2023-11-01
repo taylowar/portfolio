@@ -10,21 +10,21 @@ export default function Projects() {
     const { ref } = useSectionInView('#projects', 0.5);
     
     return (
-            <section
+        <section
 	           id="projects"
-	           className='text-center mb-28 scroll-mt-28'
+	           className="text-center mb-28 scroll-mt-28"
 	           ref={ref}
-            >
-                <SectionHeading>my projects</SectionHeading>
-                <ul className='flex flex-col gap-3 sm:gap-8'>
+        >
+            <SectionHeading>my projects</SectionHeading>
+            <ul className="flex flex-col gap-3 sm:gap-8">
                 {
-                PROJECT_DATA.map((project, index) =>(
-                            <li key={index} className='group'>
+                    PROJECT_DATA.map((project, index) =>(
+                        <li key={index} className="group">
                             <Project {...project} />
-                            </li>
-                            )) 
+                        </li>
+                    )) 
                 }
-                </ul>
-            </section>
+            </ul>
+        </section>
     );
 }

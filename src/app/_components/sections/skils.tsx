@@ -24,41 +24,41 @@ const fadeInAnimationVar = {
 
 export default function Skills() {
   
-  const {ref} = useSectionInView('#skils', 0.5);
+    const {ref} = useSectionInView('#skils', 0.5);
 
-  return (
-    <section 
-        id="skils"
-        className='
+    return (
+        <section 
+            id="skils"
+            className="
             max-w-[53rem]
             text-center
             mb-28
             sm:mb-40
-            scroll-mt-28'
+            scroll-mt-28"
             ref={ref}
         >
-        <SectionHeading>My Skills</SectionHeading>
-        <ul
-            className='flex flex-wrap gap-2 place-content-center text-lg text-gray-800' 
-        >
-        {
-            SKILL_DATA.map((skill, index) => (
-                <motion.li 
-                    key={index}
-                    className='my-border-black px-5 py-3 rounded-lg'
-                    variants={fadeInAnimationVar}
-                    initial="initial"
-                    whileInView="animate"
-                    viewport={{
-                        once: true
-                    }}
-                    custom={index}
-                >
-                {skill}
-                </motion.li>
-            ))
-        }
-        </ul>
-    </section>
-  );
-}2
+            <SectionHeading>My Skills</SectionHeading>
+            <ul
+                className="flex flex-wrap gap-2 place-content-center text-lg text-gray-800" 
+            >
+                {
+                    SKILL_DATA.map((skill, index) => (
+                        <motion.li 
+                            key={index}
+                            className="my-border-black px-5 py-3 rounded-lg"
+                            variants={fadeInAnimationVar}
+                            initial="initial"
+                            whileInView="animate"
+                            viewport={{
+                                once: true
+                            }}
+                            custom={index}
+                        >
+                            {skill}
+                        </motion.li>
+                    ))
+                }
+            </ul>
+        </section>
+    );
+}
