@@ -24,7 +24,7 @@ export default function Navbar() {
                 border
                 border-white
                 border-opacity-40
-                bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-[36rem] sm:rounded-full'
+                bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-[36rem] sm:rounded-xl'
                 initial={{ y: -100, x: '-50%', opacity: 0 }}
                 animate={{ y: 0, x: '-50%', opacity: 1 }}
                 ></motion.div>r
@@ -45,7 +45,7 @@ export default function Navbar() {
                             {link.name}
                             { active === link.hash && (
                             <motion.span 
-                                className={clsx('absolute bg-gray-200 rounded-full inset-0 -z-10')}
+                                className={clsx('absolute bg-green-200 rounded-xl inset-0 -z-10')}
                                 layoutId='activeSpan'
                                 transition={{
                                     type: 'spring',

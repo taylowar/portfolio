@@ -41,7 +41,7 @@ export default function Intro() {
                                 alt='profile-pic'
                                 quality={95}
                                 property='true'
-                                className='h-24 w-24 object-cover rounded-full border-[0.35rem] border-white shadow-xl'
+                                className='h-24 w-24 object-cover rounded-2xl border-[0.35rem] border-white shadow-xl'
                             />
                         </motion.div>
                         <motion.span
@@ -81,8 +81,24 @@ export default function Intro() {
                     delay: 0.1
                 }}
                 >
-                    <Link href="#contact"
-                        className='group flex bg-gray-900 text-white px-7 py-3 items-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 hover:bg-gray-950 active:scale-100 transition'
+                    <Link
+                        href="#contact"
+                        className='
+                        group
+                        flex
+                        bg-gray-900
+                        text-white
+                        px-7
+                        py-3
+                        items-center
+                        gap-2
+                        rounded-xl
+                        outline-none
+                        focus:scale-105
+                        hover:scale-105
+                        hover:bg-gray-950
+                        active:scale-100
+                        transition'
                         onClick={() => {
                             setActive('#contact');
                             setLastClickTime(Date.now());
@@ -94,7 +110,22 @@ export default function Intro() {
                         />
                     </Link>
                     <a 
-                      className='group flex bg-white px-7 py-3 items-center gap-2 my-border-black rounded-full outline-none focus:scale-105 hover:cursor-pointer hover:scale-105 active:scale-100 transition'
+                      className='group
+                      flex
+                      bg-white
+                      px-7
+                      py-3
+                      items-center
+                      text-center
+                      gap-2
+                      my-border-black
+                      rounded-xl
+                      outline-none
+                      focus:scale-105
+                      hover:cursor-pointer
+                      hover:scale-105
+                      active:scale-100
+                      transition'
                       href='/CV.pdf'
                       download={true}
                     >Download CV
@@ -116,7 +147,7 @@ export default function Intro() {
                             items-center
                             gap-2
                             my-border-black
-                            rounded-full
+                            rounded-xl
                             outline-none
                             focus:scale-105
                             hover:cursor-pointer
@@ -126,7 +157,10 @@ export default function Intro() {
                         GitHub
                         <FontAwesomeIcon
                             icon={faGithub}
-                            className='opacity-60 group-hover:translate-x-1 group-hover:scale-120 transition'
+                            className='
+                                opacity-60
+                                group-hover:scale-125
+                                transition'
                         />
                     </a>
                 </motion.div>

@@ -43,24 +43,22 @@ function ExperienceItem({item}: {item: (typeof EXPERIENCE_DATA)[number]}) {
 }
 
 export default function Experience() {
-    const { ref } = useSectionInView('#experience');
+    const { ref } = useSectionInView('#experience', 0.2);
 
     return (
             <section
-                id='experience'
-                className='text-center mb-28 sm:mb-40 scroll-mt-28'
+                id="experience"
                 ref={ref}
+                className="mb-28 max-w-[45rem] scroll-mt-28 text-center leading-8 sm:mb-40"
             >
                 <SectionHeading>
                     My Experience
                 </SectionHeading>
                 <VerticalTimeline lineColor='' animate={true}>
-                {
-                    EXPERIENCE_DATA.map((exp, index) => (
-                        <ExperienceItem item={exp} key={index} />
-                    ))
-                }   
+                {EXPERIENCE_DATA.map((exp, index) => (
+                     <ExperienceItem item={exp} key={index} />
+                ))}   
                 </VerticalTimeline>
             </section>
-           );
+    );
 }
