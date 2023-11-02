@@ -18,6 +18,7 @@ export const SubmitButton = () => {
                     h-[3rem]
                     w-[8rem]
                     bg-gray-900
+                    dark:bg-white/10
                     text-white
                     rounded-lg
                     outline-none

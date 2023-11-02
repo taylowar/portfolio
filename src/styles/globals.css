@@ -8,5 +8,10 @@ html {
 
 .my-border-black {
     @apply border;
-    @apply border-black/10;
+    @apply border-black/50;
+}
+
+.my-border-white {
+    @apply border;
+    @apply border-white;
 }

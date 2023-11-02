@@ -9,6 +9,8 @@ import Navbar from './_components/navbar';
 import SectionContextProvider from './_context/section-context';
 import { Toaster } from 'react-hot-toast';
 import Footer from './_components/footer';
+import ThemeSwitch from './_components/theme-switch';
+import ThemeContextProvider from './_context/theme-context';
 
 const anonpro = Anonymous_Pro({
     weight: '700',
@@ -30,15 +32,56 @@ children: React.ReactNode;
 }) {
     return (
         <html lang="en" className="!scroll-smooth">
-            <body className={`font-sans ${anonpro.variable} bg-gray text-gray-950 relative h-screen`}>
-                <div className="bg-[#fbe2e3] absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem]"></div>
-                <div className="bg-[#00ffaaff] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[60rem] rounded-full blur-[10rem] sm:w-[80rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem]"></div>
-                <SectionContextProvider>
-                    <Navbar />
-                    <TRPCReactProvider headers={headers()}>{children}</TRPCReactProvider>
-                    <Toaster />
-                    <Footer />
-                </SectionContextProvider>
+            <body className={`
+                font-sans
+                ${anonpro.variable}
+                bg-gray
+                dark:bg-gray-900
+                text-gray-950
+                dark:text-gray-50
+                dark:text-opacity-80
+                relative
+                h-screen`}
+            >
+                <div className="
+                    bg-[#fbe2e3]
+                    absolute
+                    right-[11rem]
+                    top-[-6rem]
+                    -z-10
+                    w-[61.25rem]
+                    h-[41.25rem]
+                    rounded-full
+                    blur-[10rem]
+                    sm:w-[68.75rem]
+                    dark:bg-[#946263]"
+                />
+                <div className="
+                        bg-[#00ffaaff]
+                        dark:bg-[#00ffaabb]
+                        absolute
+                        left-[-35rem]
+                        top-[-1rem]
+                        -z-10
+                        w-[61.25rem]
+                        h-[41.25rem]
+                        rounded-full
+                        blur-[10rem]
+                        sm:w-[68.75rem]
+                        md:left-[-33rem]
+                        lg:left-[-28rem]
+                        xl:left-[-15rem]
+                        2xl:left-[-5rem]"
+                />
+                <ThemeContextProvider>
+                    <SectionContextProvider>
+                        <Navbar />
+                        <TRPCReactProvider headers={headers()}>{children}</TRPCReactProvider>
+                        <Toaster />
+                        <Footer />
+                        <ThemeSwitch />
+                    </SectionContextProvider>
+                </ThemeContextProvider>
             </body>
         </html>
     );

@@ -63,7 +63,14 @@ export default function Intro() {
                 </div>
             </div> 
             <motion.h1
-                className="my-10 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
+                className="
+                    my-10
+                    px-4
+                    text-2xl
+                    font-medium
+                    text-gray-950
+                    !leading-[1.5]
+                    sm:text-4xl"
                 initial={{ y: 100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
             >
@@ -113,10 +120,12 @@ export default function Intro() {
                     className="group
                       flex
                       bg-white
+                      dark:bg-gray-900/80
                       px-7
                       py-3
                       items-center
                       text-center
+                      dark:text-gray-50/80
                       gap-2
                       my-border-black
                       rounded-xl
@@ -152,7 +161,10 @@ export default function Intro() {
                             focus:scale-105
                             hover:cursor-pointer
                             hover:scale-110
-                            transition"
+                            transition
+                            dark:bg-gray-900/80
+                            dark:text-gray-50/80
+                            "
                 >
                         GitHub
                     <FontAwesomeIcon

@@ -30,11 +30,11 @@ export default function Skills() {
         <section 
             id="skils"
             className="
-            max-w-[53rem]
-            text-center
-            mb-28
-            sm:mb-40
-            scroll-mt-28"
+                max-w-[53rem]
+                text-center
+                mb-28
+                sm:mb-40
+                scroll-mt-28"
             ref={ref}
         >
             <SectionHeading>My Skills</SectionHeading>
@@ -45,7 +45,15 @@ export default function Skills() {
                     SKILL_DATA.map((skill, index) => (
                         <motion.li 
                             key={index}
-                            className="my-border-black px-5 py-3 rounded-lg"
+                            className="
+                                my-border-black
+                                dark:my-border-white
+                                dark:bg-white/10
+                                text-gray-950
+                                dark:text-gray-50
+                                px-5
+                                py-3
+                                rounded-lg"
                             variants={fadeInAnimationVar}
                             initial="initial"
                             whileInView="animate"

@@ -14,7 +14,12 @@ export default function Contact() {
     return (
         <motion.section
             id="contact"
-            className="scroll-mt-28 mb-20 sm:mb-28 w-[min(100%,38rem)] text-center"
+            className="
+                scroll-mt-28
+                mb-20
+                sm:mb-28
+                w-[min(100%,38rem)]
+                text-center"
             ref={ref}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -27,7 +32,10 @@ export default function Contact() {
         >
             <SectionHeading>Contact Me</SectionHeading>
             <p
-                className="text-gray-700 -mt-6"
+                className="
+                    text-gray-700
+                    dark:text-green-50
+                    -mt-6"
             >
                     Please contatct me directly at <a className="underline" href="mailto:example@gmail.com">example@gmail.com</a> or through this form:
             </p>
@@ -47,12 +55,23 @@ export default function Contact() {
                     name="email"
                     required={true}
                     maxLength={128}
-                    className="h-14 rounded-lg my-border-black px-4"
+                    className="
+                        h-14
+                        dark:bg-white/10
+                        rounded-lg
+                        my-border-black
+                        px-4"
                     placeholder="example@example.com"
                 />
                 <textarea 
                     name="message"
-                    className="h-52 my-3 rounded-lg my-border-black p-4"
+                    className="
+                        h-52
+                        dark:bg-white/10
+                        my-3
+                        rounded-lg
+                        my-border-black
+                        p-4"
                     placeholder="your message"
                     maxLength={512}
                 />

@@ -8,33 +8,44 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import { EXPERIENCE_DATA } from '~/app/_lib/data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useInView } from 'react-intersection-observer';
+import { useThemeContext } from '~/app/_context/theme-context';
 
 function ExperienceItem({item}: {item: (typeof EXPERIENCE_DATA)[number]}) {
     const { ref, inView } = useInView({ threshold: 0 })
+
+    const { theme } = useThemeContext(); 
+
     return (
         <div ref={ref} className="vertical-timeline-element">
             <VerticalTimelineElement
                 visible={inView}
                 contentStyle={{
-                    background: '#f3f4f6',
+                    background: theme === 'light' ? '#f3f4f6' : '#ffffff20',
                     boxShadow: 'none',
-                    border: '1px solid rgba(0, 0, 0, 0.05)',
+                    border: `1px solid #ffffff20`,
                     textAlign: 'left',
                     padding: '1.3rem 2rem',
                 }}
                 contentArrowStyle={{
-                    borderRight: '0.4rem solid #1818186e'
+                    borderRight: theme === 'light' ? '0.4rem solid #18181860' : '0.4rem solid #ffffff80' 
                 }}
                 date={item.date}
                 icon={<FontAwesomeIcon icon={item.icon} />}
                 iconStyle={{
-                    background: 'white', 
+                    background: theme === 'light' ? 'white' : '#ffffff28', 
+                    borderColor: theme === 'light' ? 'white' : '#ffffffef',
                     fontSize: '1.5rem',
                 }}
             >
                 <h3 className="font-semibold capitalize">{item.title}</h3>
                 <p className="font-normal !mt-0">{item.location}</p>
-                <p className="!mt-1 !font-normal text-gray-700">
+                <p className="
+                    !mt-1
+                    !font-normal
+                    text-gray-700
+                    dark:text-gray-50
+                    "
+                >
                     {item.description}
                 </p>
             </VerticalTimelineElement>
@@ -44,6 +55,7 @@ function ExperienceItem({item}: {item: (typeof EXPERIENCE_DATA)[number]}) {
 
 export default function Experience() {
     const { ref } = useSectionInView('#experience', 0.2);
+    const { theme } = useThemeContext(); 
 
     return (
         <section
@@ -54,7 +66,7 @@ export default function Experience() {
             <SectionHeading>
                     My Experience
             </SectionHeading>
-            <VerticalTimeline lineColor="" animate={true}>
+            <VerticalTimeline lineColor={theme === 'light' ? '#18181880':'#ffffff20'} animate={true}>
                 {EXPERIENCE_DATA.map((exp, index) => (
                     <ExperienceItem item={exp} key={index} />
                 ))}   
