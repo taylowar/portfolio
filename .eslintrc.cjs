@@ -16,7 +16,7 @@ const config = {
         '@typescript-eslint/array-type': 'off',
         '@typescript-eslint/consistent-type-definitions': 'off',
         'indent': ['error', 4],
-        'quotes': [2, 'single', { '"allowTemplateLiterals": true, avoidEscape': true }],
+        'quotes': [2, 'single', { "allowTemplateLiterals": true, 'avoidEscape': true }],
         'jsx-quotes': ['error', 'prefer-double'],
         '@typescript-eslint/consistent-type-imports': [
             'warn',

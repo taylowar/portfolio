@@ -2,8 +2,6 @@
 
 import React from 'react'
 import SectionHeading from '../section-heading'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { useSectionInView } from '~/app/_lib/hooks'
 import { motion } from 'framer-motion'
 import { processEmail } from '~/app/_lib/actions'
