@@ -7,6 +7,8 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { useSectionInView } from '~/app/_lib/hooks'
 import { motion } from 'framer-motion'
 import { processEmail } from '~/app/_lib/actions'
+import toast from 'react-hot-toast'
+import { SubmitButton } from '../submit-button'
 
 export default function Contact() {
     const { ref } = useSectionInView('#contact');
@@ -34,7 +36,12 @@ export default function Contact() {
             <form
                 className="mt-10 flex flex-col"
                 action={async (formData) => {
-                    await  processEmail(formData);
+                    const result = await processEmail(formData);
+                    if (!result.ok) {
+                        toast.error(result.message);
+                    } else {
+                        toast.success(result.message);
+                    }
                 }}
             >
                 <input 
@@ -51,38 +58,7 @@ export default function Contact() {
                     placeholder="your message"
                     maxLength={512}
                 />
-                <button
-                    type="submit"
-                    className="
-                            group
-                            flex
-                            justify-center
-                            items-center
-                            gap-2
-                            h-[3rem]
-                            w-[8rem]
-                            bg-gray-900
-                            text-white
-                            rounded-lg
-                            outline-none
-                            place-self-center
-                            transition-all
-                            focus:scale-105
-                            hover:scale-105
-                            hover:bg-gray-950
-                            active:scale-100"
-                >Submit
-                    <FontAwesomeIcon
-                        icon={faPaperPlane}
-                        className="
-                                text-xs
-                                opacity-70
-                                transition-all
-                                group-hover:scale-105
-                                group-hover:translate-x-1
-                                group-hover:-translate-y-1"
-                    />
-                </button>
+                <SubmitButton />
             </form>
         </motion.section>
     )

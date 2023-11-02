@@ -8,8 +8,6 @@ import Experience from './_components/sections/experience';
 import Contact from './_components/sections/contact';
 
 export default function Home() {
-//  const hello = await api.post.hello.query({ text: "from tRPC" });
-
     return (
         <main className="flex flex-col items-center px-4">
             <Intro />
