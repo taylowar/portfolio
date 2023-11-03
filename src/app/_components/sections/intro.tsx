@@ -18,6 +18,7 @@ export default function Intro() {
         <section
             className="
                     mt-28
+                    mb-28
                     max-w-[50rem]
                     text-center
                     sm:mb-0

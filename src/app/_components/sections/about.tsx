@@ -12,9 +12,10 @@ export default function About() {
         <motion.section
 	           id="about"
 	           className="        
-                     max-w-[45rem]
+                    max-w-[45rem]
                     text-center
                     leading-8
+                    mb-28
                     sm:mb-40
                     scroll-mt-28"
 	           ref={ref}

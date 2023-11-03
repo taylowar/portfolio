@@ -29,7 +29,7 @@ export default function Project({
                 scale: scaleProgress, 
                 opacity: opacityProgress 
             }}
-            className="group-even:pl-4"
+            className="sm:group-even:pl-4"
         >
 	       <section 
 	           className="
@@ -59,7 +59,7 @@ export default function Project({
 		              sm:pr-2
 		              sm:pt-10
 		              sm:max-w-[50%]
-		              group-even:ml-[18rem]"
+		              sm:group-even:ml-[18rem]"
 	           >
 	               <h3 className="text-2xl font-semibold">{title}</h3>
 	               <p className="
@@ -80,23 +80,25 @@ export default function Project({
 	               </ul>
 	           </div>
 	           <Image
-	           src={imageUrl} alt={title} quality={95}
-	           className="
-	               absolute
-	               top-8
-	               -right-40
-	               w-[28.25rem]
-	               rounded-t-lg
-	               shadow-2xl
-	               group-even:right-[initial]
-	               group-even:-left-40
-	               group-even:group-hover:translate-x-3
-	               group-even:group-hover:translate-y-3
-	               group-hover:-translate-x-3
-	               group-hover:-translate-y-3
-	               group-hover:rotate-2
-	               group-hover:scale-105
-	               transition" 
+                    src={imageUrl} alt={title} quality={95}
+                    className="
+                       hidden
+                       sm:block
+                       absolute
+                       top-8
+                       -right-40
+                       w-[28.25rem]
+                       rounded-t-lg
+                       shadow-2xl
+                       group-even:right-[initial]
+                       group-even:-left-40
+                       group-even:group-hover:translate-x-3
+                       group-even:group-hover:translate-y-3
+                       group-hover:-translate-x-3
+                       group-hover:-translate-y-3
+                       group-hover:rotate-2
+                       group-hover:scale-105
+                       transition" 
 	           />
 	       </section>
         </motion.div>
