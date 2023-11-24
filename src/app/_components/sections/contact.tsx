@@ -37,7 +37,7 @@ export default function Contact() {
                     dark:text-green-50
                     -mt-6"
             >
-                    Please contatct me directly at <a className="underline" href="mailto:tilen.okretic@gmail.com">example@gmail.com</a> or through this form:
+                    Please contatct me directly at <a className="underline" href="mailto:tilen.okretic@gmail.com">tilen.okretic@gmail.com</a> or through this form:
             </p>
             <form
                 className="mt-10 flex flex-col"
