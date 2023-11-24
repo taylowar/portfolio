@@ -10,7 +10,32 @@ import { faDownload, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useSectionContext } from '~/app/_context/section-context';
 
-export default function Intro() {
+function QuickAboutMe() {
+    return (
+        <>
+            <motion.h1
+                className="
+                   my-10
+                   px-4
+                   text-2xl
+                   font-medium
+                   text-gray-950
+                   dark:text-gray-100
+                   !leading-[1.5]
+                   sm:text-4xl"
+                initial={{ y: 100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+            >
+                <span>Hello my name is <b>Tilen</b>.</span><br />            
+                <span>I am a <u>software engineer</u> with <b>10 years of experience</b>. </span>             
+                <span>I enjoy <i>music, math, building websites & apps</i>. </span><br />            
+                <span>My current focus is <b>React(Next.js)</b>. </span>            
+            </motion.h1>
+        </>
+    )
+}
+
+export default function Home() {
     const { setActive, setLastClickTime } = useSectionContext();
     const { ref } = useSectionInView('#home', 0.5);
 
@@ -63,25 +88,7 @@ export default function Intro() {
                     </motion.span>
                 </div>
             </div> 
-            <motion.h1
-                className="
-                    my-10
-                    px-4
-                    text-2xl
-                    font-medium
-                    text-gray-950
-                    dark:text-gray-200
-                    !leading-[1.5]
-                    sm:text-4xl"
-                initial={{ y: 100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-            >
-                <span>Hello my name is <b>Tilen</b>.</span><br />            
-                <span>I am a <u>software engineer</u> with <b>10 years of experience</b>. </span>             
-                <span>I enjoy <i>music, math, building websites & apps</i>. </span>            
-                <span>My current focus is <b>React(Next.js)</b>. </span>            
-            </motion.h1>
-
+            <QuickAboutMe />
             <motion.div
                 className="flex flex-col sm:flex-row place-content-center gap-2 px-4 text-lg font-medium" 
                 initial={{y: 100, opacity: 0}}
@@ -96,6 +103,7 @@ export default function Intro() {
                         group
                         flex
                         bg-gray-900
+                        dark:bg-gray-950/80
                         text-white
                         px-7
                         py-3
@@ -122,7 +130,7 @@ export default function Intro() {
                     className="group
                       flex
                       bg-white
-                      dark:bg-gray-900/80
+                      dark:bg-gray-950/80
                       px-7
                       py-3
                       items-center
@@ -153,6 +161,7 @@ export default function Intro() {
                             group
                             flex
                             bg-white
+                            dark:bg-gray-950/80
                             px-7
                             py-3
                             items-center

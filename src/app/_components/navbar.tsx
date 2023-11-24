@@ -27,7 +27,7 @@ export default function Navbar() {
                 border-opacity-40
                 dark:border-gray-400
                 dark:border-opacity-40
-                bg-white
+                bg-gray
                 bg-opacity-80
                 dark:bg-gray-950
                 dark:bg-opacity-80 
@@ -82,7 +82,7 @@ export default function Navbar() {
                                     p-3
                                     transition`,
                                 { 
-                                    'text-gray-950': active == link.hash,
+                                    'text-gray-950 font-bold': active == link.hash,
                                     'hover:text-gray-950': active != link.hash,
                                     'dark:hover:text-gray-50': active != link.hash,
                                 })}
@@ -97,7 +97,7 @@ export default function Navbar() {
                                         className="
                                             absolute
                                             bg-green-300
-                                            dark:bg-green-400
+                                            dark:bg-green-600
                                             rounded-xl
                                             inset-1
                                             inset-y-1.5

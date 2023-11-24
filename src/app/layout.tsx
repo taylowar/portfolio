@@ -2,6 +2,7 @@ import '~/styles/globals.css';
 import 'react-vertical-timeline-component/style.min.css';
 
 import { Anonymous_Pro } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import { headers } from 'next/headers';
 
 import { TRPCReactProvider } from '~/trpc/react';
@@ -13,9 +14,8 @@ import ThemeSwitch from './_components/theme-switch';
 import ThemeContextProvider from './_context/theme-context';
 
 const anonpro = Anonymous_Pro({
-    weight: '700',
+    weight: '400',
     subsets: ['latin'],
-    variable: '--font-anon'
 });
 
 export const metadata = {
