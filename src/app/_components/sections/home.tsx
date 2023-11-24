@@ -24,7 +24,7 @@ function LogoImage() {
                     }}
                 >
                     <Image
-                        src={logo}
+                        src={logo as string}
                         width="256"
                         height="256"
                         alt="profile-pic"

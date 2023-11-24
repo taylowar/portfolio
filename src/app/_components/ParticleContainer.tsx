@@ -11,16 +11,12 @@ export default function ParticleContainer() {
         await loadFull(engine);
     }, []);
 
-    const ps_loaded = useCallback(async () => {
-    }, []);
-
     return (
         <>
             <Particles
                 id="tsparticles"
                 className="w-full h-full absolute -z-10"
                 init={ps_init}
-                loaded={ps_loaded}
                 options={{
                     fullScreen: {enable: false},
                     background: {
