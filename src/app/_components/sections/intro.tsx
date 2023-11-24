@@ -70,6 +70,7 @@ export default function Intro() {
                     text-2xl
                     font-medium
                     text-gray-950
+                    dark:text-gray-200
                     !leading-[1.5]
                     sm:text-4xl"
                 initial={{ y: 100, opacity: 0 }}

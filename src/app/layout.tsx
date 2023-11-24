@@ -33,8 +33,7 @@ children: React.ReactNode;
     return (
         <html lang="en" className="!scroll-smooth">
             <body className={`
-                font-sans
-                ${anonpro.variable}
+                ${anonpro.className}
                 bg-gray
                 dark:bg-gray-900
                 text-gray-950
@@ -43,36 +42,6 @@ children: React.ReactNode;
                 relative
                 h-screen`}
             >
-                <div className="
-                    bg-[#fbe2e3]
-                    absolute
-                    right-[11rem]
-                    top-[-6rem]
-                    -z-10
-                    w-[61.25rem]
-                    h-[41.25rem]
-                    rounded-full
-                    blur-[10rem]
-                    sm:w-[68.75rem]
-                    dark:bg-[#946263]"
-                />
-                <div className="
-                        bg-[#00ffaaff]
-                        dark:bg-[#00ffaabb]
-                        absolute
-                        left-[-35rem]
-                        top-[-1rem]
-                        -z-10
-                        w-[61.25rem]
-                        h-[41.25rem]
-                        rounded-full
-                        blur-[10rem]
-                        sm:w-[68.75rem]
-                        md:left-[-33rem]
-                        lg:left-[-28rem]
-                        xl:left-[-15rem]
-                        2xl:left-[-5rem]"
-                />
                 <ThemeContextProvider>
                     <SectionContextProvider>
                         <Navbar />
