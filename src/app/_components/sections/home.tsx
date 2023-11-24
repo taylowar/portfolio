@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
+import logo from '../../../../public/logo.svg';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useSectionInView } from '~/app/_lib/hooks';
@@ -9,7 +9,54 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useSectionContext } from '~/app/_context/section-context';
-import ParticleContainer from '../ParticleContainer';
+import Image from 'next/image';
+
+function LogoImage() {
+    return (
+        <div className="flex place-content-center">
+            <div className="relative">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0 }}  
+                    animate={{ opacity: 1, scale: 1 }}  
+                    transition={{
+                        type: 'tween',
+                        duration: 0.25
+                    }}
+                >
+                    <Image
+                        src={logo}
+                        width="256"
+                        height="256"
+                        alt="profile-pic"
+                        quality={95}
+                        property="true"
+                        className="
+                            object-cover
+                            rounded-2xl
+                            shadow-xl
+                        "
+                    />
+                </motion.div>
+                <motion.span
+                    className="absolute text-4xl bottom-0 right-0"
+                    style={{
+                        rotate: '-15deg'
+                    }}
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{
+                        type: 'spring',
+                        stiffness: 128,
+                        delay: 0.1,
+                        duration: 0.64,
+                    }}
+                >
+                
+                </motion.span>
+            </div>
+        </div> 
+    );
+}
 
 function QuickAboutMe() {
     return (
@@ -51,44 +98,7 @@ export default function Home() {
                     scroll-mt-28"
             ref={ref}
         >
-            <div className="flex place-content-center">
-                <div className="relative">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0 }}  
-                        animate={{ opacity: 1, scale: 1 }}  
-                        transition={{
-                            type: 'tween',
-                            duration: 0.25
-                        }}
-                    >
-                        <Image
-                            src="https://scontent.fmbx2-1.fna.fbcdn.net/v/t1.6435-9/43743558_1348940148575614_1098813339108114432_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=be3454&_nc_ohc=FN3QvhplgcIAX-1PUkk&_nc_oc=AQnHsmuhC05WjmpcRGfXFHmk2fUkWvR5RyyCiQdKsWeQ272tnjUHldaCeXGr_rLPusT0BHvCmcBgC-BxPaYN6b4B&_nc_ht=scontent.fmbx2-1.fna&oh=00_AfBkza5Lr_Qe7mXGDhP0wlhu44wN-udv3xPFXNYWBhh-lg&oe=6563980B"
-                            width="256"
-                            height="256"
-                            alt="profile-pic"
-                            quality={95}
-                            property="true"
-                            className="h-24 w-24 object-cover rounded-2xl border-[0.35rem] border-white shadow-xl"
-                        />
-                    </motion.div>
-                    <motion.span
-                        className="absolute text-4xl bottom-0 right-0"
-                        style={{
-                            rotate: '-15deg'
-                        }}
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{
-                            type: 'spring',
-                            stiffness: 128,
-                            delay: 0.1,
-                            duration: 0.64,
-                        }}
-                    >
-                        🤘
-                    </motion.span>
-                </div>
-            </div> 
+            <LogoImage />
             <QuickAboutMe />
             <motion.div
                 className="flex flex-col sm:flex-row place-content-center gap-2 px-4 text-lg font-medium" 

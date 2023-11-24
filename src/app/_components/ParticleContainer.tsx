@@ -36,7 +36,7 @@ export default function ParticleContainer() {
                                 mode: 'push',
                             },
                             onHover: {
-                                enable: true,
+                                enable: false,
                                 mode: 'repulse',
                             },
                             resize: true, 
@@ -59,7 +59,7 @@ export default function ParticleContainer() {
                             color: '#32ff11',
                             distance: 150,
                             enable: true,
-                            opacity: 0.5,
+                            opacity: 0.25,
                             width: 1,
                         },
                         collisions: {
@@ -81,7 +81,7 @@ export default function ParticleContainer() {
                             value: 50
                         },
                         opacity: {
-                            value: 0.3,
+                            value: 0.25,
                         },
                         shape: {
                             type: 'rect',

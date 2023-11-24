@@ -44,7 +44,7 @@ export default function Navbar() {
             <nav className="
                     flex
                     fixed
-                    top-[0.15rem]
+                    top-[0.72rem]
                     left-1/2
                     h-12
                     -translate-x-1/2
