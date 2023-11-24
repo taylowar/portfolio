@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useSectionContext } from '~/app/_context/section-context';
+import ParticleContainer from '../ParticleContainer';
 
 function QuickAboutMe() {
     return (
