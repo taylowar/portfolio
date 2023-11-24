@@ -9,7 +9,6 @@ import Navbar from './_components/navbar';
 import SectionContextProvider from './_context/section-context';
 import { Toaster } from 'react-hot-toast';
 import Footer from './_components/footer';
-import ThemeSwitch from './_components/theme-switch';
 import ThemeContextProvider from './_context/theme-context';
 
 const anonpro = Anonymous_Pro({
