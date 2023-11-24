@@ -47,7 +47,7 @@ children: React.ReactNode;
                         <TRPCReactProvider headers={headers()}>{children}</TRPCReactProvider>
                         <Toaster />
                         <Footer />
-                        <ThemeSwitch />
+                        {/**<ThemeSwitch />*/}
                     </SectionContextProvider>
                 </ThemeContextProvider>
             </body>
