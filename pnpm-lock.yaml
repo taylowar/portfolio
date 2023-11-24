@@ -104,9 +104,6 @@ dependencies:
   tsparticles:
     specifier: ^2.12.0
     version: 2.12.0
-  tsparticles-engine:
-    specifier: ^2.12.0
-    version: 2.12.0
   zod:
     specifier: ^3.22.4
     version: 3.22.4
@@ -154,6 +151,9 @@ devDependencies:
   tailwindcss:
     specifier: ^3.3.5
     version: 3.3.5
+  tsparticles-engine:
+    specifier: ^2.12.0
+    version: 2.12.0
   typescript:
     specifier: ^5.3.2
     version: 5.3.2
@@ -3438,7 +3438,6 @@ packages:
   /tsparticles-engine@2.12.0:
     resolution: {integrity: sha512-ZjDIYex6jBJ4iMc9+z0uPe7SgBnmb6l+EJm83MPIsOny9lPpetMsnw/8YJ3xdxn8hV+S3myTpTN1CkOVmFv0QQ==}
     requiresBuild: true
-    dev: false
 
   /tsparticles-interaction-external-attract@2.12.0:
     resolution: {integrity: sha512-0roC6D1QkFqMVomcMlTaBrNVjVOpyNzxIUsjMfshk2wUZDAvTNTuWQdUpmsLS4EeSTDN3rzlGNnIuuUQqyBU5w==}
