@@ -1,5 +1,9 @@
 import boatConfiguratorPng from '../../../public/alfastreet_boat_configurator.png'
 import rackConfiguratorPng from '../../../public/kingsbox_rack_configurator.png'
+import pdfbPng from '../../../public/PDFb-logo.png'
+import pppPng from '../../../public/PpP-logo.png'
+import tspGaPng from '../../../public/TSP-GA.png'
+import zenchatPng from '../../../public/zenchat-logo.png'
 import { faGraduationCap, faMedal, faRocket } from '@fortawesome/free-solid-svg-icons';
 
 export const LINKS = [
@@ -33,15 +37,39 @@ export const PROJECT_DATA = [
     {
         title: 'Boat Configurator',
         description: 'I worked on this project for 1 year and a half. Users can create their own yacht configuration and send it as an inquiry.',
-        tags: ['yacht', 'react', 'NodeJs', 'Docker', 'alfstreet', 'fullstack'],
+        tags: ['yacht', 'react', 'NodeJs', 'Docker', 'fullstack'],
         imageUrl: boatConfiguratorPng,
     },
     {
         title: 'Rack Configurator',
         description: 'I worked on this project for 2 years. Users can create and purchase their rack configurations.',
-        tags: ['react', 'NextJs', 'Node', 'Docker', 'rack', 'kingsbox', 'fullstack'],
+        tags: ['react', 'NextJs', 'Node', 'Docker', 'fullstack'],
         imageUrl: rackConfiguratorPng,
     },
+    {
+        title: 'PDFB',
+        description: 'A library that can be used for generating pdf files.',
+        tags: ['NodeJs', 'pdf', 'generator'],
+        imageUrl: pdfbPng,
+    },
+    {
+        title: 'Pdf PreProcessor',
+        description: 'An stb style header only libraray that can be used as a tool for extracting and parsing content from pdf files into different data formats.',
+        tags: ['C', 'Library', 'PDF', 'CLI'],
+        imageUrl: pppPng,
+    },
+    {
+        title: 'ZenChat.app',
+        description: 'A simple web based chat application that allows people to write and send messages.',
+        tags: ['Vue 2.x', 'Docker', 'MongoDB', 'Node', 'FeathersJS', 'JavaScript'],
+        imageUrl: zenchatPng
+    },
+    {
+        title: 'Genetic Alghoritems',
+        description: 'As a school project I implemented sequential, paralel and distributed solutions for the traveling salesman problem using generic alghoritems.',
+        tags: ['genetic algorithms', 'java', 'paralel', 'distributed'],
+        imageUrl: tspGaPng,
+    }
 ] as const;
 
 export const SKILL_DATA = [
