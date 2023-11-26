@@ -1,6 +1,7 @@
 import { useInView } from 'react-intersection-observer';
 import { useSectionContext } from '../_context/section-context';
 import { useEffect } from 'react';
+import type { LINKS } from './data';
 
 type SectionId = (typeof LINKS)[number]['hash'];
 

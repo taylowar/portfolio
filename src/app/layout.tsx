@@ -10,7 +10,6 @@ import SectionContextProvider from './_context/section-context';
 import { Toaster } from 'react-hot-toast';
 import Footer from './_components/footer';
 import ThemeContextProvider from './_context/theme-context';
-import ParticleContainer from './_components/ParticleContainer';
 
 const anonpro = Anonymous_Pro({
     weight: '400',
