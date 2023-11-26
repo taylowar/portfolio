@@ -1,5 +1,3 @@
-import type { LINKS } from './data';
-
 import { useInView } from 'react-intersection-observer';
 import { useSectionContext } from '../_context/section-context';
 import { useEffect } from 'react';

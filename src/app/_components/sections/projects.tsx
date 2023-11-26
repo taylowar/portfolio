@@ -7,13 +7,17 @@ import Project from '../project'
 import { useSectionInView } from '~/app/_lib/hooks'
 
 export default function Projects() {
-    const { ref } = useSectionInView('#projects', 0.5);
+    const { ref } = useSectionInView('#projects', 0.3);
     
     return (
-        <section
-	           id="projects"
-	           className="text-center mb-28 scroll-mt-28"
-	           ref={ref}
+        <section 
+            className="
+                max-w-[53rem]
+                text-center
+                mb-28
+                sm:mb-40
+                scroll-mt-28"
+            ref={ref}
         >
             <SectionHeading>my projects</SectionHeading>
             <ul className="flex flex-col gap-3 sm:gap-8">

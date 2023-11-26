@@ -82,7 +82,7 @@ export default function Navbar() {
                                     p-3
                                     transition`,
                                 { 
-                                    'text-gray-950 font-bold': active == link.hash,
+                                    'text-gray-950': active == link.hash,
                                     'hover:text-gray-950': active != link.hash,
                                     'dark:hover:text-gray-50': active != link.hash,
                                 })}
