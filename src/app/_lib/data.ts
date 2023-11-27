@@ -1,3 +1,4 @@
+import { write } from 'fs'
 import boatConfiguratorPng from '../../../public/alfastreet_boat_configurator.png'
 import rackConfiguratorPng from '../../../public/kingsbox_rack_configurator.png'
 import pdfbPng from '../../../public/PDFb-logo.png'
@@ -37,37 +38,37 @@ export const PROJECT_DATA = [
     {
         title: 'Boat Configurator',
         description: 'I worked on this project for 1 year and a half. Users can create their own yacht configuration and send it as an inquiry.',
-        tags: ['yacht', 'react', 'NodeJs', 'Docker', 'fullstack'],
+        tags: ['React', 'NodeJs', 'Docker', 'fullstack'],
         imageUrl: boatConfiguratorPng,
     },
     {
         title: 'Rack Configurator',
         description: 'I worked on this project for 2 years. Users can create and purchase their rack configurations.',
-        tags: ['react', 'NextJs', 'Node', 'Docker', 'fullstack'],
+        tags: ['React', 'NextJs', 'Node', 'Docker', 'fullstack'],
         imageUrl: rackConfiguratorPng,
     },
     {
         title: 'PDFB',
         description: 'A library that can be used for generating pdf files.',
-        tags: ['NodeJs', 'pdf', 'generator'],
+        tags: ['NodeJs', 'NPM Library'],
         imageUrl: pdfbPng,
     },
     {
         title: 'Pdf PreProcessor',
         description: 'An stb style header only libraray that can be used as a tool for extracting and parsing content from pdf files into different data formats.',
-        tags: ['C', 'Library', 'PDF', 'CLI'],
+        tags: ['C', 'CLI'],
         imageUrl: pppPng,
     },
     {
         title: 'ZenChat.app',
         description: 'A simple web based chat application that allows people to write and send messages.',
-        tags: ['Vue 2.x', 'Docker', 'MongoDB', 'Node', 'FeathersJS', 'JavaScript'],
+        tags: ['Vue 2.x', 'Docker', 'fullstack', 'MongoDB', 'Node', 'FeathersJS', 'JavaScript'],
         imageUrl: zenchatPng
     },
     {
         title: 'Genetic Alghoritems',
         description: 'As a school project I implemented sequential, paralel and distributed solutions for the traveling salesman problem using generic alghoritems.',
-        tags: ['genetic algorithms', 'java', 'paralel', 'distributed'],
+        tags: ['java'],
         imageUrl: tspGaPng,
     }
 ] as const;
