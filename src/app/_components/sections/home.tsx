@@ -69,14 +69,15 @@ function QuickAboutMe() {
                    text-gray-950
                    dark:text-gray-100
                    !leading-[1.5]
-                   sm:text-4xl"
+                   sm:text-4xl
+                   sm:w-full"
                 initial={{ y: 100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
             >
-                <span>Hello my name is <b>Tilen</b>.</span><br />            
-                <span>I am a <u>software engineer</u> with <b>10 years of experience</b>. </span>             
-                <span>I enjoy <i>music, math, building websites & apps</i>. </span><br />            
-                <span>My current focus is <b>React(Next.js)</b>. </span>            
+                <span>Hello, my name is <b className="underline">Tilen</b>.</span><br />
+                <span>I am a <b className="underline">software engineer</b> with <b className="underline">10 years of experience</b>.</span><br /> 
+                <span>I enjoy <i>music, mathematics and recreational programming</i>.</span><br />
+                <span>My current focus is <b className='underline'>React (Next.js)</b>. </span>            
             </motion.h1>
         </>
     )
@@ -91,7 +92,7 @@ export default function Home() {
             className="
                     mt-28
                     mb-28
-                    max-w-[50rem]
+                    max-w-full
                     text-center
                     sm:mb-0
                     scroll-mt-28"

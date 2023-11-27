@@ -29,7 +29,6 @@ export function useThemeContext() {
 }
 
 export default function ThemeContextProvider({children}: Props) {
-    
     const [theme, setTheme] = useState<Theme>('dark');
 
     const updateTheme = (theme: Theme) => {
@@ -49,7 +48,14 @@ export default function ThemeContextProvider({children}: Props) {
             updateTheme('light');
         }
     };
+
     useEffect(() => {
+        setTheme('dark');
+        document.documentElement.classList.add('dark');
+        /**
+        ---------------------------------------------------------
+                    Light mode support stopped
+        ---------------------------------------------------------
         const stored_theme = window.localStorage.getItem('theme') as Theme | null; 
         if (stored_theme !== null) {
             setTheme(stored_theme);
@@ -59,7 +65,8 @@ export default function ThemeContextProvider({children}: Props) {
         } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
             setTheme('dark');
             document.documentElement.classList.add('dark');
-        } 
+        }
+        */
     }, [])
 
     return (

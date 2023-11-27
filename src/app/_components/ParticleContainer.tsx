@@ -4,8 +4,11 @@ import React, { useCallback } from 'react';
 import {Particles} from 'react-tsparticles';
 import {loadFull} from 'tsparticles';
 import type { Engine } from 'tsparticles-engine';
+import { useThemeContext } from '../_context/theme-context';
 
 export default function ParticleContainer() {
+
+    const { theme } = useThemeContext();
 
     const ps_init= useCallback(async (engine: Engine) => {
         await loadFull(engine);
@@ -49,10 +52,10 @@ export default function ParticleContainer() {
                     },
                     particles: {
                         color: {
-                            value: '#42ff02', 
+                            value: theme === 'dark' ? '#42ff02' : '#BD00FD', 
                         },
                         links: {
-                            color: '#32ff11',
+                            color: theme === 'dark' ? '#32ff11' : '#CD00EE',
                             distance: 150,
                             enable: true,
                             opacity: 0.25,

@@ -1,7 +1,7 @@
 import '~/styles/globals.css';
 import 'react-vertical-timeline-component/style.min.css';
 
-import { Anonymous_Pro } from 'next/font/google';
+import { Anonymous_Pro, Poppins } from 'next/font/google';
 import { headers } from 'next/headers';
 
 import { TRPCReactProvider } from '~/trpc/react';
@@ -10,6 +10,7 @@ import SectionContextProvider from './_context/section-context';
 import { Toaster } from 'react-hot-toast';
 import Footer from './_components/footer';
 import ThemeContextProvider from './_context/theme-context';
+import ThemeSwitch from './_components/theme-switch';
 
 const anonpro = Anonymous_Pro({
     weight: '400',
