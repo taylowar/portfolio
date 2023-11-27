@@ -18,5 +18,5 @@ export function useSectionInView(id: SectionId, threshold = 0.75) {
             }
         }
     }, [inView, setActive, lastClickTime, id]);
-    return { ref };
+    return { ref, inView };
 }

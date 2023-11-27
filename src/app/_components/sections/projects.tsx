@@ -7,10 +7,11 @@ import Project from '../project'
 import { useSectionInView } from '~/app/_lib/hooks'
 
 export default function Projects() {
-    const { ref } = useSectionInView('#projects', 0.3);
+    const { ref } = useSectionInView('#projects', 0.2);
     
     return (
         <section 
+            id="projects"
             className="
                 max-w-[53rem]
                 text-center

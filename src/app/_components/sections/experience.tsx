@@ -11,7 +11,7 @@ import { useInView } from 'react-intersection-observer';
 import { useThemeContext } from '~/app/_context/theme-context';
 
 function ExperienceItem({item}: {item: (typeof EXPERIENCE_DATA)[number]}) {
-    const { ref, inView } = useInView({ threshold: 0 })
+    const { ref, inView } = useSectionInView("#experience", 0.75);
 
     const { theme } = useThemeContext(); 
 
