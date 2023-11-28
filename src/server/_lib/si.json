@@ -1,0 +1,18 @@
+
+{
+    "lang": "en",
+    "contact-me": "kontakt",
+    "download-cv": "CV",
+    
+    "home-text-greeting": "Pozdravljeni, moje ime je",
+    "home-text-name": "Tilen",
+    "home-text-ima":  "Sem",
+    "home-text-software-engineer": "programski inženir",
+    "home-text-with": "in imam",
+    "home-text-exp": "10 let izkušenj s programiranjem ",
+    "home-text-joy": "Moje strasti so",
+    "home-text-mmrp": "glasba, matematika in razvedrilno programiranje",
+    "home-text-fcs": "Moj trenutni fokus je",
+    "home-text-react": "React (Next.js)"
+
+}

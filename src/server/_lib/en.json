@@ -1,0 +1,23 @@
+{
+    "lang": "en",
+    
+    "contact-me": "contact me",
+    "download-cv": "download cv",
+    "home-text-greeting": "Hello, my name is",
+    "home-text-name": "Tilen",
+    "home-text-ima":  "I am a",
+    "home-text-software-engineer": "software engineer",
+    "home-text-with": "with",
+    "home-text-exp": "10 years of experience",
+    "home-text-joy": "I enjoy",
+    "home-text-mmrp": "music, mathematics and recreational programming",
+    "home-text-fcs": "My current focus is",
+    "home-text-react": "React (Next.js)",
+
+    "about-title": "about me",
+    "about-how-start": "My programming adventure started when I was 14 and I got my first laptop. I had only one wish: playing Minecraft. I was not able to buy myself a copy of the game, but lucky for me, I saw a post on the Minecraft forum website that stated that Minecraft modders that post their mods on said forum get a chance to acquire a copy of the game as a gift.",
+    "about-q1": "Why not? Programming in Java cannot be that hard, can it?",
+    "about-after-start": "Right thereafter, I started studying at a technical gymnasium with selective courses in programming. After graduating high school and having moderate success within the Minecraft modding scene, I found programming to be my passion. I enjoy problem-solving using computers and math. I am in love with creating new and useful solutions to problems I encounter on a day-to-day basis.",
+    "about-q2": "Exploring the realm of computer science and techonlogy is my lifelong dream!",
+    "about-end": "At the moment I am finishing my college degree in computer science."
+}

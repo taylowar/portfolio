@@ -29,7 +29,7 @@ export function useSectionContext() {
 }
 
 export default function SectionContextProvider({children}: Props) {
-    const [ active, setActive ] = useState<SectionHash>(location.hash as SectionHash || LINKS[0].hash);
+    const [ active, setActive ] = useState<SectionHash>(LINKS[0].hash);
     const [ lastClickTime, setLastClickTime ] = useState(0);
     
     return (

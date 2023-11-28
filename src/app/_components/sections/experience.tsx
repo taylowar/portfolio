@@ -7,11 +7,10 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 
 import { EXPERIENCE_DATA } from '~/app/_lib/data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useInView } from 'react-intersection-observer';
 import { useThemeContext } from '~/app/_context/theme-context';
 
 function ExperienceItem({item}: {item: (typeof EXPERIENCE_DATA)[number]}) {
-    const { ref, inView } = useSectionInView("#experience", 0.75);
+    const { ref, inView } = useSectionInView('#experience', 0.75);
 
     const { theme } = useThemeContext(); 
 
@@ -55,7 +54,7 @@ function ExperienceItem({item}: {item: (typeof EXPERIENCE_DATA)[number]}) {
 
 export default function Experience() {
     const { ref } = useSectionInView('#experience', 0.2);
-    const { theme } = useThemeContext(); 
+    // const { theme } = useThemeContext(); 
 
     return (
         <section
@@ -66,7 +65,7 @@ export default function Experience() {
             <SectionHeading>
                     My Experience
             </SectionHeading>
-            <VerticalTimeline lineColor={theme === 'light' ? '#18181880':'#ffffff20'} animate={true}>
+            <VerticalTimeline lineColor={''} animate={true}>
                 {EXPERIENCE_DATA.map((exp, index) => (
                     <ExperienceItem item={exp} key={index} />
                 ))}   

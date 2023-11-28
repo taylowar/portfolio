@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-    --line-color: #1818182e;
+* {
+    --line-color: #e8e8e82e; /** color for vertical timeline */ 
 }
 
 .my-border-black {

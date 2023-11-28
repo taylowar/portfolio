@@ -1,4 +1,3 @@
-import { write } from 'fs'
 import boatConfiguratorPng from '../../../public/alfastreet_boat_configurator.png'
 import rackConfiguratorPng from '../../../public/kingsbox_rack_configurator.png'
 import pdfbPng from '../../../public/PDFb-logo.png'

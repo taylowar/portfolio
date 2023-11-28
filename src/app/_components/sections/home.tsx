@@ -1,5 +1,4 @@
 'use client'
-
 import React from 'react'
 import logo from '../../../../public/logo.svg';
 import { motion } from 'framer-motion';
@@ -10,6 +9,8 @@ import { faDownload, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useSectionContext } from '~/app/_context/section-context';
 import Image from 'next/image';
+import { api } from '~/trpc/react';
+import { useRouter } from 'next/router';
 
 function LogoImage() {
     return (
@@ -57,7 +58,7 @@ function LogoImage() {
     );
 }
 
-function QuickAboutMe() {
+function QuickAboutMe({ data }: { data: string[] }) {
     return (
         <>
             <motion.h1
@@ -74,20 +75,38 @@ function QuickAboutMe() {
                 initial={{ y: 100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
             >
-                <span>Hello, my name is <b className="underline">Tilen</b>.</span><br />
-                <span>I am a <b className="underline">software engineer</b> with <b className="underline">10 years of experience</b>.</span><br /> 
-                <span>I enjoy <i>music, mathematics and recreational programming</i>.</span><br />
-                <span>My current focus is <b className='underline'>React (Next.js)</b>. </span>            
+                <span>{data[0]} <b className="underline">{data[1]}</b>.</span><br />
+                <span>{data[2]} <b className="underline">{data[3]}</b> {data[4]} <b className="underline">{data[5]}</b>.</span><br />
+                <span>{data[6]} <i>{data[7]}</i>.</span><br />
+                <span>{data[8]} <b className="underline">{data[9]}</b>.</span><br />
             </motion.h1>
         </>
     )
 }
 
-export default function Home() {
+export default function Home({ lang }: { lang: string }) {
     const { setActive, setLastClickTime } = useSectionContext();
     const { ref } = useSectionInView('#home', 0.5);
 
-    return (
+    const { data } = api.translator.getAll.useQuery({
+        lang,
+        keys: [
+            'contact-me',
+            'download-cv',
+            'home-text-greeting',        
+            'home-text-name',            
+            'home-text-ima',             
+            'home-text-software-engineer',
+            'home-text-with',            
+            'home-text-exp',             
+            'home-text-joy',             
+            'home-text-mmrp',            
+            'home-text-fcs',             
+            'home-text-react',           
+        ]
+    });
+
+    return (data && 
         <section
             className="
                     mt-28
@@ -99,7 +118,18 @@ export default function Home() {
             ref={ref}
         >
             <LogoImage />
-            <QuickAboutMe />
+            <QuickAboutMe data={[
+                data.translations[2],
+                data.translations[3],
+                data.translations[4],
+                data.translations[5],
+                data.translations[6],
+                data.translations[7],
+                data.translations[8],
+                data.translations[9],
+                data.translations[10],
+                data.translations[11],
+            ]}/>
             <motion.div
                 className="flex flex-col sm:flex-row place-content-center gap-2 px-4 text-lg font-medium" 
                 initial={{y: 100, opacity: 0}}
@@ -131,7 +161,7 @@ export default function Home() {
                         setActive('#contact');
                         setLastClickTime(Date.now());
                     }}
-                >Contect me here
+                >{data.translations[0]}
                     <FontAwesomeIcon
                         icon={faPaperPlane}
                         className="opacity-70 group-hover:translate-x-[0.15rem] group-hover:-translate-y-[0.15rem] group-hover:scale-120 transition"
@@ -155,10 +185,11 @@ export default function Home() {
                       hover:cursor-pointer
                       hover:scale-105
                       active:scale-100
-                      transition"
+                      transition
+                      uppercase"
                     href="/CV.pdf"
                     download={true}
-                >Download CV
+                >{data.translations[1]}
                     <FontAwesomeIcon 
                         icon={faDownload}
                         className="opacity-60 group-hover:translate-y-[0.15rem] transition"
@@ -170,30 +201,23 @@ export default function Home() {
                     title="github"
                     className="
                             group
-                            flex
-                            bg-white
-                            dark:bg-gray-950/80
-                            px-7
-                            py-3
-                            items-center
+                            text-3xl
                             gap-2
-                            my-border-black
+                            items-center
+                            flex
                             rounded-xl
                             outline-none
                             focus:scale-105
                             hover:cursor-pointer
                             hover:scale-110
                             transition
-                            dark:bg-gray-900/80
-                            dark:text-gray-50/80
                             "
                 >
-                        GitHub
                     <FontAwesomeIcon
                         icon={faGithub}
                         className="
-                                opacity-60
-                                group-hover:scale-125
+                                opacity-75
+                                group-hover:scale-110
                                 transition"
                     />
                 </a>

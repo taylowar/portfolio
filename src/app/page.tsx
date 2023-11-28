@@ -8,13 +8,14 @@ import Experience from './_components/sections/experience';
 import Contact from './_components/sections/contact';
 import ParticleContainer from './_components/ParticleContainer';
 
-export default function Home2() {
+export default function Page() {
+    const lang = "en";
     return (
         <main className="flex flex-col items-center px-4">
             <ParticleContainer />
-            <Home />
+            <Home lang={lang} />
             <Devider />
-            <About />
+            <About lang={lang} />
             <Projects />
             <Skills />
             <Experience />
