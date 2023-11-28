@@ -10,6 +10,9 @@ import SectionContextProvider from './_context/section-context';
 import { Toaster } from 'react-hot-toast';
 import Footer from './_components/footer';
 import ThemeContextProvider from './_context/theme-context';
+import TranslationContextProvider from './_context/translation-context';
+import { api } from '~/trpc/server';
+import { log } from 'util';
 
 const anonpro = Anonymous_Pro({
     weight: '400',

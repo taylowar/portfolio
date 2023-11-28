@@ -2,14 +2,12 @@
 
 import React from 'react'
 
-import type { I18n } from '~/server/api/routers/translator'
-
 import SectionHeading from '../section-heading'
 import Project from '../project'
 import { useSectionInView } from '~/app/_lib/hooks'
 import { PROJECT_DATA } from '~/app/_lib/data'
 
-export default function Projects({ i18n }: { i18n: I18n }) {
+export default function Projects() {
     const { ref } = useSectionInView('#projects', 0.2);
     
     return (
@@ -28,7 +26,7 @@ export default function Projects({ i18n }: { i18n: I18n }) {
                 {
                     PROJECT_DATA.map((project, index) =>(
                         <li key={index} className="group">
-                            <Project i18n={i18n} project={project} />
+                            <Project project={project} />
                         </li>
                     )) 
                 }

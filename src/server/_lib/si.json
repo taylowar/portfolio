@@ -13,6 +13,44 @@
     "home-text-joy": "Moje strasti so",
     "home-text-mmrp": "glasba, matematika in razvedrilno programiranje",
     "home-text-fcs": "Moj trenutni fokus je",
-    "home-text-react": "React (Next.js)"
+    "home-text-react": "React (Next.js)",
 
+    "about-title": "o meni",
+    "about-how-start": "Moja programerska avantura se je pricela ko se bil star 14 let in sem dobil svoj prvi prenosni racunalnik. Imel sem le eno zeljo: igrati Minecraft. Nisem uspel si privosciti nakupa igre toda na mojo sreco sem bil seznanjen z objavo na spletnem poratlu MinecraftForum, ki je obljubila brezplacno razlicico igre Minecraft kot nagrado novim razvijalcem modifikacij igre.",
+    "about-q1": "Zakaj pa ne? Saj programiranje v jeziku Java je enostavno, mar ne?",
+    "about-after-start": "Po opravljeni srednji soli in presenetljivem uspehu znotraj Minecraft skupnosti modificerjev, sem se zavedal, da je programiranje moja strast. Zaljubljen sem v ustvarnaje novih in uporabnih resitev problemov s katerimi se vsakodnevno srecujem.",
+    "about-q2": "I enjoy problem-solving using computers and math.",
+    "about-end": "Exploring the realm of computer science and techonlogy is my lifelong dream!",
+
+    "project-boat-title": "Boat Configurator",
+    "project-boat-description": "Users can create their own yacht configuration and send it as an inquiry.",
+    "project-rack-title": "Rack Configurator",
+    "project-rack-description": "Users can create and purchase their rack configurations.",
+    "project-pdfb-title": "PDFb",
+    "project-pdfb-description": "A library that can be used for generating pdf files.",
+    "project-ppp-title": "PDF PreProcessor",
+    "project-ppp-description": "An stb style header only libraray that can be used as a tool for extracting and parsing content from pdf files into different data formats.",
+    "project-zenc-title": "ZenChat.app",
+    "project-zenc-description": "A simple web based chat application that allows people to write and send messages.",
+    "project-gena-title": "Genetic Alghoritems",
+    "project-gena-description": "As a school project I implemented sequential, paralel and distributed solutions for the traveling salesman problem using generic alghoritems.",
+
+    "experience-title": "my experience",
+
+    "experience-minmod-title": "mnecraft modding",
+    "experience-minmod-location":   "slovenia",
+    "experience-minmod-description":  "I started to learn Java - my first programing language. I was learning from youtube and other free internet resoures.",
+
+    "experience-govir-title": "gone viral",
+    "experience-govir-location":   "internet",
+    "experience-govir-description":  "I was claborating with some friends I met online on a minecraft mod called 'Roots'. After about a year of development the project went viral and has reached over 5 milion downloads",
+
+    "experience-ghs-title": "graduated high school",
+    "experience-ghs-location":   "slovenia",
+    "experience-ghs-description":  "I graduated from my tehnical school lol",
+
+    "contact-title": "contact me",
+    "contact-direct-1": "Please contatct me directly at",
+    "contact-direct-2": "or through this form:",
+    "contact-message-placeholder": "your message"
 }

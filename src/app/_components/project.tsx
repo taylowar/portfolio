@@ -3,38 +3,28 @@
 import React, { useRef } from 'react';
 
 import type { PROJECT_DATA } from '../_lib/data';
-import type { I18n } from '~/server/api/routers/translator';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { warn } from 'console';
+import { useTranslationContext } from '../_context/translation-context';
 
 type ProjectProps = (typeof PROJECT_DATA)[number]; 
 
-function getTranslation(i18n: I18n, key: string) {
-    const out = i18n[key];
-    if (out === undefined) {
-        console.error(`i18n for '${key}' is undefined`);
-        return '';
-    }
-    return out;
-}
-
 export default function Project({
-    i18n, 
     project: {
         id,
         tags,
         imageUrl
     }    
-}: { i18n: I18n, project: ProjectProps }) {
+}: { project: ProjectProps }) {
     const ref = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ['0 1', '1.33 1'],
     });
+    const { getTranslation } = useTranslationContext();
     
     const scaleProgress   =  useTransform(scrollYProgress, [0, 1], [0.8, 1]);
     const opacityProgress =  useTransform(scrollYProgress, [0, 1], [0.65, 1]);
@@ -79,7 +69,7 @@ export default function Project({
 		              sm:max-w-[50%]
 		              sm:group-even:ml-[18rem]"
 	           >
-	               <h3 className="text-2xl font-semibold">{getTranslation(i18n,`project-${id}-title`)}</h3>
+	               <h3 className="text-2xl font-semibold">{getTranslation(`project-${id}-title`)}</h3>
                     <span className="text-white sm:mt-2">
                         <a
                             href="https://github.com/pwnker/pdf-pre-processor"
@@ -95,7 +85,7 @@ export default function Project({
                         leading-relaxed
                         text-gray-700
                         dark:text-gray-50"
-                    >{getTranslation(i18n, `project-${id}-description`)}</p>
+                    >{getTranslation(`project-${id}-description`)}</p>
 	               <ul className="flex flex-wrap mt-4 gap-2 sm:mt-auto"> 
 	               {tags.map((tag, index) => (
 	                   <li 

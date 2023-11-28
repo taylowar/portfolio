@@ -7,19 +7,11 @@ import { motion } from 'framer-motion'
 import { processEmail } from '~/app/_lib/actions'
 import toast from 'react-hot-toast'
 import { SubmitButton } from '../submit-button'
-import { type I18n } from '~/server/api/routers/translator'
+import { useTranslationContext } from '~/app/_context/translation-context'
 
-function getTranslation(i18n: I18n, key: string) {
-    const out = i18n[key];
-    if (out === undefined) {
-        console.error(`i18n for '${key}' is undefined`);
-        return '';
-    }
-    return out;
-}
-
-export default function Contact({i18n}: {i18n: I18n}) {
+export default function Contact() {
     const { ref } = useSectionInView('#contact');
+    const { getTranslation } = useTranslationContext();
 
     return (
         <motion.section
@@ -40,9 +32,9 @@ export default function Contact({i18n}: {i18n: I18n}) {
                 once: true
             }}
         >
-            <SectionHeading>{getTranslation(i18n, 'contact-title')}</SectionHeading>
+            <SectionHeading>{getTranslation('contact-title')}</SectionHeading>
             <p className="text-gray-700 dark:text-green-50 -mt-6" >
-                {getTranslation(i18n, 'contact-direct-1')} <a className="underline" href="mailto:tilen.okretic@gmail.com">tilen.okretic@gmail.com</a> {getTranslation(i18n, 'contact-direct-2')}  
+                {getTranslation('contact-direct-1')} <a className="underline" href="mailto:tilen.okretic@gmail.com">tilen.okretic@gmail.com</a> {getTranslation('contact-direct-2')}  
             </p>
             <form
                 className="mt-10 flex flex-col"
@@ -77,7 +69,7 @@ export default function Contact({i18n}: {i18n: I18n}) {
                         rounded-lg
                         my-border-black
                         p-4"
-                    placeholder={getTranslation(i18n, "contact-message-placeholder")}
+                    placeholder={getTranslation('contact-message-placeholder')}
                     maxLength={512}
                 />
                 <SubmitButton />
