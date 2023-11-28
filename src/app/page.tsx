@@ -23,8 +23,8 @@ export default async function Page() {
             <About i18n={i18n} />
             <Projects i18n={i18n} />
             <Skills />
-            <Experience i18n={i18n}/>
-            <Contact />
+            <Experience i18n={i18n} />
+            <Contact i18n={i18n} />
         </main>
     );
 }

@@ -46,5 +46,10 @@
 
     "experience-ghs-title": "graduated high school",
     "experience-ghs-location":   "slovenia",
-    "experience-ghs-description":  "I graduated from my tehnical school lol"
+    "experience-ghs-description":  "I graduated from my tehnical school lol",
+
+    "contact-title": "contact me",
+    "contact-direct-1": "Please contatct me directly at",
+    "contact-direct-2": "or through this form:",
+    "contact-message-placeholder": "your message"
 }

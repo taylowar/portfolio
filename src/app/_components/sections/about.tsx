@@ -23,15 +23,7 @@ export default function About({ i18n }: { i18n: I18n }) {
     return (
         <motion.section
 	           id="about"
-	           className="        
-                    max-w-[50rem]
-                    text-center
-                    leading-8
-                    mb-28
-                    sm:mb-40
-                    scroll-mt-28
-                    text-lg
-                    "
+	           className="max-w-[50rem] text-center leading-8 mb-28 sm:mb-40 scroll-mt-28 text-lg "
 	           ref={ref}
 	           initial={{y: 100, opacity: 0}}
 	           animate={{y: 0, opacity: 1}}
