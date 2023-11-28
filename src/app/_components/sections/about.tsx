@@ -1,27 +1,26 @@
 'use client'
 
 import React from 'react';
+
+import type { I18n } from '~/server/api/routers/translator';
+
 import SectionHeading from '../section-heading';
 import { motion }  from 'framer-motion';
 import { useSectionInView } from '~/app/_lib/hooks';
-import { api } from '~/trpc/react';
 
-export default function About({ lang }: { lang: string }) {
+function getTranslation(i18n: I18n, key: string) {
+    const out = i18n[key];
+    if (out === undefined) {
+        console.error(`i18n for '${key}' is undefined`);
+        return '';
+    }
+    return out;
+}
+
+export default function About({ i18n }: { i18n: I18n }) {
     const { ref } = useSectionInView('#about'); 
 
-    const { data } = api.translator.getAll.useQuery({
-        lang,
-        keys: [
-            'about-title',
-            'about-how-start',
-            'about-q1',
-            'about-after-start',
-            'about-q2',
-            'about-end',
-        ]
-    });
-
-    return (data &&
+    return (
         <motion.section
 	           id="about"
 	           className="        
@@ -38,18 +37,36 @@ export default function About({ lang }: { lang: string }) {
 	           animate={{y: 0, opacity: 1}}
 	           transition={{ delay: 0.175 }}
         >
-            <SectionHeading>{data.translations[0]}</SectionHeading>
+            <SectionHeading>{getTranslation(i18n, 'about-title')}</SectionHeading>
             <p className="mb-3">
-                {data.translations[1]}<br />
-                <span className="italic border border-black rounded-full px-4 py-1">
-                    <q>{data.translations[2]}</q>
+                {getTranslation(i18n, 'about-how-start')}<br /><br />
+                <span className="italic sm:border sm:border-gray-200 rounded-md px-4 py-1">
+                    <q>{getTranslation(i18n, 'about-q1')}</q>
                 </span>
             </p>
+            <br />
             <p className="mb-3">
-                {data.translations[3]}<br />
-                <span className="italic border border-black rounded-full px-4 py-1">{data.translations[4]}</span>
+                {getTranslation(i18n, 'about-after-start')}<br /><br />
+                <span className="italic md:border md:border-gray-200 rounded-md px-4 py-1">
+                    {getTranslation(i18n, 'about-q2')}
+                </span>
+                <br />
+                <br />
+                <span className="italic md:border md:border-gray-200 rounded-md px-4 py-1">{getTranslation(i18n, 'about-end')}</span>
             </p>
-            <p>{data.translations[5]}</p>
+            <br />
+            <span>༻❁༺</span>
+            <br />
+            <br />
+            <p>
+                Music is also a passion of mine. I am a selfthaught guitarirst and bass player, I hope one day I will also ackwire the skill of playing piano as it is one of my favorite instruments.
+                <br />
+                <br />
+                I am intrested in exploring <b>musical visualization</b> using computers in hope of achiving a now form of art expression through music and video. 
+                <br />
+                <br />
+                In my free time I also like to write poetry. I find my muse in romanticism and post-modern styles of poetry.
+            </p>
         </motion.section>
     );
 }

@@ -14,10 +14,37 @@
     "home-text-fcs": "My current focus is",
     "home-text-react": "React (Next.js)",
 
-    "about-title": "about me",
+    "about-title": "Get to know me",
     "about-how-start": "My programming adventure started when I was 14 and I got my first laptop. I had only one wish: playing Minecraft. I was not able to buy myself a copy of the game, but lucky for me, I saw a post on the Minecraft forum website that stated that Minecraft modders that post their mods on said forum get a chance to acquire a copy of the game as a gift.",
     "about-q1": "Why not? Programming in Java cannot be that hard, can it?",
-    "about-after-start": "Right thereafter, I started studying at a technical gymnasium with selective courses in programming. After graduating high school and having moderate success within the Minecraft modding scene, I found programming to be my passion. I enjoy problem-solving using computers and math. I am in love with creating new and useful solutions to problems I encounter on a day-to-day basis.",
-    "about-q2": "Exploring the realm of computer science and techonlogy is my lifelong dream!",
-    "about-end": "At the moment I am finishing my college degree in computer science."
+    "about-after-start": "After graduating high school and having moderate success within the Minecraft modding scene, I found programming to be my passion.  I am in love with creating new and useful solutions to problems I encounter on a day-to-day basis.",
+    "about-q2": "I enjoy problem-solving using computers and math.",
+    "about-end": "Exploring the realm of computer science and techonlogy is my lifelong dream!",
+
+    "project-boat-title": "Boat Configurator",
+    "project-boat-description": "Users can create their own yacht configuration and send it as an inquiry.",
+    "project-rack-title": "Rack Configurator",
+    "project-rack-description": "Users can create and purchase their rack configurations.",
+    "project-pdfb-title": "PDFb",
+    "project-pdfb-description": "A library that can be used for generating pdf files.",
+    "project-ppp-title": "PDF PreProcessor",
+    "project-ppp-description": "An stb style header only libraray that can be used as a tool for extracting and parsing content from pdf files into different data formats.",
+    "project-zenc-title": "ZenChat.app",
+    "project-zenc-description": "A simple web based chat application that allows people to write and send messages.",
+    "project-gena-title": "Genetic Alghoritems",
+    "project-gena-description": "As a school project I implemented sequential, paralel and distributed solutions for the traveling salesman problem using generic alghoritems.",
+
+    "experience-title": "my experience",
+
+    "experience-minmod-title": "mnecraft modding",
+    "experience-minmod-location":   "slovenia",
+    "experience-minmod-description":  "I started to learn Java - my first programing language. I was learning from youtube and other free internet resoures.",
+
+    "experience-govir-title": "gone viral",
+    "experience-govir-location":   "internet",
+    "experience-govir-description":  "I was claborating with some friends I met online on a minecraft mod called 'Roots'. After about a year of development the project went viral and has reached over 5 milion downloads",
+
+    "experience-ghs-title": "graduated high school",
+    "experience-ghs-location":   "slovenia",
+    "experience-ghs-description":  "I graduated from my tehnical school lol"
 }

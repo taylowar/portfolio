@@ -9,8 +9,7 @@ import { faDownload, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useSectionContext } from '~/app/_context/section-context';
 import Image from 'next/image';
-import { api } from '~/trpc/react';
-import { useRouter } from 'next/router';
+import type { I18n } from '~/server/api/routers/translator';
 
 function LogoImage() {
     return (
@@ -84,29 +83,20 @@ function QuickAboutMe({ data }: { data: string[] }) {
     )
 }
 
-export default function Home({ lang }: { lang: string }) {
+function getTranslation(i18n: I18n, key: string) {
+    const out = i18n[key];
+    if (out === undefined) {
+        console.error(`i18n for '${key}' is undefined`);
+        return '';
+    }
+    return out;
+}
+
+export default function Home({ i18n }: { i18n:  I18n}) {
     const { setActive, setLastClickTime } = useSectionContext();
     const { ref } = useSectionInView('#home', 0.5);
 
-    const { data } = api.translator.getAll.useQuery({
-        lang,
-        keys: [
-            'contact-me',
-            'download-cv',
-            'home-text-greeting',        
-            'home-text-name',            
-            'home-text-ima',             
-            'home-text-software-engineer',
-            'home-text-with',            
-            'home-text-exp',             
-            'home-text-joy',             
-            'home-text-mmrp',            
-            'home-text-fcs',             
-            'home-text-react',           
-        ]
-    });
-
-    return (data && 
+    return ( 
         <section
             className="
                     mt-28
@@ -119,16 +109,16 @@ export default function Home({ lang }: { lang: string }) {
         >
             <LogoImage />
             <QuickAboutMe data={[
-                data.translations[2],
-                data.translations[3],
-                data.translations[4],
-                data.translations[5],
-                data.translations[6],
-                data.translations[7],
-                data.translations[8],
-                data.translations[9],
-                data.translations[10],
-                data.translations[11],
+                getTranslation(i18n, 'home-text-greeting'),        
+                getTranslation(i18n, 'home-text-name'),            
+                getTranslation(i18n, 'home-text-ima'),             
+                getTranslation(i18n, 'home-text-software-engineer'),
+                getTranslation(i18n, 'home-text-with'),            
+                getTranslation(i18n, 'home-text-exp'),             
+                getTranslation(i18n, 'home-text-joy'),             
+                getTranslation(i18n, 'home-text-mmrp'),            
+                getTranslation(i18n, 'home-text-fcs'),             
+                getTranslation(i18n, 'home-text-react'),           
             ]}/>
             <motion.div
                 className="flex flex-col sm:flex-row place-content-center gap-2 px-4 text-lg font-medium" 
@@ -161,7 +151,7 @@ export default function Home({ lang }: { lang: string }) {
                         setActive('#contact');
                         setLastClickTime(Date.now());
                     }}
-                >{data.translations[0]}
+                >{getTranslation(i18n, 'contact-me')}
                     <FontAwesomeIcon
                         icon={faPaperPlane}
                         className="opacity-70 group-hover:translate-x-[0.15rem] group-hover:-translate-y-[0.15rem] group-hover:scale-120 transition"
@@ -189,7 +179,7 @@ export default function Home({ lang }: { lang: string }) {
                       uppercase"
                     href="/CV.pdf"
                     download={true}
-                >{data.translations[1]}
+                >{getTranslation(i18n, 'download-cv')}
                     <FontAwesomeIcon 
                         icon={faDownload}
                         className="opacity-60 group-hover:translate-y-[0.15rem] transition"

@@ -8,6 +8,8 @@ const i18n = {
     si,
 } as Record<string, Record<string, string>>; 
 
+export type I18n = typeof i18n[keyof typeof i18n];
+
 function getI18n(lang: string) {
     const olng = i18n[lang];
     if (olng === undefined) {
@@ -25,6 +27,11 @@ function getI18nTranslation(i19n: typeof i18n[keyof typeof i18n], key: string) {
 }
 
 export const translatorRouter = createTRPCRouter({
+    i18n: publicProcedure
+        .input(z.object({lang: z.string()}))
+        .query(({input}) => {
+            return getI18n(input.lang);
+        }),
     get: publicProcedure
         .input(z.object({ lang: z.string(), key: z.string()}))
         .query(({ input }) => {

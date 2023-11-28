@@ -23,8 +23,7 @@ const fadeInAnimationVar = {
 };
 
 export default function Skills() {
-  
-    const {ref} = useSectionInView('#skils', 0.9);
+    const {ref} = useSectionInView('#skils', 0.2);
 
     return (
         <section 

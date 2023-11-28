@@ -3,18 +3,33 @@
 import React, { useRef } from 'react';
 
 import type { PROJECT_DATA } from '../_lib/data';
+import type { I18n } from '~/server/api/routers/translator';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { warn } from 'console';
 
 type ProjectProps = (typeof PROJECT_DATA)[number]; 
 
+function getTranslation(i18n: I18n, key: string) {
+    const out = i18n[key];
+    if (out === undefined) {
+        console.error(`i18n for '${key}' is undefined`);
+        return '';
+    }
+    return out;
+}
+
 export default function Project({
-    title, 
-    description,
-    tags,
-    imageUrl
-}: ProjectProps) {
+    i18n, 
+    project: {
+        id,
+        tags,
+        imageUrl
+    }    
+}: { i18n: I18n, project: ProjectProps }) {
     const ref = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -58,18 +73,29 @@ export default function Project({
 		              pb-7
 		              px-5
 		              sm:pl-10
-		              sm:pr-2
-		              sm:pt-10
+		              sm:pr-0
+		              sm:pt-4
+		              sm:pb-4
 		              sm:max-w-[50%]
 		              sm:group-even:ml-[18rem]"
 	           >
-	               <h3 className="text-2xl font-semibold">{title}</h3>
+	               <h3 className="text-2xl font-semibold">{getTranslation(i18n,`project-${id}-title`)}</h3>
+                    <span className="text-white sm:mt-2">
+                        <a
+                            href="https://github.com/pwnker/pdf-pre-processor"
+                            target="_blank"
+                            className="">
+                            <FontAwesomeIcon
+                                icon={faGithub}
+                            />
+                        </a>
+                    </span>
 	               <p className="
                         mt-2
                         leading-relaxed
                         text-gray-700
                         dark:text-gray-50"
-                    >{description}</p>
+                    >{getTranslation(i18n, `project-${id}-description`)}</p>
 	               <ul className="flex flex-wrap mt-4 gap-2 sm:mt-auto"> 
 	               {tags.map((tag, index) => (
 	                   <li 
@@ -82,7 +108,7 @@ export default function Project({
 	               </ul>
 	           </div>
 	           <Image
-                    src={imageUrl} alt={title} quality={95}
+                    src={imageUrl} alt={`project-{id}-title`} quality={95}
                     className="
                        hidden
                        sm:block
