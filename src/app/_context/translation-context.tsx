@@ -1,4 +1,3 @@
-
 'use client'
 
 import React, { useState, createContext, useContext} from 'react'
@@ -31,7 +30,7 @@ export function useTranslationContext() {
 export default function TranslationContextProvider({i18n, children}: Props) {
     const [ i17n, setI18n ] = useState<I18n>(i18n);
 
-    let getTranslation = (key: string) => {
+    const getTranslation = (key: string) => {
         const out = i18n[key];
         if (out === undefined) {
             console.error(`i18n for '${key}' is undefined`);

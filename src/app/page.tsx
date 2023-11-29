@@ -9,12 +9,12 @@ import Experience from './_components/sections/experience';
 import Contact from './_components/sections/contact';
 import ParticleContainer from './_components/ParticleContainer';
 import TranslationContextProvider from './_context/translation-context';
-import { api } from '~/trpc/server';
+import { api } from '~/trpc/react';
 
-export default async function Page() {
-    const i18n = await api.translator.i18n.query({lang:'en'});
+export default function Page() {
+    const { data: i18n } = api.translator.i18n.useQuery({lang: 'en'});
 
-    return (
+    return (i18n &&
         <TranslationContextProvider i18n={i18n}>
             <main className="flex flex-col items-center px-4">
                 <ParticleContainer />
