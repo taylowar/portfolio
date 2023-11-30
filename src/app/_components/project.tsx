@@ -15,6 +15,7 @@ type ProjectProps = (typeof PROJECT_DATA)[number];
 export default function Project({
     project: {
         id,
+        gh,
         tags,
         imageUrl
     }    
@@ -70,16 +71,16 @@ export default function Project({
 		              sm:group-even:ml-[18rem]"
 	           >
 	               <h3 className="text-2xl font-semibold">{getTranslation(`project-${id}-title`)}</h3>
-                    <span className="text-white sm:mt-2">
+                    {gh !== '' && <span className="text-white text-xl sm:mt-2">
                         <a
-                            href="https://github.com/pwnker/pdf-pre-processor"
+                            href={gh}
                             target="_blank"
                             className="">
                             <FontAwesomeIcon
                                 icon={faGithub}
                             />
                         </a>
-                    </span>
+                    </span>}
 	               <p className="
                         mt-2
                         leading-relaxed

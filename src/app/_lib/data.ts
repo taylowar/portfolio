@@ -36,31 +36,37 @@ export const LINKS = [
 export const PROJECT_DATA = [
     {
         id: 'boat',
+        gh: '',
         tags: ['react', 'nodeJs', 'docker', 'fullstack'],
         imageUrl: boatConfiguratorPng,
     },
     {
         id: 'rack',
+        gh: '',
         tags: ['react', 'nextJs', 'node', 'docker', 'fullstack'],
         imageUrl: rackConfiguratorPng,
     },
     {
         id: 'pdfb',
+        gh: 'https://github.com/pwnker/pdfb',
         tags: ['nodeJs', 'npm library'],
         imageUrl: pdfbPng,
     },
     {
         id: 'ppp',
-        tags: ['C', 'CLI'],
+        gh: 'https://github.com/pwnker/pdf-pre-processor',
+        tags: ['C'],
         imageUrl: pppPng,
     },
     {
         id: 'zenc',
+        gh: 'http://github.com/pwnker/zenchat.app',
         tags: ['vue 2.x', 'docker', 'fullstack', 'mongoDB', 'node', 'feathersJS', 'javaScript'],
         imageUrl: zenchatPng
     },
     {
         id: 'gena',
+        gh: 'https://github.com/pwnker/GeneticAlgorithms',
         tags: ['java'],
         imageUrl: tspGaPng,
     }
