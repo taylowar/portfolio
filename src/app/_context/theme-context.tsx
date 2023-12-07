@@ -54,7 +54,7 @@ export default function ThemeContextProvider({children}: Props) {
         document.documentElement.classList.add('dark');
         /**
         ---------------------------------------------------------
-                    Light mode support stopped
+                      Light mode support stopped
         ---------------------------------------------------------
         const stored_theme = window.localStorage.getItem('theme') as Theme | null; 
         if (stored_theme !== null) {
