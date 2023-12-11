@@ -154,6 +154,7 @@ export default function Home({lang}: {lang:Locale}) {
                         flex
                         border
                         text-white
+                        uppercase
                         px-7
                         py-3
                         items-center
