@@ -27,7 +27,8 @@ function getLocale(req: NextRequest) {
 
 export default function middleware(req: NextRequest) { 
     const {pathname} = req.nextUrl;
-    const pathnameValid = i18n.locales.every(locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
+    console.log(pathname);
+    const pathnameValid = pathname.length === 1 ? pathname.startsWith('/') : i18n.locales.every(locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
 
     if (pathnameValid) {
         const locale = getLocale(req);

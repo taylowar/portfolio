@@ -4,7 +4,6 @@ import { type Locale, type LocaleKey, i18n } from '~/server/i18n.config';
 
 import { z } from 'zod';
 
-
 const LocaleDictionary: Record<Locale, Promise<Record<LocaleKey, string>>> = {
     en: import('~/locales/en.json'),
     sl: import('~/locales/sl.json'),
