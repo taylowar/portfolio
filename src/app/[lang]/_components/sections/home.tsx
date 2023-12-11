@@ -6,7 +6,7 @@ import { useSectionContext } from '~/app/[lang]/_context/section-context';
 import { api } from '~/trpc/react';
 import { type Locale, type LocaleKey } from '~/server/i18n.config';
 
-import React, { Suspense, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

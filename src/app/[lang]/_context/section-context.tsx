@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useState, createContext, useContext} from 'react'
 import { LINKS } from '../_lib/data';
+
+import React, { useState, createContext, useContext} from 'react'
 
 type SectionHash = (typeof LINKS)[number]['hash'];
 

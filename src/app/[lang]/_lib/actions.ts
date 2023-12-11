@@ -1,10 +1,12 @@
 'use server'
 
+import ContactEmail from '../_components/email/contact-email';
+
+import { env } from '~/env.mjs';
+
 import React from 'react';
 import { Resend } from 'resend';
 import { z } from 'zod';
-import { env } from '~/env.mjs';
-import ContactEmail from '../_components/email/contact-email';
 
 // Do this tRpc
 export const processEmail = async (formData: FormData) => {

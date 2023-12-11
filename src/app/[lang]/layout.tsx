@@ -3,7 +3,6 @@ import 'react-vertical-timeline-component/style.min.css';
 
 import SectionContextProvider from './_context/section-context';
 import ThemeContextProvider from './_context/theme-context';
-import LangaugeMenu from './_components/langauge-menu';
 import Navbar from './_components/navbar';
 import Footer from './_components/footer';
 

@@ -6,22 +6,21 @@ import Skills from './_components/sections/skils';
 import Experience from './_components/sections/experience';
 import Contact from './_components/sections/contact';
 import ParticleContainer from './_components/ParticleContainer';
-import { type Locale } from '~/server/i18n.config';
 
 import React from 'react';
 
+export default function Page() { 
 
-export default function Page({lang}:{lang:Locale}) {
     return (
         <main className="flex flex-col items-center px-4">
-            <Home lang={lang} />
-            <Devider />
-            <About lang={lang} />
-            <Projects lang={lang} />
-            <Skills  />
-            <Experience lang={lang} />
-            <Contact lang={lang} />
             <ParticleContainer />
+            <Home lang={'en'} />
+            <Devider />
+            <About lang={'en'} />
+            <Projects lang={'en'} />
+            <Skills  />
+            <Experience lang={'en'} />
+            <Contact lang={'en'} />
         </main>
     );
 }

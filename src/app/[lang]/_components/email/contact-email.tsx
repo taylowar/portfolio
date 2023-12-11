@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Html } from '@react-email/html';
 import { Head } from '@react-email/head';
 import { Preview } from '@react-email/preview';

@@ -27,9 +27,7 @@ let l:Locale='en';
 export const translatorRouter = createTRPCRouter({
     i18n: publicProcedure
         .input(z.object({locale: z.custom<Locale>()}))
-        .query(async ({input}) => {
-            console.log(l);
-            
+        .query(async () => {
             const ld = await getI18n(l);
             return ld;
         }),
