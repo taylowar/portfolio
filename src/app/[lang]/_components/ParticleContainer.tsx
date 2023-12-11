@@ -1,10 +1,12 @@
 'use client'
-import React, { useCallback } from 'react';
+import { useThemeContext } from '../_context/theme-context';
 
+import React, { useCallback } from 'react';
 import {Particles} from 'react-tsparticles';
 import {loadFull} from 'tsparticles';
+
 import type { Engine } from 'tsparticles-engine';
-import { useThemeContext } from '../_context/theme-context';
+
 
 export default function ParticleContainer() {
 

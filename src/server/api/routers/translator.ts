@@ -1,51 +1,59 @@
-import { z } from 'zod';
 import { createTRPCRouter, publicProcedure } from '../trpc';
-import en from '../../_lib/en.json';
-import si from '../../_lib/si.json';
 
-const i18n = {
-    en,
-    si,
-} as Record<string, Record<string, string>>; 
+import { type Locale, type LocaleKey, i18n } from '~/server/i18n.config';
 
-export type I18n = typeof i18n[keyof typeof i18n];
+import { z } from 'zod';
 
-function getI18n(lang: string) {
-    const olng = i18n[lang];
+
+const LocaleDictionary: Record<Locale, Promise<Record<LocaleKey, string>>> = {
+    en: import('~/locales/en.json'),
+    sl: import('~/locales/sl.json'),
+};
+
+async function getI18n(lang: Locale) {
+    const olng = await LocaleDictionary[lang];
     if (olng === undefined) {
-        throw new Error(`i18n for '${lang}' does not exist`);
+        console.warn(`[404]: i18n for '${lang}' does not exist!`);
+        return await LocaleDictionary[i18n.defaultLocale];
     }
     return olng;
 }
 
-function getI18nTranslation(i19n: typeof i18n[keyof typeof i18n], key: string) {
-    const tlng = i19n[key];
-    if (tlng === undefined) {
-        throw new Error(`i18n translation for key '${key}' does not exist`);
-    }
-    return tlng;
+function getI18nTranslation(locale: Record<LocaleKey, string>, key: LocaleKey) {
+    return locale[key];
 }
+
+let l:Locale='en';
 
 export const translatorRouter = createTRPCRouter({
     i18n: publicProcedure
-        .input(z.object({lang: z.string()}))
+        .input(z.object({locale: z.custom<Locale>()}))
+        .query(async ({input}) => {
+            console.log(l);
+            
+            const ld = await getI18n(l);
+            return ld;
+        }),
+    setI18n: publicProcedure
+        .input(z.object({locale: z.custom<Locale>()}))
         .query(({input}) => {
-            return getI18n(input.lang);
+            l = input.locale; 
+            return l;
         }),
     get: publicProcedure
-        .input(z.object({ lang: z.string(), key: z.string()}))
-        .query(({ input }) => {
-            const i18n = getI18n(input.lang);
+        .input(z.object({ locale: z.custom<Locale>(), key: z.custom<LocaleKey>()}))
+        .query(async ({ input }) => {
+            const i18n = await getI18n(input.locale);
             const tlng = getI18nTranslation(i18n, input.key);
             return {
                 translation: tlng,
             };
         }),
     getAll: publicProcedure
-        .input(z.object({ lang: z.string(), keys: z.string().array() }))
-        .query(({input}) => {
+        .input(z.object({ locale: z.custom<Locale>(), keys: z.custom<LocaleKey>().array() }))
+        .query(async ({input}) => {
             const outs: string[] = [];
-            const i18n = getI18n(input.lang);
+            const i18n = await getI18n(input.locale);
             input.keys.forEach(key => {
                 outs.push(getI18nTranslation(i18n, key));
             });

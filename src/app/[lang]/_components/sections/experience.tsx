@@ -1,19 +1,21 @@
 'use client'
 
-import React from 'react'
 
-import { useSectionInView } from '~/app/_lib/hooks';
 import SectionHeading from '../section-heading';
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import { EXPERIENCE_DATA } from '~/app/_lib/data';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useThemeContext } from '~/app/_context/theme-context';
-import { useTranslationContext } from '~/app/_context/translation-context';
 
-function ExperienceItem({item}: {item: (typeof EXPERIENCE_DATA)[number]}) {
+import { type Locale, type LocaleKey } from '~/server/i18n.config';
+import { api } from '~/trpc/react';
+import { useThemeContext } from '~/app/[lang]/_context/theme-context';
+import { EXPERIENCE_DATA } from '~/app/[lang]/_lib/data';
+import { useSectionInView } from '~/app/[lang]/_lib/hooks';
+
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect, useState } from 'react'
+
+function ExperienceItem({i18n, item}: {i18n: Record<LocaleKey, string>, item: (typeof EXPERIENCE_DATA)[number]}) {
     const { ref, inView } = useSectionInView('#experience', 0.2);
     const { theme } = useThemeContext(); 
-    const { getTranslation } = useTranslationContext();
 
     return (
         <div ref={ref} className="vertical-timeline-element">
@@ -38,13 +40,13 @@ function ExperienceItem({item}: {item: (typeof EXPERIENCE_DATA)[number]}) {
                 }}
             >
                 <h3 className="font-semibold capitalize">
-                    {getTranslation(`experience-${item.id}-title`)}
+                    {i18n[`experience-${item.id}-title`]}
                 </h3>
                 <p className="font-normal !mt-0">
-                    {getTranslation(`experience-${item.id}-location`)}
+                    {i18n[`experience-${item.id}-location`]}
                 </p>
                 <p className="!mt-1 !font-normal text-gray-700 dark:text-gray-50">
-                    {getTranslation(`experience-${item.id}-description`)}
+                    {i18n[`experience-${item.id}-description`]}
                 </p>
             </VerticalTimelineElement>
         </div>
@@ -52,23 +54,28 @@ function ExperienceItem({item}: {item: (typeof EXPERIENCE_DATA)[number]}) {
 }
 
 
-export default function Experience() {
+export default function Experience({lang}: {lang:Locale}) {
     const { ref } = useSectionInView('#experience', 0.2);
-    // const { theme } = useThemeContext(); 
-    const { getTranslation } = useTranslationContext();
+    type i18nT = Record<LocaleKey, string>;
+    const [i18n, setI18n] = useState<i18nT>();
 
-    return (
+    const p = api.translator.i18n.useQuery({locale: lang});
+    useEffect(() => {
+        setI18n(p.data);
+    }, [lang, i18n, p.data]);
+
+    return (i18n &&
         <section
             id="experience"
             ref={ref}
             className="mb-28 max-w-[45rem] scroll-mt-28 text-center leading-8 sm:mb-40"
         >
             <SectionHeading>
-                {getTranslation('experience-title')}
+                {i18n['experience-title']}
             </SectionHeading>
             <VerticalTimeline lineColor={''} animate={true}>
                 {EXPERIENCE_DATA.map((exp, index) => (
-                    <ExperienceItem item={exp} key={index} />
+                    <ExperienceItem i18n={i18n} item={exp} key={index} />
                 ))}   
             </VerticalTimeline>
         </section>

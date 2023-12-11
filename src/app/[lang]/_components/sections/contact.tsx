@@ -1,17 +1,28 @@
 'use client'
 
-import React from 'react'
 import SectionHeading from '../section-heading'
-import { useSectionInView } from '~/app/_lib/hooks'
-import { motion } from 'framer-motion'
-import { processEmail } from '~/app/_lib/actions'
-import toast from 'react-hot-toast'
 import { SubmitButton } from '../submit-button'
-import { useTranslationContext } from '~/app/_context/translation-context'
 
-export default function Contact() {
+import { type Locale, type LocaleKey } from '~/server/i18n.config'
+import { api } from '~/trpc/react'
+import { processEmail } from '~/app/[lang]/_lib/actions'
+import { useSectionInView } from '~/app/[lang]/_lib/hooks'
+
+import React, { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+import toast from 'react-hot-toast'
+import { Skeleton } from '@nextui-org/react'
+
+
+export default function Contact({lang}: {lang:Locale}) {
     const { ref } = useSectionInView('#contact');
-    const { getTranslation } = useTranslationContext();
+    type i18nT = Record<LocaleKey, string>;
+    const [i18n, setI18n] = useState<i18nT>();
+
+    const p = api.translator.i18n.useQuery({locale: lang});
+    useEffect(() => {
+        setI18n(p.data);
+    }, [lang, i18n, p.data]);
 
     return (
         <motion.section
@@ -32,9 +43,19 @@ export default function Contact() {
                 once: true
             }}
         >
-            <SectionHeading>{getTranslation('contact-title')}</SectionHeading>
+            {!i18n ? (
+                <Skeleton isLoaded={!p.isLoading} className="w-100 rounded-lg">
+                    <div className="w-100 h-6 bg-default-300"/>
+                </Skeleton>
+            ) : (
+                <SectionHeading>{i18n?.['contact-title']}</SectionHeading>)}
             <p className="text-gray-700 dark:text-green-50 -mt-6" >
-                {getTranslation('contact-direct-1')} <a className="underline" href="mailto:tilen.okretic@gmail.com">tilen.okretic@gmail.com</a> {getTranslation('contact-direct-2')}  
+                {i18n?.['contact-direct-1']}{' '} 
+                <a className="underline" href="mailto:tilen.okretic@gmail.com">
+                    tilen.okretic@gmail.com
+                </a> 
+                {' '}
+                {i18n?.['contact-direct-2']}  
             </p>
             <form
                 className="mt-10 flex flex-col"
@@ -69,7 +90,7 @@ export default function Contact() {
                         rounded-lg
                         my-border-black
                         p-4"
-                    placeholder={getTranslation('contact-message-placeholder')}
+                    placeholder={i18n?.['contact-message-placeholder']}
                     maxLength={512}
                 />
                 <SubmitButton />

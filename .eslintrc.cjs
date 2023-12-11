@@ -4,9 +4,10 @@ const config = {
     parserOptions: {
         project: true,
     },
-    plugins: ['@typescript-eslint'],
+    plugins: ['@typescript-eslint', 'import'],
     extends: [
         'next/core-web-vitals',
+        'plugin:import/recommended',
         'plugin:@typescript-eslint/recommended-type-checked',
         'plugin:@typescript-eslint/stylistic-type-checked',
     ],
@@ -16,7 +17,7 @@ const config = {
         '@typescript-eslint/array-type': 'off',
         '@typescript-eslint/consistent-type-definitions': 'off',
         'indent': ['error', 4],
-        'quotes': [2, 'single', { "allowTemplateLiterals": true, 'avoidEscape': true }],
+        'quotes': [2, 'single', { 'allowTemplateLiterals': true, 'avoidEscape': true }],
         'jsx-quotes': ['error', 'prefer-double'],
         '@typescript-eslint/consistent-type-imports': [
             'warn',
@@ -32,6 +33,23 @@ const config = {
                 checksVoidReturn: { attributes: false },
             },
         ],
+        'import/order': [
+            'error',
+            {
+                'groups': [
+                    'index',
+                    'sibling',
+                    'parent',
+                    'internal',
+                    'external',
+                    'builtin',
+                    'object',
+                    'type'
+                ],
+                'newlines-between': 'always',
+            }
+        ],
+        'import/newline-after-import': ['error', { 'count': 1 }], 
     },
 };
 

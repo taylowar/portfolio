@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
+
 export default function Devider() {
     return (
         <motion.div 

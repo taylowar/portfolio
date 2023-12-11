@@ -1,15 +1,19 @@
 'use client'
-import React from 'react'
-import logo from '../../../../public/logo.svg';
+import logo from '../../../../../public/logo.svg';
+
+import { useSectionInView } from '~/app/[lang]/_lib/hooks';
+import { useSectionContext } from '~/app/[lang]/_context/section-context';
+import { api } from '~/trpc/react';
+import { type Locale, type LocaleKey } from '~/server/i18n.config';
+
+import React, { Suspense, useEffect, useState } from 'react'
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useSectionInView } from '~/app/_lib/hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { useSectionContext } from '~/app/_context/section-context';
 import Image from 'next/image';
-import { useTranslationContext } from '~/app/_context/translation-context';
+import { Card, Skeleton } from '@nextui-org/react';
 
 function LogoImage() {
     return (
@@ -57,7 +61,7 @@ function LogoImage() {
     );
 }
 
-function QuickAboutMe({ data }: { data: string[] }) {
+function QuickAboutMe({ data, isLoading }: { isLoading: boolean, data: string[] | undefined }) {
     return (
         <>
             <motion.h1
@@ -74,21 +78,46 @@ function QuickAboutMe({ data }: { data: string[] }) {
                 initial={{ y: 100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
             >
-                <span>{data[0]} <b className="underline">{data[1]}</b>.</span><br />
-                <span>{data[2]} <b className="underline">{data[3]}</b> {data[4]} <b className="underline">{data[5]}</b>.</span><br />
-                <span>{data[6]} <i>{data[7]}</i>.</span><br />
-                <span>{data[8]} <b className="underline">{data[9]}</b>.</span><br />
+
+                {isLoading ? (
+                    <Card className="flex flex-col gap-2">
+                        <Skeleton isLoaded={!isLoading} className="w-100 rounded-lg">
+                            <div className="w-100 h-6 bg-default-300"/>
+                        </Skeleton>
+                        <Skeleton className="w-100 rounded-lg">
+                            <div className="w-100 h-6 bg-default-300"/>
+                        </Skeleton>
+                        <Skeleton className="w-100 rounded-lg">
+                            <div className="w-100 h-6 bg-default-300"/>
+                        </Skeleton>
+                        <Skeleton className="w-100 rounded-lg">
+                            <div className="w-100 h-6 bg-default-300"/>
+                        </Skeleton>
+                    </Card>
+                ) : (<>
+                    <span>{data?.[0]} <b className="underline">{data?.[1]}</b>.</span><br />
+                    <span>{data?.[2]} <b className="underline">{data?.[3]}</b> {data?.[4]} <b className="underline">{data?.[5]}</b>.</span><br />
+                    <span>{data?.[6]} <i>{data?.[7]}</i>.</span><br />
+                    <span>{data?.[8]} <b className="underline">{data?.[9]}</b>.</span><br />
+                </>)}
             </motion.h1>
         </>
     )
 }
 
-export default function Home() {
+export default function Home({lang}: {lang:Locale}) {
     const { setActive, setLastClickTime } = useSectionContext();
     const { ref } = useSectionInView('#home', 0.5);
-    const { getTranslation } = useTranslationContext();
 
-    return ( 
+    type i18nT = Record<LocaleKey, string>;
+    const [i18n, setI18n] = useState<i18nT>();
+
+    const p = api.translator.i18n.useQuery({locale: lang});
+    useEffect(() => {
+        setI18n(p.data);
+    }, [lang, i18n, p.data]);
+
+    return (
         <section
             className="
                     mt-28
@@ -100,18 +129,16 @@ export default function Home() {
             ref={ref}
         >
             <LogoImage />
-            <QuickAboutMe data={[
-                getTranslation('home-text-greeting'),        
-                getTranslation('home-text-name'),            
-                getTranslation('home-text-ima'),             
-                getTranslation('home-text-software-engineer'),
-                getTranslation('home-text-with'),            
-                getTranslation('home-text-exp'),             
-                getTranslation('home-text-joy'),             
-                getTranslation('home-text-mmrp'),            
-                getTranslation('home-text-fcs'),             
-                getTranslation('home-text-react'),           
-            ]}/>
+            <QuickAboutMe isLoading={p.isLoading} data={i18n ? [
+                i18n['home-text-ima'],
+                i18n['home-text-software-engineer'],
+                i18n['home-text-with'],
+                i18n['home-text-exp'],
+                i18n['home-text-joy'],
+                i18n['home-text-mmrp'],
+                i18n['home-text-fcs'],
+                i18n['home-text-react'],
+            ]:undefined}/> 
             <motion.div
                 className="flex flex-col sm:flex-row place-content-center gap-2 px-4 text-lg font-medium" 
                 initial={{y: 100, opacity: 0}}
@@ -125,8 +152,7 @@ export default function Home() {
                     className="
                         group
                         flex
-                        bg-gray-900
-                        dark:bg-gray-950/80
+                        border
                         text-white
                         px-7
                         py-3
@@ -134,6 +160,9 @@ export default function Home() {
                         gap-2
                         rounded-xl
                         outline-none
+                        border-gray-200
+                        bg-gray-900
+                        dark:bg-gray-950
                         focus:scale-105
                         hover:scale-105
                         hover:bg-gray-950
@@ -143,11 +172,23 @@ export default function Home() {
                         setActive('#contact');
                         setLastClickTime(Date.now());
                     }}
-                >{getTranslation('contact-me')}
-                    <FontAwesomeIcon
-                        icon={faPaperPlane}
-                        className="opacity-70 group-hover:translate-x-[0.15rem] group-hover:-translate-y-[0.15rem] group-hover:scale-120 transition"
-                    />
+                >{
+                        p.isLoading ? 
+                            (
+                                <>
+                                    <Skeleton isLoaded={!p.isLoading} className="w-100 rounded-lg">
+                                        <div className="w-100 h-6 bg-default-300"/>
+                                    </Skeleton>
+                                </>
+                            ) : (
+                                <>
+                                    {i18n?.['contact-me']}
+                                    <FontAwesomeIcon
+                                        icon={faPaperPlane}
+                                        className="opacity-70 group-hover:translate-x-[0.15rem] group-hover:-translate-y-[0.15rem] group-hover:scale-120 transition"
+                                    />
+                                </>)
+                    }
                 </Link>
                 <a 
                     className="group
@@ -158,9 +199,10 @@ export default function Home() {
                       py-3
                       items-center
                       text-center
-                      dark:text-gray-50/80
+                      dark:text-gray-200
                       gap-2
-                      my-border-black
+                      border
+                      border-gray-200
                       rounded-xl
                       outline-none
                       focus:scale-105
@@ -171,11 +213,20 @@ export default function Home() {
                       uppercase"
                     href="/CV.pdf"
                     download={true}
-                >{getTranslation('download-cv')}
-                    <FontAwesomeIcon 
-                        icon={faDownload}
-                        className="opacity-60 group-hover:translate-y-[0.15rem] transition"
-                    />
+                >{p.isLoading ? (
+                        <>
+                            <Skeleton isLoaded={!p.isLoading} className="w-100 rounded-lg">
+                                <div className="w-100 h-6 bg-default-300"/>
+                            </Skeleton>
+                        </>):
+                        (<>
+                            {i18n?.['download-cv']}
+                            <FontAwesomeIcon 
+                                icon={faDownload}
+                                className="opacity-60 group-hover:translate-y-[0.15rem] transition"
+                            />
+                        </>)
+                    }
                 </a>
                 <a
                     href="https://github.com/pwnker"

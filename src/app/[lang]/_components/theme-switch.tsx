@@ -1,10 +1,12 @@
 'use client'
 
+import {  useThemeContext } from '../_context/theme-context'
+
 import { faLightbulb as regularBulb } from '@fortawesome/free-regular-svg-icons'
 import { faLightbulb as solidBulb } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import {  useThemeContext } from '../_context/theme-context'
+
 
 export default function ThemeSwitch() {
     const {theme, themeSwitch } = useThemeContext();

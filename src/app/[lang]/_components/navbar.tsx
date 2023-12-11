@@ -1,11 +1,14 @@
 'use client'
 
+import { LINKS } from '../_lib/data';
+import { useSectionContext } from '../_context/section-context';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { LINKS } from '../_lib/data';
 import clsx from 'clsx';
-import { useSectionContext } from '../_context/section-context';
+
+
 
 export default function Navbar() {
 
