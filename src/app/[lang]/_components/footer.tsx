@@ -7,8 +7,7 @@ export default function Footer() {
                 &copy; 2023 Tilen Okretic. All rights reserved.
             </small>
             <p className="text-xs">
-                <b>About the website:</b> Built with Next13 and other
-                components. Hoasted on Vercel.
+                Built with Next13 and other technologies. Hoasted on Vercel.
             </p>
         </footer>
     );
