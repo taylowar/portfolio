@@ -1,9 +1,8 @@
 'use client';
 
 import { type LocaleStruct } from '~/server/i18n.config';
-import { Skeleton } from '~/components/ui/skeleton';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';

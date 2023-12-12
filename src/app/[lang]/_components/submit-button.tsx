@@ -4,7 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import React from 'react';
 
-export const SubmitButton = ({textContent}: {textContent: string | undefined}) => {
+export const SubmitButton = ({
+    textContent,
+}: {
+    textContent: string | undefined;
+}) => {
     const { pending } = { pending: false };
 
     return (

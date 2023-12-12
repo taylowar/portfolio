@@ -31,10 +31,10 @@ export default function middleware(req: NextRequest) {
         pathname.length === 1
             ? pathname.startsWith('/')
             : i18n.locales.every(
-                (locale) =>
-                    pathname.startsWith(`/${locale}/`) ||
+                  (locale) =>
+                      pathname.startsWith(`/${locale}/`) ||
                       pathname === `/${locale}`,
-            );
+              );
 
     if (pathnameValid) {
         const locale = getLocale(req);

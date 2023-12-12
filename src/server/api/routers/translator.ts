@@ -1,6 +1,6 @@
 import { createTRPCRouter, publicProcedure } from '../trpc';
 
-import { type Locale, type LocaleKey, i18n, type LocaleStruct } from '~/server/i18n.config';
+import { type Locale, i18n, type LocaleStruct } from '~/server/i18n.config';
 
 import { z } from 'zod';
 
@@ -18,10 +18,6 @@ async function getI18n(lang: Locale) {
     return olng;
 }
 
-function getI18nTranslation(locale: Record<LocaleKey, string>, key: LocaleKey) {
-    return locale[key];
-}
-
 let l: Locale = 'en';
 
 export const translatorRouter = createTRPCRouter({
@@ -36,36 +32,5 @@ export const translatorRouter = createTRPCRouter({
         .query(({ input }) => {
             l = input.locale;
             return l;
-        }),
-    get: publicProcedure
-        .input(
-            z.object({
-                locale: z.custom<Locale>(),
-                key: z.custom<LocaleKey>(),
-            }),
-        )
-        .query(async ({ input }) => {
-            const i18n = await getI18n(input.locale);
-            const tlng = getI18nTranslation(i18n, input.key);
-            return {
-                translation: tlng,
-            };
-        }),
-    getAll: publicProcedure
-        .input(
-            z.object({
-                locale: z.custom<Locale>(),
-                keys: z.custom<LocaleKey>().array(),
-            }),
-        )
-        .query(async ({ input }) => {
-            const outs: string[] = [];
-            const i18n = await getI18n(input.locale);
-            input.keys.forEach((key) => {
-                outs.push(getI18nTranslation(i18n, key));
-            });
-            return {
-                translations: outs,
-            };
         }),
 });

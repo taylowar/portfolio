@@ -12,7 +12,7 @@ import React, { useEffect, useState } from 'react';
 
 export default function About({ lang }: { lang: Locale }) {
     const { ref } = useSectionInView('#about');
-    type i18nT = LocaleStruct; 
+    type i18nT = LocaleStruct;
     const [i18n, setI18n] = useState<i18nT>();
 
     const p = api.translator.i18n.useQuery({ locale: lang });
@@ -21,7 +21,7 @@ export default function About({ lang }: { lang: Locale }) {
         setI18n(p.data);
         setTimeout(() => {
             setIsLoading(false);
-        }, 3000)
+        }, 3000);
     }, [lang, i18n, p.data]);
 
     return (
@@ -34,11 +34,17 @@ export default function About({ lang }: { lang: Locale }) {
             transition={{ delay: 0.175 }}
         >
             <SectionHeading>
-                <Skeleton hasLoaded={!isLoading} className="mr-0 ml-0 w-[32rem] h-[3.715rem] rounded-lg">
+                <Skeleton
+                    hasLoaded={!isLoading}
+                    className="ml-0 mr-0 h-[3.715rem] w-[32rem] rounded-lg"
+                >
                     {i18n?.about.title}
                 </Skeleton>
             </SectionHeading>
-            <Skeleton hasLoaded={!isLoading} className="w-[50rem] h-56 rounded-lg">
+            <Skeleton
+                hasLoaded={!isLoading}
+                className="h-56 w-[50rem] rounded-lg"
+            >
                 <p className="mb-3 flex flex-col place-content-center gap-8">
                     {i18n?.about['how-start']}
                     <span className="rounded-md px-4 py-1 italic sm:border sm:border-gray-200">
@@ -47,7 +53,10 @@ export default function About({ lang }: { lang: Locale }) {
                 </p>
             </Skeleton>
             <br />
-            <Skeleton hasLoaded={!isLoading} className="w-[50rem] h-52 rounded-lg">
+            <Skeleton
+                hasLoaded={!isLoading}
+                className="h-52 w-[50rem] rounded-lg"
+            >
                 <p className="mb-3 flex flex-col place-content-center gap-8">
                     {i18n?.about['after-start']}
                     <span className="rounded-md px-4 py-1 italic md:border md:border-gray-200">
@@ -56,7 +65,10 @@ export default function About({ lang }: { lang: Locale }) {
                 </p>
             </Skeleton>
             <br />
-            <Skeleton hasLoaded={!isLoading} className="w-[50rem] h-[3.715rem] rounded-lg">
+            <Skeleton
+                hasLoaded={!isLoading}
+                className="h-[3.715rem] w-[50rem] rounded-lg"
+            >
                 <p className="mb-3 flex flex-col place-content-center gap-8">
                     <span className="rounded-md px-4 py-1 italic md:border md:border-gray-200">
                         {i18n?.about.end}
@@ -67,20 +79,29 @@ export default function About({ lang }: { lang: Locale }) {
             <span>༻❁༺</span>
             <br />
             <br />
-            <Skeleton hasLoaded={!isLoading} className="w-[50rem] h-[3.715rem] rounded-lg">
+            <Skeleton
+                hasLoaded={!isLoading}
+                className="h-[3.715rem] w-[50rem] rounded-lg"
+            >
                 <p>
                     <span>{i18n?.about['music-p1-s']}</span>
                 </p>
             </Skeleton>
-            <Skeleton hasLoaded={!isLoading} className="w-[50rem] h-[3.715rem] rounded-lg">
+            <Skeleton
+                hasLoaded={!isLoading}
+                className="h-[3.715rem] w-[50rem] rounded-lg"
+            >
                 <p>
-                    <span>{i18n?.about['music-p2-s1']}</span>
-                    {' '}<b>{i18n?.about['music-p2-sb']}</b>{' '}
+                    <span>{i18n?.about['music-p2-s1']}</span>{' '}
+                    <b>{i18n?.about['music-p2-sb']}</b>{' '}
                     <span>{i18n?.about['music-p2-s2']}</span>
                 </p>
             </Skeleton>
             <br />
-            <Skeleton hasLoaded={!isLoading} className="w-[50rem] h-[3.715rem] rounded-lg">
+            <Skeleton
+                hasLoaded={!isLoading}
+                className="h-[3.715rem] w-[50rem] rounded-lg"
+            >
                 <p>{i18n?.about['music-p3']}</p>
             </Skeleton>
         </motion.section>

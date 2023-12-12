@@ -4,20 +4,24 @@ const config = {
     parserOptions: {
         project: true,
     },
-    plugins: ['@typescript-eslint', 'import'],
+    plugins: ['@typescript-eslint', 'import', 'prettier'],
     extends: [
         'next/core-web-vitals',
         'plugin:import/recommended',
         'plugin:@typescript-eslint/recommended-type-checked',
         'plugin:@typescript-eslint/stylistic-type-checked',
+        'prettier',
     ],
     rules: {
-    // These opinionated rules are enabled in stylistic-type-checked above.
-    // Feel free to reconfigure them to your own preference.
+        // These opinionated rules are enabled in stylistic-type-checked above.
+        // Feel free to reconfigure them to your own preference.
         '@typescript-eslint/array-type': 'off',
         '@typescript-eslint/consistent-type-definitions': 'off',
-        'indent': ['error', 4],
-        'quotes': [2, 'single', { 'allowTemplateLiterals': true, 'avoidEscape': true }],
+        quotes: [
+            2,
+            'single',
+            { allowTemplateLiterals: true, avoidEscape: true },
+        ],
         'jsx-quotes': ['error', 'prefer-double'],
         '@typescript-eslint/consistent-type-imports': [
             'warn',
@@ -26,7 +30,10 @@ const config = {
                 fixStyle: 'inline-type-imports',
             },
         ],
-        '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+        '@typescript-eslint/no-unused-vars': [
+            'warn',
+            { argsIgnorePattern: '^_' },
+        ],
         '@typescript-eslint/no-misused-promises': [
             2,
             {
@@ -36,7 +43,7 @@ const config = {
         'import/order': [
             'error',
             {
-                'groups': [
+                groups: [
                     'index',
                     'sibling',
                     'parent',
@@ -44,12 +51,13 @@ const config = {
                     'external',
                     'builtin',
                     'object',
-                    'type'
+                    'type',
                 ],
                 'newlines-between': 'always',
-            }
+            },
         ],
-        'import/newline-after-import': ['error', { 'count': 1 }], 
+        'import/newline-after-import': ['error', { count: 1 }],
+        'prettier/prettier': 'error',
     },
 };
 

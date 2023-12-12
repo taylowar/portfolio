@@ -4,7 +4,7 @@ import logo from '../../../../../public/logo.svg';
 import { useSectionInView } from '~/app/[lang]/_lib/hooks';
 import { useSectionContext } from '~/app/[lang]/_context/section-context';
 import { api } from '~/trpc/react';
-import { type LocaleStruct, type Locale, type LocaleKey } from '~/server/i18n.config';
+import { type LocaleStruct, type Locale } from '~/server/i18n.config';
 import { Skeleton } from '~/components/ui/skeleton';
 
 import React, { useEffect, useState } from 'react';
@@ -150,15 +150,15 @@ export default function Home({ lang }: { lang: Locale }) {
                 data={
                     i18n
                         ? [
-                            i18n.home['text-ima'],
-                            i18n.home['text-software-engineer'],
-                            i18n.home['text-with'],
-                            i18n.home['text-exp'],
-                            i18n.home['text-joy'],
-                            i18n.home['text-mmrp'],
-                            i18n.home['text-fcs'],
-                            i18n.home['text-react'],
-                        ]
+                              i18n.home['text-ima'],
+                              i18n.home['text-software-engineer'],
+                              i18n.home['text-with'],
+                              i18n.home['text-exp'],
+                              i18n.home['text-joy'],
+                              i18n.home['text-mmrp'],
+                              i18n.home['text-fcs'],
+                              i18n.home['text-react'],
+                          ]
                         : undefined
                 }
             />

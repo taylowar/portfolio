@@ -1,4 +1,3 @@
-
 {
     "lang": "sl",
 
@@ -7,7 +6,7 @@
         "download-cv": "CV",
         "text-greeting": "Pozdravljeni, moje ime je",
         "text-name": "Tilen",
-        "text-ima":  "Sem",
+        "text-ima": "Sem",
         "text-software-engineer": "programski inženir",
         "text-with": "in imam",
         "text-exp": "10 let izkušenj s programiranjem ",
@@ -24,14 +23,14 @@
         "after-start": "Po opravljeni srednji soli in presenetljivem uspehu znotraj Minecraft skupnosti modificerjev, sem se zavedal, da je programiranje moja strast. Zaljubljen sem v ustvarnaje novih in uporabnih resitev problemov s katerimi se vsakodnevno srecujem.",
         "q2": "Rad rešujem probleme z uporabo računalnikov in matematike.",
         "end": "Raziskovanje področja računalništva in tehonologije so moje življenjske sanje!",
-        "music-p1-s": "Moja strast je tudi glasba. Sem kitarist in basist samouk in upam, da bom nekoč osvojil tudi veščino igranja klavirja saj je to eden od mojih najljubših instrumentov.",                 
-        "music-p2-s1": "Zanima me raziskovanje",                 
-        "music-p2-sb": "glasbene vizualizacije",                
+        "music-p1-s": "Moja strast je tudi glasba. Sem kitarist in basist samouk in upam, da bom nekoč osvojil tudi veščino igranja klavirja saj je to eden od mojih najljubših instrumentov.",
+        "music-p2-s1": "Zanima me raziskovanje",
+        "music-p2-sb": "glasbene vizualizacije",
         "music-p2-s2": "z uporabo računalnikov v upanju, da bom dosegel novo obliko umetniškega izražanja prek glasbe in videa.",
         "music-p3": "V prostem času rad pišem tudi poezijo. Svojo muzo najdem v romantiki in postmodernih pesniških slogih."
     },
 
-    "project": { 
+    "project": {
         "title": "moji projekti",
         "boat-title": "Boat Configurator",
         "boat-description": "Uporabniki lahko ustvarijo svojo konfiguracijo jahte in zajo pošljejo kot povpraševanje.",
@@ -50,14 +49,14 @@
     "experience": {
         "title": "moje izkušnje",
         "minmod-title": "minecraft modificiranje",
-        "minmod-location":   "slovenia",
-        "minmod-description":  "Začel sem se učiti Javo - svoj prvi programski jezik. Učil sem se iz youtuba in drugih brezplačnih internetnih virov. Svoja ustvarjanja semtudi redno objvaljal na minecraft forumih in ostalih minecraft spletnih portalih",
+        "minmod-location": "slovenia",
+        "minmod-description": "Začel sem se učiti Javo - svoj prvi programski jezik. Učil sem se iz youtuba in drugih brezplačnih internetnih virov. Svoja ustvarjanja semtudi redno objvaljal na minecraft forumih in ostalih minecraft spletnih portalih",
         "govir-title": "zaslovel",
-        "govir-location":   "internet",
-        "govir-description":  "S prijatelji, ki sem jih spoznal na spletu, sem se pogovarjal o modifikaciji Minecrafta z imenom 'Roots'. Po približno letu dni razvoja je projekt zaslovel in dosegel več kot 5 milijonov prenosov.",
+        "govir-location": "internet",
+        "govir-description": "S prijatelji, ki sem jih spoznal na spletu, sem se pogovarjal o modifikaciji Minecrafta z imenom 'Roots'. Po približno letu dni razvoja je projekt zaslovel in dosegel več kot 5 milijonov prenosov.",
         "ghs-title": "graduated high school",
-        "ghs-location":   "slovenia",
-        "ghs-description":  "I graduated from my tehnical school lol"
+        "ghs-location": "slovenia",
+        "ghs-description": "I graduated from my tehnical school lol"
     },
 
     "contact": {

@@ -5,6 +5,9 @@ type Props = {
 };
 
 export default function SectionHeading({ children }: Props) {
-    return <h2 className="mb-8 text-3xl flex flex-col items-center font-medium capitalize">{children}</h2>;
-
+    return (
+        <h2 className="mb-8 flex flex-col items-center text-3xl font-medium capitalize">
+            {children}
+        </h2>
+    );
 }

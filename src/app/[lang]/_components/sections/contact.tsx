@@ -15,7 +15,7 @@ import toast from 'react-hot-toast';
 
 export default function Contact({ lang }: { lang: Locale }) {
     const { ref } = useSectionInView('#contact');
-    type i18nT = LocaleStruct; 
+    type i18nT = LocaleStruct;
     const [i18n, setI18n] = useState<i18nT>();
 
     const p = api.translator.i18n.useQuery({ locale: lang });
@@ -43,15 +43,21 @@ export default function Contact({ lang }: { lang: Locale }) {
             }}
         >
             <SectionHeading>
-                <Skeleton hasLoaded={!p.isLoading} className="mr-0 ml-0 w-[32rem] h-[3.715rem] rounded-lg">
+                <Skeleton
+                    hasLoaded={!p.isLoading}
+                    className="ml-0 mr-0 h-[3.715rem] w-[32rem] rounded-lg"
+                >
                     {i18n?.contact.title}
                 </Skeleton>
             </SectionHeading>
             <Skeleton hasLoaded={!p.isLoading} className="w-100 rounded-lg">
                 <p className="-mt-6 text-gray-700 dark:text-green-50">
                     {i18n?.contact['direct-1']}{' '}
-                    <a className="underline" href="mailto:tilen.okretic@gmail.com">
-                    tilen.okretic@gmail.com
+                    <a
+                        className="underline"
+                        href="mailto:tilen.okretic@gmail.com"
+                    >
+                        tilen.okretic@gmail.com
                     </a>{' '}
                     {i18n?.contact['direct-2']}
                 </p>
@@ -67,30 +73,36 @@ export default function Contact({ lang }: { lang: Locale }) {
                     }
                 }}
             >
-                <Skeleton hasLoaded={!p.isLoading} className="w-[38rem] h-[3.75rem] rounded-lg">
+                <Skeleton
+                    hasLoaded={!p.isLoading}
+                    className="h-[3.75rem] w-[38rem] rounded-lg"
+                >
                     <input
                         type="email"
                         name="email"
                         required={true}
                         maxLength={128}
                         className="
-                        w-full
                         my-border-black
                         h-14
+                        w-full
                         rounded-lg
                         px-4
                         dark:bg-white/10"
                         placeholder="example@example.com"
                     />
                 </Skeleton>
-                <Skeleton hasLoaded={!p.isLoading} className="w-[38rem] mt-4 h-[14rem] rounded-lg">
+                <Skeleton
+                    hasLoaded={!p.isLoading}
+                    className="mt-4 h-[14rem] w-[38rem] rounded-lg"
+                >
                     <textarea
                         name="message"
                         className="
-                        w-full
                         my-border-black
                         my-3
                         h-52
+                        w-full
                         rounded-lg
                         p-4
                         dark:bg-white/10"
@@ -98,8 +110,11 @@ export default function Contact({ lang }: { lang: Locale }) {
                         maxLength={512}
                     />
                 </Skeleton>
-                <Skeleton hasLoaded={!p.isLoading} className="w-[8rem] mt-4 h-[3rem] rounded-lg">
-                    <SubmitButton textContent={i18n?.contact['submit-btn']}/>
+                <Skeleton
+                    hasLoaded={!p.isLoading}
+                    className="mt-4 h-[3rem] w-[8rem] rounded-lg"
+                >
+                    <SubmitButton textContent={i18n?.contact['submit-btn']} />
                 </Skeleton>
             </form>
         </motion.section>

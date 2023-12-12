@@ -67,7 +67,7 @@ function ExperienceItem({
 
 export default function Experience({ lang }: { lang: Locale }) {
     const { ref } = useSectionInView('#experience', 0.2);
-    type i18nT = LocaleStruct; 
+    type i18nT = LocaleStruct;
     const [i18n, setI18n] = useState<i18nT>();
 
     const p = api.translator.i18n.useQuery({ locale: lang });
@@ -82,11 +82,17 @@ export default function Experience({ lang }: { lang: Locale }) {
             className="mb-28 max-w-[45rem] scroll-mt-28 text-center leading-8 sm:mb-40"
         >
             <SectionHeading>
-                <Skeleton hasLoaded={!p.isLoading} className="mr-0 ml-0 w-[32rem] h-[3.715rem] rounded-lg">
+                <Skeleton
+                    hasLoaded={!p.isLoading}
+                    className="ml-0 mr-0 h-[3.715rem] w-[32rem] rounded-lg"
+                >
                     {i18n?.experience.title}
                 </Skeleton>
             </SectionHeading>
-            <Skeleton hasLoaded={!p.isLoading} className="mr-0 ml-0 w-[40rem] h-[70rem] rounded-lg">
+            <Skeleton
+                hasLoaded={!p.isLoading}
+                className="ml-0 mr-0 h-[70rem] w-[40rem] rounded-lg"
+            >
                 <VerticalTimeline lineColor={''} animate={true}>
                     {EXPERIENCE_DATA.map((exp, index) => (
                         <ExperienceItem i18n={i18n} item={exp} key={index} />
@@ -94,6 +100,5 @@ export default function Experience({ lang }: { lang: Locale }) {
                 </VerticalTimeline>
             </Skeleton>
         </section>
-        
     );
 }
