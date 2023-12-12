@@ -5,8 +5,9 @@ import Project from '../project';
 
 import { useSectionInView } from '~/app/[lang]/_lib/hooks';
 import { PROJECT_DATA } from '~/app/[lang]/_lib/data';
-import { type LocaleStruct, type Locale, type LocaleKey } from '~/server/i18n.config';
+import { type LocaleStruct, type Locale } from '~/server/i18n.config';
 import { api } from '~/trpc/react';
+import { Skeleton } from '~/components/ui/skeleton';
 
 import React, { useEffect, useState } from 'react';
 
@@ -31,11 +32,17 @@ export default function Projects({ lang }: { lang: Locale }) {
                 sm:mb-40"
             ref={ref}
         >
-            <SectionHeading>my projects</SectionHeading>
+            <SectionHeading>
+                <Skeleton hasLoaded={!p.isLoading} className="mr-0 ml-0 w-[32rem] h-[3.715rem] rounded-lg">
+                    {i18n?.project.title}
+                </Skeleton>
+            </SectionHeading>
             <ul className="flex flex-col gap-3 sm:gap-8">
                 {PROJECT_DATA.map((project, index) => (
                     <li key={index} className="group">
-                        <Project i18n={i18n} project={project} />
+                        <Skeleton hasLoaded={!p.isLoading} className="w-[42rem] h-[16rem] rounded-lg">
+                            <Project i18n={i18n} project={project} />
+                        </Skeleton>
                     </li>
                 ))}
             </ul>
