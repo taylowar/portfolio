@@ -11,8 +11,7 @@ import { useSectionInView } from '~/app/[lang]/_lib/hooks'
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import toast from 'react-hot-toast'
-import { Skeleton } from '@nextui-org/react'
-
+import { Skeleton } from '~/components/ui/skeleton'
 
 export default function Contact({lang}: {lang:Locale}) {
     const { ref } = useSectionInView('#contact');
@@ -44,7 +43,7 @@ export default function Contact({lang}: {lang:Locale}) {
             }}
         >
             {!i18n ? (
-                <Skeleton isLoaded={!p.isLoading} className="w-100 rounded-lg">
+                <Skeleton className="w-100 rounded-lg">
                     <div className="w-100 h-6 bg-default-300"/>
                 </Skeleton>
             ) : (

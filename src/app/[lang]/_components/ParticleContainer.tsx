@@ -20,7 +20,7 @@ export default function ParticleContainer() {
         <>
             <Particles
                 id="tsparticles"
-                className="w-full h-full absolute -z-10"
+                className="w-100 h-screen absolute -z-10"
                 init={ps_init}
                 options={{
                     fullScreen: {enable: false},

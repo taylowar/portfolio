@@ -6,8 +6,6 @@ import ThemeContextProvider from './_context/theme-context';
 import Navbar from './_components/navbar';
 import Footer from './_components/footer';
 
-import Providers from '../providers';
-
 import { TRPCReactProvider } from '~/trpc/react';
 import { DefaultLocale, type Locale } from '~/server/i18n.config';
 import { api } from '~/trpc/server';
@@ -42,25 +40,21 @@ export default async function RootLayout({
         <html lang={params.lang ?? DefaultLocale} className="!scroll-smooth">
             <body className={`
                 ${anonpro.className}
-                text-gray-950
-                dark:text-gray-50
-                dark:text-opacity-80
+                bg-[#020202]
                 relative
-                h-screen`}
+                `}
             >
-                <Providers>
-                    <ThemeContextProvider>
-                        <SectionContextProvider>
-                            <Navbar />
-                            <TRPCReactProvider headers={headers()}>
-                                {children}
-                            </TRPCReactProvider>
-                            <Toaster />
-                            <Footer />
-                            {/**<ThemeSwitch />*/}
-                        </SectionContextProvider>
-                    </ThemeContextProvider>
-                </Providers>
+                <ThemeContextProvider>
+                    <SectionContextProvider>
+                        <Navbar />
+                        <TRPCReactProvider headers={headers()}>
+                            {children}
+                        </TRPCReactProvider>
+                        <Toaster />
+                        <Footer />
+                        {/**<ThemeSwitch />*/}
+                    </SectionContextProvider>
+                </ThemeContextProvider>
             </body>
         </html>
     );

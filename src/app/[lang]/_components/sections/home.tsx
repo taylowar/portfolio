@@ -5,6 +5,7 @@ import { useSectionInView } from '~/app/[lang]/_lib/hooks';
 import { useSectionContext } from '~/app/[lang]/_context/section-context';
 import { api } from '~/trpc/react';
 import { type Locale, type LocaleKey } from '~/server/i18n.config';
+import { Skeleton } from '~/components/ui/skeleton';
 
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion';
@@ -13,7 +14,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import Image from 'next/image';
-import { Card, Skeleton } from '@nextui-org/react';
 
 function LogoImage() {
     return (
@@ -78,28 +78,36 @@ function QuickAboutMe({ data, isLoading }: { isLoading: boolean, data: string[] 
                 initial={{ y: 100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
             >
-
-                {isLoading ? (
-                    <Card className="flex flex-col gap-2">
-                        <Skeleton isLoaded={!isLoading} className="w-100 rounded-lg">
-                            <div className="w-100 h-6 bg-default-300"/>
-                        </Skeleton>
-                        <Skeleton className="w-100 rounded-lg">
-                            <div className="w-100 h-6 bg-default-300"/>
-                        </Skeleton>
-                        <Skeleton className="w-100 rounded-lg">
-                            <div className="w-100 h-6 bg-default-300"/>
-                        </Skeleton>
-                        <Skeleton className="w-100 rounded-lg">
-                            <div className="w-100 h-6 bg-default-300"/>
-                        </Skeleton>
-                    </Card>
-                ) : (<>
-                    <span>{data?.[0]} <b className="underline">{data?.[1]}</b>.</span><br />
-                    <span>{data?.[2]} <b className="underline">{data?.[3]}</b> {data?.[4]} <b className="underline">{data?.[5]}</b>.</span><br />
-                    <span>{data?.[6]} <i>{data?.[7]}</i>.</span><br />
-                    <span>{data?.[8]} <b className="underline">{data?.[9]}</b>.</span><br />
-                </>)}
+                <div className="flex flex-col items-center space-y-2">
+                    <Skeleton
+                        hasLoaded={!isLoading}
+                        className="
+                            h-[3.375rem]
+                            w-[31rem]
+                            max-w-full
+                            rounded-t-lg
+                            rounded-b-none"
+                    >
+                        <span>
+                            {data?.[0]}{' '}
+                            <b className="underline">{data?.[1]}</b>
+                        </span>
+                    </Skeleton>
+                    <Skeleton hasLoaded={!isLoading} className="h-[7.25rem] w-[74.75rem] max-w-full rounded-lg">
+                        <span>
+                            {data?.[2]}{' '}
+                            <b className="underline">{data?.[3]}</b>{' '}
+                            {data?.[4]}{' '}
+                            <b className="underline">{data?.[5]}</b>.
+                        </span>
+                    </Skeleton>
+                    <Skeleton hasLoaded={!isLoading} className="h-[3.375rem] w-[45.25rem] max-w-full rounded-lg">
+                        <span>
+                            {data?.[6]}{' '}
+                            <i>{data?.[7]}</i>.
+                        </span>
+                    </Skeleton>
+                </div>
             </motion.h1>
         </>
     )
@@ -120,12 +128,13 @@ export default function Home({lang}: {lang:Locale}) {
     return (
         <section
             className="
-                    mt-28
-                    mb-28
-                    max-w-full
-                    text-center
-                    sm:mb-0
-                    scroll-mt-28"
+                mt-28
+                mb-28
+                max-w-full
+                text-center
+                sm:mb-0
+                scroll-mt-28
+            "
             ref={ref}
         >
             <LogoImage />
@@ -140,16 +149,26 @@ export default function Home({lang}: {lang:Locale}) {
                 i18n['home-text-react'],
             ]:undefined}/> 
             <motion.div
-                className="flex flex-col sm:flex-row place-content-center gap-2 px-4 text-lg font-medium" 
+                className="
+                    flex
+                    flex-col
+                    sm:flex-row
+                    place-content-center
+                    gap-6
+                    px-4
+                    text-lg
+                    font-medium
+                " 
                 initial={{y: 100, opacity: 0}}
                 animate={{y: 0, opacity: 1}}
                 transition={{
                     delay: 0.1
                 }}
             >
-                <Link
-                    href="#contact"
-                    className="
+                <Skeleton hasLoaded={!p.isLoading} className="w-44 h-[3.75rem] rounded-lg">
+                    <Link
+                        href="#contact"
+                        className="
                         group
                         flex
                         border
@@ -169,83 +188,69 @@ export default function Home({lang}: {lang:Locale}) {
                         hover:bg-gray-950
                         active:scale-100
                         transition"
-                    onClick={() => {
-                        setActive('#contact');
-                        setLastClickTime(Date.now());
-                    }}
-                >{
-                        p.isLoading ? 
-                            (
-                                <>
-                                    <Skeleton isLoaded={!p.isLoading} className="w-100 rounded-lg">
-                                        <div className="w-100 h-6 bg-default-300"/>
-                                    </Skeleton>
-                                </>
-                            ) : (
-                                <>
-                                    {i18n?.['contact-me']}
-                                    <FontAwesomeIcon
-                                        icon={faPaperPlane}
-                                        className="opacity-70 group-hover:translate-x-[0.15rem] group-hover:-translate-y-[0.15rem] group-hover:scale-120 transition"
-                                    />
-                                </>)
-                    }
-                </Link>
-                <a 
-                    className="group
-                      flex
-                      bg-white
-                      dark:bg-gray-950/80
-                      px-7
-                      py-3
-                      items-center
-                      text-center
-                      dark:text-gray-200
-                      gap-2
-                      border
-                      border-gray-200
-                      rounded-xl
-                      outline-none
-                      focus:scale-105
-                      hover:cursor-pointer
-                      hover:scale-105
-                      active:scale-100
-                      transition
-                      uppercase"
-                    href="/CV.pdf"
-                    download={true}
-                >{p.isLoading ? (
-                        <>
-                            <Skeleton isLoaded={!p.isLoading} className="w-100 rounded-lg">
-                                <div className="w-100 h-6 bg-default-300"/>
-                            </Skeleton>
-                        </>):
-                        (<>
-                            {i18n?.['download-cv']}
-                            <FontAwesomeIcon 
-                                icon={faDownload}
-                                className="opacity-60 group-hover:translate-y-[0.15rem] transition"
-                            />
-                        </>)
-                    }
-                </a>
+                        onClick={() => {
+                            setActive('#contact');
+                            setLastClickTime(Date.now());
+                        }}
+                    >
+                        {i18n?.['contact-me']}
+                        <FontAwesomeIcon
+                            icon={faPaperPlane}
+                            className="opacity-70 group-hover:translate-x-[0.15rem] group-hover:-translate-y-[0.15rem] group-hover:scale-120 transition"
+                        />
+                    </Link>
+                </Skeleton>
+                <Skeleton hasLoaded={!p.isLoading} className="w-44 h-[3.75rem] rounded-lg">
+                    <a 
+                        className="
+                            group
+                            flex
+                            bg-white
+                            dark:bg-gray-950/80
+                            px-7
+                            py-3
+                            items-center
+                            text-center
+                            dark:text-gray-200
+                            gap-2
+                            border
+                            border-gray-200
+                            rounded-xl
+                            outline-none
+                            focus:scale-105
+                            hover:cursor-pointer
+                            hover:scale-105
+                            active:scale-100
+                            transition
+                            uppercase
+                        "
+                        href="/CV.pdf"
+                        download={true}
+                    >
+                        {i18n?.['download-cv']}
+                        <FontAwesomeIcon 
+                            icon={faDownload}
+                            className="opacity-60 group-hover:translate-y-[0.15rem] transition"
+                        />
+                    </a>
+                </Skeleton>
                 <a
                     href="https://github.com/pwnker"
                     target="_blank"
                     title="github"
                     className="
-                            group
-                            text-3xl
-                            gap-2
-                            items-center
-                            flex
-                            rounded-xl
-                            outline-none
-                            focus:scale-105
-                            hover:cursor-pointer
-                            hover:scale-110
-                            transition
-                            "
+                        group
+                        text-3xl
+                        gap-2
+                        items-center
+                        flex
+                        rounded-xl
+                        outline-none
+                        focus:scale-105
+                        hover:cursor-pointer
+                        hover:scale-110
+                        transition
+                    "
                 >
                     <FontAwesomeIcon
                         icon={faGithub}

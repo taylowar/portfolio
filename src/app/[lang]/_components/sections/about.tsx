@@ -9,8 +9,7 @@ import { useSectionInView } from '~/app/[lang]/_lib/hooks';
 
 import { motion }  from 'framer-motion';
 import React, { useEffect, useState } from 'react';
-import { Skeleton } from '@nextui-org/react';
-
+import { Skeleton } from '~/components/ui/skeleton';
 
 export default function About({lang}:{lang:Locale}) {
     const { ref } = useSectionInView('#about'); 
@@ -32,7 +31,7 @@ export default function About({lang}:{lang:Locale}) {
 	           transition={{ delay: 0.175 }}
         >
             {p.isLoading ? (
-                <Skeleton isLoaded={!p.isLoading} className="w-100 rounded-lg">
+                <Skeleton className="w-100 rounded-lg">
                     <div className="w-100 h-6 bg-default-300"/>
                 </Skeleton>
             ) : (
