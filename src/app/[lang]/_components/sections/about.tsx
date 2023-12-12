@@ -16,8 +16,12 @@ export default function About({ lang }: { lang: Locale }) {
     const [i18n, setI18n] = useState<i18nT>();
 
     const p = api.translator.i18n.useQuery({ locale: lang });
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         setI18n(p.data);
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 3000)
     }, [lang, i18n, p.data]);
 
     return (
@@ -29,35 +33,36 @@ export default function About({ lang }: { lang: Locale }) {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.175 }}
         >
-            {p.isLoading ? (
-                <Skeleton className="w-100 rounded-lg">
-                    <div className="w-100 bg-default-300 h-6" />
+            <SectionHeading>
+                <Skeleton hasLoaded={!isLoading} className="w-64 h-14 rounded-lg">
+                    {i18n?.['about-title']}
                 </Skeleton>
-            ) : (
-                <SectionHeading>{i18n?.['about-title']}</SectionHeading>
-            )}
-            <p className="mb-3">
-                {i18n?.['about-how-start']}
-                <br />
-                <br />
-                <span className="rounded-md px-4 py-1 italic sm:border sm:border-gray-200">
-                    <q>{i18n?.['about-q1']}</q>
-                </span>
-            </p>
+            </SectionHeading>
+            <Skeleton hasLoaded={!isLoading} className="w-[50rem] h-56 rounded-lg">
+                <p className="mb-3 flex flex-col place-content-center gap-8">
+                    {i18n?.['about-how-start']}
+                    <span className="rounded-md px-4 py-1 italic sm:border sm:border-gray-200">
+                        <q>{i18n?.['about-q1']}</q>
+                    </span>
+                </p>
+            </Skeleton>
             <br />
-            <p className="mb-3">
-                {i18n?.['about-after-start']}
-                <br />
-                <br />
-                <span className="rounded-md px-4 py-1 italic md:border md:border-gray-200">
-                    {i18n?.['about-q2']}
-                </span>
-                <br />
-                <br />
-                <span className="rounded-md px-4 py-1 italic md:border md:border-gray-200">
-                    {i18n?.['about-end']}
-                </span>
-            </p>
+            <Skeleton hasLoaded={!isLoading} className="w-[50rem] h-52 rounded-lg">
+                <p className="mb-3 flex flex-col place-content-center gap-8">
+                    {i18n?.['about-after-start']}
+                    <span className="rounded-md px-4 py-1 italic md:border md:border-gray-200">
+                        {i18n?.['about-q2']}
+                    </span>
+                </p>
+            </Skeleton>
+            <br />
+            <Skeleton hasLoaded={!isLoading} className="w-[50rem] h-[3.715rem] rounded-lg">
+                <p className="mb-3 flex flex-col place-content-center gap-8">
+                    <span className="rounded-md px-4 py-1 italic md:border md:border-gray-200">
+                        {i18n?.['about-end']}
+                    </span>
+                </p>
+            </Skeleton>
             <br />
             <span>༻❁༺</span>
             <br />
