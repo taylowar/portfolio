@@ -28,21 +28,21 @@
     "project-pdfb-title": "PDFb",
     "project-pdfb-description": "A library that can be used for generating pdf files.",
     "project-ppp-title": "PDF PreProcessor",
-    "project-ppp-description": "An stb style header only libraray that can be used as a tool for extracting and parsing content from pdf files into different data formats.",
+    "project-ppp-description": "An stb style header only library that can be used as a tool for extracting and parsing content from pdf files into different data formats.",
     "project-zenc-title": "ZenChat.app",
     "project-zenc-description": "A simple web based chat application that allows people to write and send messages.",
     "project-gena-title": "Genetic Alghoritems",
-    "project-gena-description": "As a school project I implemented sequential, paralel and distributed solutions for the traveling salesman problem using generic alghoritems.",
+    "project-gena-description": "As a school project I implemented sequential, paralel and distributed solutions for the traveling salesman problem using generic algorithms.",
 
     "experience-title": "my experience",
 
     "experience-minmod-title": "mnecraft modding",
     "experience-minmod-location":   "slovenia",
-    "experience-minmod-description":  "I started to learn Java - my first programing language. I was learning from youtube and other free internet resoures.",
+    "experience-minmod-description":  "I started to learn Java - my first programing language. I was learning from youtube and other free internet resources. I alse uploaded my creations on MinecraftForums and other MInecraft related platforms (CurseForge, TehnicPlatform, ...)",
 
     "experience-govir-title": "gone viral",
     "experience-govir-location":   "internet",
-    "experience-govir-description":  "I was claborating with some friends I met online on a minecraft mod called 'Roots'. After about a year of development the project went viral and has reached over 5 milion downloads",
+    "experience-govir-description":  "I was collaborating with some friends I met online on a minecraft mod called 'Roots'. After about a year of development the project went viral and has reached over 5 milion downloads",
 
     "experience-ghs-title": "graduated high school",
     "experience-ghs-location":   "slovenia",
