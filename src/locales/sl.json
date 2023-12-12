@@ -32,6 +32,7 @@
     },
 
     "project": { 
+        "title": "moji projekti",
         "boat-title": "Boat Configurator",
         "boat-description": "Uporabniki lahko ustvarijo svojo konfiguracijo jahte in zajo pošljejo kot povpraševanje.",
         "rack-title": "Rack Configurator",

@@ -32,6 +32,7 @@
     },
 
     "project": { 
+        "title": "my projects",
         "boat-title": "Boat Configurator",
         "boat-description": "Users can create their own yacht configuration and send it as an inquiry.",
         "rack-title": "Rack Configurator",

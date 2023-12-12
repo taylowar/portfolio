@@ -34,6 +34,7 @@ export type LocaleStruct = {
 
     },
     project: {
+        'title': string
         'boat-title': string,
         'boat-description': string,
         'rack-title': string,
