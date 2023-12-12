@@ -7,6 +7,7 @@ import { api } from '~/trpc/react';
 import { useThemeContext } from '~/app/[lang]/_context/theme-context';
 import { EXPERIENCE_DATA } from '~/app/[lang]/_lib/data';
 import { useSectionInView } from '~/app/[lang]/_lib/hooks';
+import { Skeleton } from '~/components/ui/skeleton';
 
 import {
     VerticalTimeline,
@@ -19,7 +20,7 @@ function ExperienceItem({
     i18n,
     item,
 }: {
-    i18n: LocaleStruct;
+    i18n: LocaleStruct | undefined;
     item: (typeof EXPERIENCE_DATA)[number];
 }) {
     const { ref, inView } = useSectionInView('#experience', 0.2);
@@ -51,13 +52,13 @@ function ExperienceItem({
                 }}
             >
                 <h3 className="font-semibold capitalize">
-                    {i18n.experience[`${item.id}-title`]}
+                    {i18n?.experience[`${item.id}-title`]}
                 </h3>
                 <p className="!mt-0 font-normal">
-                    {i18n.experience[`${item.id}-location`]}
+                    {i18n?.experience[`${item.id}-location`]}
                 </p>
                 <p className="!mt-1 !font-normal text-gray-700 dark:text-gray-50">
-                    {i18n.experience[`${item.id}-description`]}
+                    {i18n?.experience[`${item.id}-description`]}
                 </p>
             </VerticalTimelineElement>
         </div>
@@ -75,19 +76,24 @@ export default function Experience({ lang }: { lang: Locale }) {
     }, [lang, i18n, p.data]);
 
     return (
-        i18n && (
-            <section
-                id="experience"
-                ref={ref}
-                className="mb-28 max-w-[45rem] scroll-mt-28 text-center leading-8 sm:mb-40"
-            >
-                <SectionHeading>{i18n.experience.title}</SectionHeading>
+        <section
+            id="experience"
+            ref={ref}
+            className="mb-28 max-w-[45rem] scroll-mt-28 text-center leading-8 sm:mb-40"
+        >
+            <SectionHeading>
+                <Skeleton hasLoaded={!p.isLoading} className="mr-0 ml-0 w-[32rem] h-[3.715rem] rounded-lg">
+                    {i18n?.experience.title}
+                </Skeleton>
+            </SectionHeading>
+            <Skeleton hasLoaded={!p.isLoading} className="mr-0 ml-0 w-[40rem] h-[70rem] rounded-lg">
                 <VerticalTimeline lineColor={''} animate={true}>
                     {EXPERIENCE_DATA.map((exp, index) => (
                         <ExperienceItem i18n={i18n} item={exp} key={index} />
                     ))}
                 </VerticalTimeline>
-            </section>
-        )
+            </Skeleton>
+        </section>
+        
     );
 }

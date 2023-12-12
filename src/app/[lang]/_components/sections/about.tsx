@@ -34,7 +34,7 @@ export default function About({ lang }: { lang: Locale }) {
             transition={{ delay: 0.175 }}
         >
             <SectionHeading>
-                <Skeleton hasLoaded={!isLoading} className="w-64 h-14 rounded-lg">
+                <Skeleton hasLoaded={!isLoading} className="mr-0 ml-0 w-[32rem] h-[3.715rem] rounded-lg">
                     {i18n?.about.title}
                 </Skeleton>
             </SectionHeading>
