@@ -42,18 +42,22 @@ export default function Contact({ lang }: { lang: Locale }) {
                 once: true,
             }}
         >
+            <SectionHeading>
+                <Skeleton hasLoaded={!p.isLoading} className="mr-0 ml-0 w-[32rem] h-[3.715rem] rounded-lg">
+                    {i18n?.contact.title}
+                </Skeleton>
+            </SectionHeading>
             <Skeleton hasLoaded={!p.isLoading} className="w-100 rounded-lg">
-                <SectionHeading>{i18n?.contact.title}</SectionHeading>
-            </Skeleton>
-            <p className="-mt-6 text-gray-700 dark:text-green-50">
-                {i18n?.contact['direct-1']}{' '}
-                <a className="underline" href="mailto:tilen.okretic@gmail.com">
+                <p className="-mt-6 text-gray-700 dark:text-green-50">
+                    {i18n?.contact['direct-1']}{' '}
+                    <a className="underline" href="mailto:tilen.okretic@gmail.com">
                     tilen.okretic@gmail.com
-                </a>{' '}
-                {i18n?.contact['direct-2']}
-            </p>
+                    </a>{' '}
+                    {i18n?.contact['direct-2']}
+                </p>
+            </Skeleton>
             <form
-                className="mt-10 flex flex-col"
+                className="mt-10 flex flex-col items-center"
                 action={async (formData) => {
                     const result = await processEmail(formData);
                     if (!result.ok) {
@@ -63,32 +67,40 @@ export default function Contact({ lang }: { lang: Locale }) {
                     }
                 }}
             >
-                <input
-                    type="email"
-                    name="email"
-                    required={true}
-                    maxLength={128}
-                    className="
+                <Skeleton hasLoaded={!p.isLoading} className="w-[38rem] h-[3.75rem] rounded-lg">
+                    <input
+                        type="email"
+                        name="email"
+                        required={true}
+                        maxLength={128}
+                        className="
+                        w-full
                         my-border-black
                         h-14
                         rounded-lg
                         px-4
                         dark:bg-white/10"
-                    placeholder="example@example.com"
-                />
-                <textarea
-                    name="message"
-                    className="
+                        placeholder="example@example.com"
+                    />
+                </Skeleton>
+                <Skeleton hasLoaded={!p.isLoading} className="w-[38rem] mt-4 h-[14rem] rounded-lg">
+                    <textarea
+                        name="message"
+                        className="
+                        w-full
                         my-border-black
                         my-3
                         h-52
                         rounded-lg
                         p-4
                         dark:bg-white/10"
-                    placeholder={i18n?.contact['message-placeholder']}
-                    maxLength={512}
-                />
-                <SubmitButton />
+                        placeholder={i18n?.contact['message-placeholder']}
+                        maxLength={512}
+                    />
+                </Skeleton>
+                <Skeleton hasLoaded={!p.isLoading} className="w-[8rem] mt-4 h-[3rem] rounded-lg">
+                    <SubmitButton textContent={i18n?.contact['submit-btn']}/>
+                </Skeleton>
             </form>
         </motion.section>
     );
