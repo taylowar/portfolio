@@ -64,6 +64,7 @@
         "title": "contact me",
         "direct-1": "Please contatct me directly at",
         "direct-2": "or through this form:",
-        "message-placeholder": "your message"
+        "message-placeholder": "your message",
+        "submit-btn": "submit"
     }
 }

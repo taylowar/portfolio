@@ -65,6 +65,7 @@ export type LocaleStruct = {
         'direct-1': string,
         'direct-2': string,
         'message-placeholder': string,
+        'submit-btn': string
     },
 };
 

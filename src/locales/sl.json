@@ -64,6 +64,7 @@
         "title": "kontakt",
         "direct-1": "Prosim, kontaktirajte me neposredno na",
         "direct-2": "ali prek tega obrazca:",
-        "message-placeholder": "vaše sporočilo"
+        "message-placeholder": "vaše sporočilo",
+        "submit-btn": "pošlji"
     }
 }

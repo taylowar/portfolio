@@ -1,10 +1,10 @@
-/* eslint-disable */
-"use client";
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import clsx from "clsx";
-import React from "react";
-export const SubmitButton = () => {
+'use client';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import clsx from 'clsx';
+import React from 'react';
+
+export const SubmitButton = ({textContent}: {textContent: string | undefined}) => {
     const { pending } = { pending: false };
 
     return (
@@ -35,7 +35,7 @@ export const SubmitButton = () => {
                 <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white" />
             ) : (
                 <>
-                    Submit
+                    <span className="uppercase">{textContent}</span>
                     <FontAwesomeIcon
                         icon={faPaperPlane}
                         className="
