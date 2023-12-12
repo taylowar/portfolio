@@ -1,7 +1,6 @@
-
 export const i18n = {
     defaultLocale: 'en',
-    locales: ['en','sl'],
+    locales: ['en', 'sl'],
 } as const;
 
 export type LocaleKey = [
@@ -49,9 +48,8 @@ export type LocaleKey = [
     'contact-title',
     'contact-direct-1',
     'contact-direct-2',
-    'contact-message-placeholder', 
+    'contact-message-placeholder',
 ][number];
 
-export type Locale = typeof i18n['locales'][number]; 
-export const DefaultLocale = i18n.defaultLocale; 
-
+export type Locale = (typeof i18n)['locales'][number];
+export const DefaultLocale = i18n.defaultLocale;

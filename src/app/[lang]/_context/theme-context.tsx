@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 export type Theme = 'light' | 'dark';
 
@@ -9,9 +9,9 @@ type Props = {
 };
 
 export type ThemeContext = {
-    theme: Theme,
-    setTheme: React.Dispatch<React.SetStateAction<Theme>>,
-    updateTheme: (theme: Theme) => void; 
+    theme: Theme;
+    setTheme: React.Dispatch<React.SetStateAction<Theme>>;
+    updateTheme: (theme: Theme) => void;
     themeSwitch: () => void;
 };
 
@@ -19,16 +19,17 @@ const ThemeContext = createContext<ThemeContext | null>(null);
 
 export function useThemeContext() {
     const ctx = useContext(ThemeContext);
-    
-    if (ctx === null) {
-        throw new Error('Section context lost! You shoud access useThemeContext whitin ThemeContextProvider!')
 
+    if (ctx === null) {
+        throw new Error(
+            'Section context lost! You shoud access useThemeContext whitin ThemeContextProvider!',
+        );
     }
 
-    return ctx; 
+    return ctx;
 }
 
-export default function ThemeContextProvider({children}: Props) {
+export default function ThemeContextProvider({ children }: Props) {
     const [theme, setTheme] = useState<Theme>('dark');
 
     const updateTheme = (theme: Theme) => {
@@ -39,7 +40,7 @@ export default function ThemeContextProvider({children}: Props) {
         } else {
             document.documentElement.classList.remove('dark');
         }
-    }
+    };
 
     const themeSwitch = () => {
         if (theme === 'light') {
@@ -67,15 +68,18 @@ export default function ThemeContextProvider({children}: Props) {
             document.documentElement.classList.add('dark');
         }
         */
-    }, [])
+    }, []);
 
     return (
-        <ThemeContext.Provider value={{
-            theme,
-            setTheme,
-            updateTheme,
-            themeSwitch,
-        }}
-        >{children}</ThemeContext.Provider>
+        <ThemeContext.Provider
+            value={{
+                theme,
+                setTheme,
+                updateTheme,
+                themeSwitch,
+            }}
+        >
+            {children}
+        </ThemeContext.Provider>
     );
 }

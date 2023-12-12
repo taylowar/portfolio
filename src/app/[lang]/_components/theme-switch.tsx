@@ -1,47 +1,50 @@
-'use client'
+'use client';
 
-import {  useThemeContext } from '../_context/theme-context'
+import { useThemeContext } from '../_context/theme-context';
 
-import { faLightbulb as regularBulb } from '@fortawesome/free-regular-svg-icons'
-import { faLightbulb as solidBulb } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
-
+import { faLightbulb as regularBulb } from '@fortawesome/free-regular-svg-icons';
+import { faLightbulb as solidBulb } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
 
 export default function ThemeSwitch() {
-    const {theme, themeSwitch } = useThemeContext();
+    const { theme, themeSwitch } = useThemeContext();
 
     return (
-        <button 
+        <button
             className="
-                fixed
-                w-8
                 text-md
-                h-8
-                backdrop-blur-[0.5rem]
+                fixed
                 bottom-5
                 right-5
+                flex
+                h-8
+                w-8
+                items-center
+                justify-center
+                rounded-md
                 border-2
                 border-black
+                shadow-2xl
+                outline-none
+                backdrop-blur-[0.5rem]
+                transition-all
                 dark:border-gray-50
+                dark:border-opacity-40
                 dark:text-gray-50
                 dark:text-opacity-40
-                dark:border-opacity-40
-                outline-none
-                rounded-md
-                shadow-2xl
-                flex
-                justify-center
-                items-center
-                transition-all
                 "
             onClick={themeSwitch}
-        >{theme === 'dark' ? (
-                <><FontAwesomeIcon icon={regularBulb}/></>
+        >
+            {theme === 'dark' ? (
+                <>
+                    <FontAwesomeIcon icon={regularBulb} />
+                </>
             ) : (
-                <><FontAwesomeIcon icon={solidBulb}/></>
-            )
-            }
+                <>
+                    <FontAwesomeIcon icon={solidBulb} />
+                </>
+            )}
         </button>
-    )
+    );
 }

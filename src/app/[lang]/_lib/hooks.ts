@@ -8,14 +8,14 @@ import type { LINKS } from './data';
 type SectionId = (typeof LINKS)[number]['hash'];
 
 export function useSectionInView(id: SectionId, threshold = 0.75) {
-    const {setActive, lastClickTime} = useSectionContext();
-    const {ref, inView} = useInView({
+    const { setActive, lastClickTime } = useSectionContext();
+    const { ref, inView } = useInView({
         threshold,
     });
 
     useEffect(() => {
         if (inView) {
-            if (Date.now() - lastClickTime >  1000) {
+            if (Date.now() - lastClickTime > 1000) {
                 setActive(id);
             }
         }

@@ -1,30 +1,29 @@
-
-'use client'
+'use client';
 import LangSwitch from './language-switch';
 
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/react';
-import React from 'react';
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from '~/components/ui/dropdown-menu';
 
+import React from 'react';
 
 export default function LangaugeMenu() {
     return (
-        <Dropdown>
-            <DropdownTrigger className="fixed top-0 right-4">
-                <Button 
-                    className="z-30"
-                    variant="bordered" 
-                >
-                    {'en'}
-                </Button>
-            </DropdownTrigger>
-            <DropdownMenu aria-label="Static Actions">
-                <DropdownItem key="en">
-                    <LangSwitch lang="en"/> 
-                </DropdownItem>
-                <DropdownItem key="si">
-                    <LangSwitch lang="si"/> 
-                </DropdownItem>
-            </DropdownMenu>
-        </Dropdown> 
-    );     
+        <DropdownMenu>
+            <DropdownMenuTrigger className="fixed right-4 top-0">
+                <button className="z-30">{'en'}</button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent aria-label="Static Actions">
+                <DropdownMenuItem key="en">
+                    <LangSwitch lang="en" />
+                </DropdownMenuItem>
+                <DropdownMenuItem key="si">
+                    <LangSwitch lang="si" />
+                </DropdownMenuItem>
+            </DropdownMenuContent>
+        </DropdownMenu>
+    );
 }

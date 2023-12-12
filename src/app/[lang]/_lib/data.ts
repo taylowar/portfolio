@@ -1,12 +1,15 @@
-import boatConfiguratorPng from '../../../../public/alfastreet_boat_configurator.png'
-import rackConfiguratorPng from '../../../../public/kingsbox_rack_configurator.png'
-import pdfbPng from    '../../../../public/PDFb-logo.png'
-import pppPng from     '../../../../public/PpP-logo.png'
-import tspGaPng from   '../../../../public/TSP-GA.png'
-import zenchatPng from '../../../../public/zenchat-logo.png'
+import boatConfiguratorPng from '../../../../public/alfastreet_boat_configurator.png';
+import rackConfiguratorPng from '../../../../public/kingsbox_rack_configurator.png';
+import pdfbPng from '../../../../public/PDFb-logo.png';
+import pppPng from '../../../../public/PpP-logo.png';
+import tspGaPng from '../../../../public/TSP-GA.png';
+import zenchatPng from '../../../../public/zenchat-logo.png';
 
-import { faGraduationCap, faMedal, faRocket } from '@fortawesome/free-solid-svg-icons';
-
+import {
+    faGraduationCap,
+    faMedal,
+    faRocket,
+} from '@fortawesome/free-solid-svg-icons';
 
 export const LINKS = [
     {
@@ -63,15 +66,23 @@ export const PROJECT_DATA = [
     {
         id: 'zenc',
         gh: 'http://github.com/pwnker/zenchat.app',
-        tags: ['vue 2.x', 'docker', 'fullstack', 'mongoDB', 'node', 'feathersJS', 'javaScript'],
-        imageUrl: zenchatPng
+        tags: [
+            'vue 2.x',
+            'docker',
+            'fullstack',
+            'mongoDB',
+            'node',
+            'feathersJS',
+            'javaScript',
+        ],
+        imageUrl: zenchatPng,
     },
     {
         id: 'gena',
         gh: 'https://github.com/pwnker/GeneticAlgorithms',
         tags: ['java'],
         imageUrl: tspGaPng,
-    }
+    },
 ] as const;
 
 export const SKILL_DATA = [
@@ -89,23 +100,23 @@ export const SKILL_DATA = [
     'Java',
     'C',
     'Docker',
-    'Python'
+    'Python',
 ] as const;
 
 export const EXPERIENCE_DATA = [
     {
         id: 'minmod',
         icon: faRocket,
-        date: '2014'
+        date: '2014',
     },
     {
         id: 'govir',
         icon: faMedal,
-        date: '2017'
+        date: '2017',
     },
     {
         id: 'ghs',
-        icon: faGraduationCap, 
-        date: '2019'
-    }
+        icon: faGraduationCap,
+        date: '2019',
+    },
 ] as const;

@@ -14,7 +14,6 @@ import { Toaster } from 'react-hot-toast';
 import { headers } from 'next/headers';
 import { Anonymous_Pro } from 'next/font/google';
 
-
 const anonpro = Anonymous_Pro({
     weight: '400',
     subsets: ['latin'],
@@ -25,23 +24,24 @@ export const metadata = {
     description: 'Website dedicated to showcase Tilen Okretič',
     icons: [{ rel: 'icon', url: '/favicon.ico' }],
 };
- 
+
 // TODO: move the section context provider functionality inside the TRPC !
 export default async function RootLayout({
     children,
     params,
 }: {
     children: React.ReactNode;
-    params: { lang: Locale }
+    params: { lang: Locale };
 }) {
-    await api.translator.setI18n.query({locale: params.lang});
+    await api.translator.setI18n.query({ locale: params.lang });
 
     return (
         <html lang={params.lang ?? DefaultLocale} className="!scroll-smooth">
-            <body className={`
+            <body
+                className={`
                 ${anonpro.className}
-                bg-[#020202]
                 relative
+                bg-[#020202]
                 `}
             >
                 <ThemeContextProvider>

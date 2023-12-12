@@ -20,20 +20,20 @@ export default function ContactEmail({ email, message }: Props) {
         <Html>
             <Head />
             <Preview>New message form portfolio website</Preview>
-            <Tailwind>            
+            <Tailwind>
                 <Body className="bg-gray-100 text-black">
                     <Container>
-                        <Section 
+                        <Section
                             className="
-                                bg-white
                                 my-border-black
                                 my-10
+                                rounded-lg
+                                bg-white
                                 px-10
-                                py-10
-                                rounded-lg"
+                                py-10"
                         >
                             <Heading className="leading-tight">
-                                    You recieved a new message 
+                                You recieved a new message
                             </Heading>
                             <Text>{message}</Text>
                             <Hr />
@@ -45,5 +45,3 @@ export default function ContactEmail({ email, message }: Props) {
         </Html>
     );
 }
-
-

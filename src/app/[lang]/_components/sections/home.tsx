@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import logo from '../../../../../public/logo.svg';
 
 import { useSectionInView } from '~/app/[lang]/_lib/hooks';
@@ -7,7 +7,7 @@ import { api } from '~/trpc/react';
 import { type Locale, type LocaleKey } from '~/server/i18n.config';
 import { Skeleton } from '~/components/ui/skeleton';
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,11 +20,11 @@ function LogoImage() {
         <div className="flex place-content-center">
             <div className="relative">
                 <motion.div
-                    initial={{ opacity: 0, scale: 0 }}  
-                    animate={{ opacity: 1, scale: 1 }}  
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
                     transition={{
                         type: 'tween',
-                        duration: 0.25
+                        duration: 0.25,
                     }}
                 >
                     <Image
@@ -35,15 +35,15 @@ function LogoImage() {
                         quality={95}
                         property="true"
                         className="
-                            object-cover
                             rounded-2xl
+                            object-cover
                         "
                     />
                 </motion.div>
                 <motion.span
-                    className="absolute text-4xl bottom-0 right-0"
+                    className="absolute bottom-0 right-0 text-4xl"
                     style={{
-                        rotate: '-15deg'
+                        rotate: '-15deg',
                     }}
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
@@ -53,15 +53,19 @@ function LogoImage() {
                         delay: 0.1,
                         duration: 0.64,
                     }}
-                >
-                
-                </motion.span>
+                ></motion.span>
             </div>
-        </div> 
+        </div>
     );
 }
 
-function QuickAboutMe({ data, isLoading }: { isLoading: boolean, data: string[] | undefined }) {
+function QuickAboutMe({
+    data,
+    isLoading,
+}: {
+    isLoading: boolean;
+    data: string[] | undefined;
+}) {
     return (
         <>
             <motion.h1
@@ -70,11 +74,11 @@ function QuickAboutMe({ data, isLoading }: { isLoading: boolean, data: string[] 
                    px-4
                    text-2xl
                    font-medium
+                   !leading-[1.5]
                    text-gray-950
                    dark:text-gray-100
-                   !leading-[1.5]
-                   sm:text-4xl
-                   sm:w-full"
+                   sm:w-full
+                   sm:text-4xl"
                 initial={{ y: 100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
             >
@@ -85,42 +89,45 @@ function QuickAboutMe({ data, isLoading }: { isLoading: boolean, data: string[] 
                             h-[3.375rem]
                             w-[31rem]
                             max-w-full
-                            rounded-t-lg
-                            rounded-b-none"
+                            rounded-b-none
+                            rounded-t-lg"
                     >
                         <span>
-                            {data?.[0]}{' '}
-                            <b className="underline">{data?.[1]}</b>
+                            {data?.[0]} <b className="underline">{data?.[1]}</b>
                         </span>
                     </Skeleton>
-                    <Skeleton hasLoaded={!isLoading} className="h-[7.25rem] w-[74.75rem] max-w-full rounded-lg">
+                    <Skeleton
+                        hasLoaded={!isLoading}
+                        className="h-[7.25rem] w-[74.75rem] max-w-full rounded-lg"
+                    >
                         <span>
-                            {data?.[2]}{' '}
-                            <b className="underline">{data?.[3]}</b>{' '}
-                            {data?.[4]}{' '}
-                            <b className="underline">{data?.[5]}</b>.
+                            {data?.[2]} <b className="underline">{data?.[3]}</b>{' '}
+                            {data?.[4]} <b className="underline">{data?.[5]}</b>
+                            .
                         </span>
                     </Skeleton>
-                    <Skeleton hasLoaded={!isLoading} className="h-[3.375rem] w-[45.25rem] max-w-full rounded-lg">
+                    <Skeleton
+                        hasLoaded={!isLoading}
+                        className="h-[3.375rem] w-[45.25rem] max-w-full rounded-lg"
+                    >
                         <span>
-                            {data?.[6]}{' '}
-                            <i>{data?.[7]}</i>.
+                            {data?.[6]} <i>{data?.[7]}</i>.
                         </span>
                     </Skeleton>
                 </div>
             </motion.h1>
         </>
-    )
+    );
 }
 
-export default function Home({lang}: {lang:Locale}) {
+export default function Home({ lang }: { lang: Locale }) {
     const { setActive, setLastClickTime } = useSectionContext();
     const { ref } = useSectionInView('#home', 0.5);
 
     type i18nT = Record<LocaleKey, string>;
     const [i18n, setI18n] = useState<i18nT>();
 
-    const p = api.translator.i18n.useQuery({locale: lang});
+    const p = api.translator.i18n.useQuery({ locale: lang });
     useEffect(() => {
         setI18n(p.data);
     }, [lang, i18n, p.data]);
@@ -128,66 +135,76 @@ export default function Home({lang}: {lang:Locale}) {
     return (
         <section
             className="
-                mt-28
                 mb-28
+                mt-28
                 max-w-full
+                scroll-mt-28
                 text-center
                 sm:mb-0
-                scroll-mt-28
             "
             ref={ref}
         >
             <LogoImage />
-            <QuickAboutMe isLoading={p.isLoading} data={i18n ? [
-                i18n['home-text-ima'],
-                i18n['home-text-software-engineer'],
-                i18n['home-text-with'],
-                i18n['home-text-exp'],
-                i18n['home-text-joy'],
-                i18n['home-text-mmrp'],
-                i18n['home-text-fcs'],
-                i18n['home-text-react'],
-            ]:undefined}/> 
+            <QuickAboutMe
+                isLoading={p.isLoading}
+                data={
+                    i18n
+                        ? [
+                            i18n['home-text-ima'],
+                            i18n['home-text-software-engineer'],
+                            i18n['home-text-with'],
+                            i18n['home-text-exp'],
+                            i18n['home-text-joy'],
+                            i18n['home-text-mmrp'],
+                            i18n['home-text-fcs'],
+                            i18n['home-text-react'],
+                        ]
+                        : undefined
+                }
+            />
             <motion.div
                 className="
                     flex
                     flex-col
-                    sm:flex-row
                     place-content-center
                     gap-6
                     px-4
                     text-lg
                     font-medium
-                " 
-                initial={{y: 100, opacity: 0}}
-                animate={{y: 0, opacity: 1}}
+                    sm:flex-row
+                "
+                initial={{ y: 100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{
-                    delay: 0.1
+                    delay: 0.1,
                 }}
             >
-                <Skeleton hasLoaded={!p.isLoading} className="w-44 h-[3.75rem] rounded-lg">
+                <Skeleton
+                    hasLoaded={!p.isLoading}
+                    className="h-[3.75rem] w-44 rounded-lg"
+                >
                     <Link
                         href="#contact"
                         className="
                         group
                         flex
-                        border
-                        text-white
-                        uppercase
-                        px-7
-                        py-3
                         items-center
                         gap-2
                         rounded-xl
-                        outline-none
+                        border
                         border-gray-200
                         bg-gray-900
-                        dark:bg-gray-950
-                        focus:scale-105
+                        px-7
+                        py-3
+                        uppercase
+                        text-white
+                        outline-none
+                        transition
                         hover:scale-105
                         hover:bg-gray-950
+                        focus:scale-105
                         active:scale-100
-                        transition"
+                        dark:bg-gray-950"
                         onClick={() => {
                             setActive('#contact');
                             setLastClickTime(Date.now());
@@ -196,41 +213,44 @@ export default function Home({lang}: {lang:Locale}) {
                         {i18n?.['contact-me']}
                         <FontAwesomeIcon
                             icon={faPaperPlane}
-                            className="opacity-70 group-hover:translate-x-[0.15rem] group-hover:-translate-y-[0.15rem] group-hover:scale-120 transition"
+                            className="group-hover:scale-120 opacity-70 transition group-hover:-translate-y-[0.15rem] group-hover:translate-x-[0.15rem]"
                         />
                     </Link>
                 </Skeleton>
-                <Skeleton hasLoaded={!p.isLoading} className="w-44 h-[3.75rem] rounded-lg">
-                    <a 
+                <Skeleton
+                    hasLoaded={!p.isLoading}
+                    className="h-[3.75rem] w-44 rounded-lg"
+                >
+                    <a
                         className="
                             group
                             flex
-                            bg-white
-                            dark:bg-gray-950/80
-                            px-7
-                            py-3
                             items-center
-                            text-center
-                            dark:text-gray-200
                             gap-2
+                            rounded-xl
                             border
                             border-gray-200
-                            rounded-xl
-                            outline-none
-                            focus:scale-105
-                            hover:cursor-pointer
-                            hover:scale-105
-                            active:scale-100
-                            transition
+                            bg-white
+                            px-7
+                            py-3
+                            text-center
                             uppercase
+                            outline-none
+                            transition
+                            hover:scale-105
+                            hover:cursor-pointer
+                            focus:scale-105
+                            active:scale-100
+                            dark:bg-gray-950/80
+                            dark:text-gray-200
                         "
                         href="/CV.pdf"
                         download={true}
                     >
                         {i18n?.['download-cv']}
-                        <FontAwesomeIcon 
+                        <FontAwesomeIcon
                             icon={faDownload}
-                            className="opacity-60 group-hover:translate-y-[0.15rem] transition"
+                            className="opacity-60 transition group-hover:translate-y-[0.15rem]"
                         />
                     </a>
                 </Skeleton>
@@ -240,28 +260,27 @@ export default function Home({lang}: {lang:Locale}) {
                     title="github"
                     className="
                         group
-                        text-3xl
-                        gap-2
-                        items-center
                         flex
+                        items-center
+                        gap-2
                         rounded-xl
+                        text-3xl
                         outline-none
-                        focus:scale-105
-                        hover:cursor-pointer
-                        hover:scale-110
                         transition
+                        hover:scale-110
+                        hover:cursor-pointer
+                        focus:scale-105
                     "
                 >
                     <FontAwesomeIcon
                         icon={faGithub}
                         className="
                                 opacity-75
-                                group-hover:scale-110
-                                transition"
+                                transition
+                                group-hover:scale-110"
                     />
                 </a>
             </motion.div>
         </section>
-    )
+    );
 }
-

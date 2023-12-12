@@ -20,7 +20,7 @@ import { ZodError } from 'zod';
  */
 
 interface CreateContextOptions {
-  headers: Headers;
+    headers: Headers;
 }
 
 /**
@@ -69,7 +69,9 @@ const t = initTRPC.context<typeof createTRPCContext>().create({
             data: {
                 ...shape.data,
                 zodError:
-          error.cause instanceof ZodError ? error.cause.flatten() : null,
+                    error.cause instanceof ZodError
+                        ? error.cause.flatten()
+                        : null,
             },
         };
     },

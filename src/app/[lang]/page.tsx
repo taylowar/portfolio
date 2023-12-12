@@ -9,8 +9,7 @@ import ParticleContainer from './_components/ParticleContainer';
 
 import React from 'react';
 
-export default function Page() { 
-
+export default function Page() {
     return (
         <main className="flex flex-col items-center px-4">
             <ParticleContainer />
@@ -18,10 +17,9 @@ export default function Page() {
             <Devider />
             <About lang={'en'} />
             <Projects lang={'en'} />
-            <Skills  />
+            <Skills />
             <Experience lang={'en'} />
             <Contact lang={'en'} />
         </main>
     );
 }
-

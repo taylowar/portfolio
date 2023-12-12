@@ -4,9 +4,8 @@ import { match } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
 import { NextResponse, type NextRequest } from 'next/server';
 
-
 const _defaultLocale = i18n.defaultLocale;
-const _locales = [...i18n.locales];         // copy of locales haha
+const _locales = [...i18n.locales]; // copy of locales haha
 
 function getLocale(req: NextRequest) {
     const headers = new Headers(req.headers);
@@ -17,7 +16,7 @@ function getLocale(req: NextRequest) {
     }
 
     const hdrsobj = Object.fromEntries(headers.entries());
-    const languages = new Negotiator({headers: hdrsobj}).languages();
+    const languages = new Negotiator({ headers: hdrsobj }).languages();
 
     if (languages.includes('*')) {
         return _defaultLocale;
@@ -25,19 +24,29 @@ function getLocale(req: NextRequest) {
     return match(languages, _locales, _defaultLocale);
 }
 
-export default function middleware(req: NextRequest) { 
-    const {pathname} = req.nextUrl;
+export default function middleware(req: NextRequest) {
+    const { pathname } = req.nextUrl;
     console.log(pathname);
-    const pathnameValid = pathname.length === 1 ? pathname.startsWith('/') : i18n.locales.every(locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
+    const pathnameValid =
+        pathname.length === 1
+            ? pathname.startsWith('/')
+            : i18n.locales.every(
+                (locale) =>
+                    pathname.startsWith(`/${locale}/`) ||
+                      pathname === `/${locale}`,
+            );
 
     if (pathnameValid) {
         const locale = getLocale(req);
         return NextResponse.redirect(
-            new URL(`/${locale}/${pathname.startsWith('/') ? '' : `/${pathname}`}`, req.url)
-        ); 
+            new URL(
+                `/${locale}/${pathname.startsWith('/') ? '' : `/${pathname}`}`,
+                req.url,
+            ),
+        );
     }
 }
 
 export const config = {
-    matcher: ['/((?!.*\\..*|_next).*)','/', '/(api|trpc)(.*)'],
+    matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
 };

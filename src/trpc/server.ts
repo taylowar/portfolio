@@ -9,14 +9,13 @@ import {
 } from '@trpc/client';
 import { headers } from 'next/headers';
 
-
 export const api = createTRPCProxyClient<AppRouter>({
     transformer,
     links: [
         loggerLink({
             enabled: (op) =>
                 process.env.NODE_ENV === 'development' ||
-        (op.direction === 'down' && op.result instanceof Error),
+                (op.direction === 'down' && op.result instanceof Error),
         }),
         unstable_httpBatchStreamLink({
             url: getUrl(),

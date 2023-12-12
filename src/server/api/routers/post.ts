@@ -2,7 +2,6 @@ import { createTRPCRouter, publicProcedure } from '~/server/api/trpc';
 
 import { z } from 'zod';
 
-
 let post = {
     id: 1,
     name: 'Hello World',

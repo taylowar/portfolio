@@ -1,18 +1,16 @@
-'use client'
+'use client';
 import { useThemeContext } from '../_context/theme-context';
 
 import React, { useCallback } from 'react';
-import {Particles} from 'react-tsparticles';
-import {loadFull} from 'tsparticles';
+import { Particles } from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
 
 import type { Engine } from 'tsparticles-engine';
 
-
 export default function ParticleContainer() {
-
     const { theme } = useThemeContext();
 
-    const ps_init= useCallback(async (engine: Engine) => {
+    const ps_init = useCallback(async (engine: Engine) => {
         await loadFull(engine);
     }, []);
 
@@ -20,13 +18,13 @@ export default function ParticleContainer() {
         <>
             <Particles
                 id="tsparticles"
-                className="w-100 h-screen absolute -z-10"
+                className="w-100 absolute -z-10 h-screen"
                 init={ps_init}
                 options={{
-                    fullScreen: {enable: false},
+                    fullScreen: { enable: false },
                     background: {
                         color: {
-                            value: '', 
+                            value: '',
                         },
                     },
                     fpsLimit: 120,
@@ -40,7 +38,7 @@ export default function ParticleContainer() {
                                 enable: false,
                                 mode: 'repulse',
                             },
-                            resize: true, 
+                            resize: true,
                         },
                         modes: {
                             push: {
@@ -54,7 +52,7 @@ export default function ParticleContainer() {
                     },
                     particles: {
                         color: {
-                            value: theme === 'dark' ? '#42ff02' : '#BD00FD', 
+                            value: theme === 'dark' ? '#42ff02' : '#BD00FD',
                         },
                         links: {
                             color: theme === 'dark' ? '#32ff11' : '#CD00EE',
@@ -79,7 +77,7 @@ export default function ParticleContainer() {
                                 enable: true,
                                 area: 400,
                             },
-                            value: 50
+                            value: 50,
                         },
                         opacity: {
                             value: 0.25,
@@ -90,14 +88,13 @@ export default function ParticleContainer() {
                         size: {
                             value: {
                                 min: 1,
-                                max: 5, 
+                                max: 5,
                             },
-                        }
-                    }, 
+                        },
+                    },
                     detectRetina: true,
                 }}
             />
         </>
     );
-};
-
+}
