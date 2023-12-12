@@ -2,7 +2,7 @@
 
 import SectionHeading from '../section-heading';
 
-import { type Locale, type LocaleKey } from '~/server/i18n.config';
+import { type LocaleStruct, type Locale } from '~/server/i18n.config';
 import { api } from '~/trpc/react';
 import { useSectionInView } from '~/app/[lang]/_lib/hooks';
 import { Skeleton } from '~/components/ui/skeleton';
@@ -12,7 +12,7 @@ import React, { useEffect, useState } from 'react';
 
 export default function About({ lang }: { lang: Locale }) {
     const { ref } = useSectionInView('#about');
-    type i18nT = Record<LocaleKey, string>;
+    type i18nT = LocaleStruct; 
     const [i18n, setI18n] = useState<i18nT>();
 
     const p = api.translator.i18n.useQuery({ locale: lang });
@@ -35,23 +35,23 @@ export default function About({ lang }: { lang: Locale }) {
         >
             <SectionHeading>
                 <Skeleton hasLoaded={!isLoading} className="w-64 h-14 rounded-lg">
-                    {i18n?.['about-title']}
+                    {i18n?.about.title}
                 </Skeleton>
             </SectionHeading>
             <Skeleton hasLoaded={!isLoading} className="w-[50rem] h-56 rounded-lg">
                 <p className="mb-3 flex flex-col place-content-center gap-8">
-                    {i18n?.['about-how-start']}
+                    {i18n?.about['how-start']}
                     <span className="rounded-md px-4 py-1 italic sm:border sm:border-gray-200">
-                        <q>{i18n?.['about-q1']}</q>
+                        <q>{i18n?.about.q1}</q>
                     </span>
                 </p>
             </Skeleton>
             <br />
             <Skeleton hasLoaded={!isLoading} className="w-[50rem] h-52 rounded-lg">
                 <p className="mb-3 flex flex-col place-content-center gap-8">
-                    {i18n?.['about-after-start']}
+                    {i18n?.about['after-start']}
                     <span className="rounded-md px-4 py-1 italic md:border md:border-gray-200">
-                        {i18n?.['about-q2']}
+                        {i18n?.about.q2}
                     </span>
                 </p>
             </Skeleton>
@@ -59,7 +59,7 @@ export default function About({ lang }: { lang: Locale }) {
             <Skeleton hasLoaded={!isLoading} className="w-[50rem] h-[3.715rem] rounded-lg">
                 <p className="mb-3 flex flex-col place-content-center gap-8">
                     <span className="rounded-md px-4 py-1 italic md:border md:border-gray-200">
-                        {i18n?.['about-end']}
+                        {i18n?.about.end}
                     </span>
                 </p>
             </Skeleton>
@@ -67,21 +67,22 @@ export default function About({ lang }: { lang: Locale }) {
             <span>༻❁༺</span>
             <br />
             <br />
-            <p>
-                Music is also a passion of mine. I am a selfthaught guitarirst
-                and bass player, I hope one day I will also ackwire the skill of
-                playing piano as it is one of my favorite instruments.
-                <br />
-                <br />I am intrested in exploring <b>
-                    musical visualization
-                </b>{' '}
-                using computers in hope of achiving a now form of art expression
-                through music and video.
-                <br />
-                <br />
-                In my free time I also like to write poetry. I find my muse in
-                romanticism and post-modern styles of poetry.
-            </p>
+            <Skeleton hasLoaded={!isLoading} className="w-[50rem] h-[3.715rem] rounded-lg">
+                <p>
+                    <span>{i18n?.about['music-p1-s']}</span>
+                </p>
+            </Skeleton>
+            <Skeleton hasLoaded={!isLoading} className="w-[50rem] h-[3.715rem] rounded-lg">
+                <p>
+                    <span>{i18n?.about['music-p2-s1']}</span>
+                    {' '}<b>{i18n?.about['music-p2-sb']}</b>{' '}
+                    <span>{i18n?.about['music-p2-s2']}</span>
+                </p>
+            </Skeleton>
+            <br />
+            <Skeleton hasLoaded={!isLoading} className="w-[50rem] h-[3.715rem] rounded-lg">
+                <p>{i18n?.about['music-p3']}</p>
+            </Skeleton>
         </motion.section>
     );
 }

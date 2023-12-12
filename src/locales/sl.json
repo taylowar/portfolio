@@ -1,56 +1,68 @@
 
 {
     "lang": "sl",
-    "contact-me": "kontakt",
-    "download-cv": "CV",
-    
-    "home-text-greeting": "Pozdravljeni, moje ime je",
-    "home-text-name": "Tilen",
-    "home-text-ima":  "Sem",
-    "home-text-software-engineer": "programski inženir",
-    "home-text-with": "in imam",
-    "home-text-exp": "10 let izkušenj s programiranjem ",
-    "home-text-joy": "Moje strasti so",
-    "home-text-mmrp": "glasba, matematika in razvedrilno programiranje",
-    "home-text-fcs": "Moj trenutni fokus je",
-    "home-text-react": "React (Next.js)",
 
-    "about-title": "o meni",
-    "about-how-start": "Moja programerska avantura se je pricela ko se bil star 14 let in sem dobil svoj prvi prenosni racunalnik. Imel sem le eno zeljo: igrati Minecraft. Nisem uspel si privosciti nakupa igre toda na mojo sreco sem bil seznanjen z objavo na spletnem poratlu MinecraftForum, ki je obljubila brezplacno razlicico igre Minecraft kot nagrado novim razvijalcem modifikacij igre.",
-    "about-q1": "Zakaj pa ne? Saj programiranje v jeziku Java je enostavno, mar ne?",
-    "about-after-start": "Po opravljeni srednji soli in presenetljivem uspehu znotraj Minecraft skupnosti modificerjev, sem se zavedal, da je programiranje moja strast. Zaljubljen sem v ustvarnaje novih in uporabnih resitev problemov s katerimi se vsakodnevno srecujem.",
-    "about-q2": "Rad rešujem probleme z uporabo računalnikov in matematike.",
-    "about-end": "Raziskovanje področja računalništva in tehonologije so moje življenjske sanje!",
+    "home": {
+        "contact-me": "kontakt",
+        "download-cv": "CV",
+        "text-greeting": "Pozdravljeni, moje ime je",
+        "text-name": "Tilen",
+        "text-ima":  "Sem",
+        "text-software-engineer": "programski inženir",
+        "text-with": "in imam",
+        "text-exp": "10 let izkušenj s programiranjem ",
+        "text-joy": "Moje strasti so",
+        "text-mmrp": "glasba, matematika in razvedrilno programiranje",
+        "text-fcs": "Moj trenutni fokus je",
+        "text-react": "React (Next.js)"
+    },
 
-    "project-boat-title": "Boat Configurator",
-    "project-boat-description": "Uporabniki lahko ustvarijo svojo konfiguracijo jahte in zajo pošljejo kot povpraševanje.",
-    "project-rack-title": "Rack Configurator",
-    "project-rack-description": "Uporabniki lahko ustvarijo in kupijo svoje konfiguracije fitnes stojal.",
-    "project-pdfb-title": "PDFb",
-    "project-pdfb-description": "Knjižnica, ki se lahko uporablja za ustvarjanje pdf datotek.",
-    "project-ppp-title": "PDF PreProcessor",
-    "project-ppp-description": "stb style header knjižnica, ki se lahko uporablja kot orodje za pridobivanje in razčlenjevanje vsebine iz datotek pdf v različne podatkovne formate.",
-    "project-zenc-title": "ZenChat.app",
-    "project-zenc-description": "Preprosta spletna aplikacija za klepet, ki ljudem omogoča pisanje in pošiljanje sporočil.",
-    "project-gena-title": "Genetic Alghoritems",
-    "project-gena-description": "Kot šolski projekt sem implementiral zaporedne, vzporedne in porazdeljene rešitve za problem potujočega prodajalca z uporabo generičnih algoritmov.",
+    "about": {
+        "title": "o meni",
+        "how-start": "Moja programerska avantura se je pricela ko se bil star 14 let in sem dobil svoj prvi prenosni racunalnik. Imel sem le eno zeljo: igrati Minecraft. Nisem uspel si privosciti nakupa igre toda na mojo sreco sem bil seznanjen z objavo na spletnem poratlu MinecraftForum, ki je obljubila brezplacno razlicico igre Minecraft kot nagrado novim razvijalcem modifikacij igre.",
+        "q1": "Zakaj pa ne? Saj programiranje v jeziku Java je enostavno, mar ne?",
+        "after-start": "Po opravljeni srednji soli in presenetljivem uspehu znotraj Minecraft skupnosti modificerjev, sem se zavedal, da je programiranje moja strast. Zaljubljen sem v ustvarnaje novih in uporabnih resitev problemov s katerimi se vsakodnevno srecujem.",
+        "q2": "Rad rešujem probleme z uporabo računalnikov in matematike.",
+        "end": "Raziskovanje področja računalništva in tehonologije so moje življenjske sanje!",
+        "music-p1-s": "Music is also a passion of mine. I am a selfthaught guitarirsti and bass player, I hope one day I will also ackwire the skill of  playing piano as it is one of my favorite instruments.",                 
+        "music-p2-s1": "I am intrested in exploring",                 
+        "music-p2-sb": "musical visualization",                
+        "music-p2-s2": "using computers in hope of achiving a now form of art expression through music and video.",
+        "music-p3": "In my free time I also like to write poetry. I find my muse in romanticism and post-modern styles of poetry."
+    },
 
-    "experience-title": "moje izkušnje",
+    "project": { 
+        "boat-title": "Boat Configurator",
+        "boat-description": "Uporabniki lahko ustvarijo svojo konfiguracijo jahte in zajo pošljejo kot povpraševanje.",
+        "rack-title": "Rack Configurator",
+        "rack-description": "Uporabniki lahko ustvarijo in kupijo svoje konfiguracije fitnes stojal.",
+        "pdfb-title": "PDFb",
+        "pdfb-description": "Knjižnica, ki se lahko uporablja za ustvarjanje pdf datotek.",
+        "ppp-title": "PDF PreProcessor",
+        "ppp-description": "stb style header knjižnica, ki se lahko uporablja kot orodje za pridobivanje in razčlenjevanje vsebine iz datotek pdf v različne podatkovne formate.",
+        "zenc-title": "ZenChat.app",
+        "zenc-description": "Preprosta spletna aplikacija za klepet, ki ljudem omogoča pisanje in pošiljanje sporočil.",
+        "gena-title": "Genetic Alghoritems",
+        "gena-description": "Kot šolski projekt sem implementiral zaporedne, vzporedne in porazdeljene rešitve za problem potujočega prodajalca z uporabo generičnih algoritmov."
+    },
 
-    "experience-minmod-title": "minecraft modificiranje",
-    "experience-minmod-location":   "slovenia",
-    "experience-minmod-description":  "Začel sem se učiti Javo - svoj prvi programski jezik. Učil sem se iz youtuba in drugih brezplačnih internetnih virov. Svoja ustvarjanja semtudi redno objvaljal na minecraft forumih in ostalih minecraft spletnih portalih",
+    "experience": {
+        "title": "moje izkušnje",
+        "minmod-title": "minecraft modificiranje",
+        "minmod-location":   "slovenia",
+        "minmod-description":  "Začel sem se učiti Javo - svoj prvi programski jezik. Učil sem se iz youtuba in drugih brezplačnih internetnih virov. Svoja ustvarjanja semtudi redno objvaljal na minecraft forumih in ostalih minecraft spletnih portalih",
+        "govir-title": "zaslovel",
+        "govir-location":   "internet",
+        "govir-description":  "S prijatelji, ki sem jih spoznal na spletu, sem se pogovarjal o modifikaciji Minecrafta z imenom 'Roots'. Po približno letu dni razvoja je projekt zaslovel in dosegel več kot 5 milijonov prenosov.",
+        "ghs-title": "graduated high school",
+        "ghs-location":   "slovenia",
+        "ghs-description":  "I graduated from my tehnical school lol"
+    },
 
-    "experience-govir-title": "zaslovel",
-    "experience-govir-location":   "internet",
-    "experience-govir-description":  "S prijatelji, ki sem jih spoznal na spletu, sem se pogovarjal o modifikaciji Minecrafta z imenom 'Roots'. Po približno letu dni razvoja je projekt zaslovel in dosegel več kot 5 milijonov prenosov.",
-
-    "experience-ghs-title": "graduated high school",
-    "experience-ghs-location":   "slovenia",
-    "experience-ghs-description":  "I graduated from my tehnical school lol",
-
-    "contact-title": "kontakt",
-    "contact-direct-1": "Prosim, kontaktirajte me neposredno na",
-    "contact-direct-2": "ali prek tega obrazca:",
-    "contact-message-placeholder": "vaše sporočilo"
+    "contact": {
+        "title": "kontakt",
+        "direct-1": "Prosim, kontaktirajte me neposredno na",
+        "direct-2": "ali prek tega obrazca:",
+        "message-placeholder": "vaše sporočilo"
+    }
 }

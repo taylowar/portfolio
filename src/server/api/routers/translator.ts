@@ -1,10 +1,10 @@
 import { createTRPCRouter, publicProcedure } from '../trpc';
 
-import { type Locale, type LocaleKey, i18n } from '~/server/i18n.config';
+import { type Locale, type LocaleKey, i18n, type LocaleStruct } from '~/server/i18n.config';
 
 import { z } from 'zod';
 
-const LocaleDictionary: Record<Locale, Promise<Record<LocaleKey, string>>> = {
+const LocaleDictionary: Record<Locale, Promise<LocaleStruct>> = {
     en: import('~/locales/en.json'),
     sl: import('~/locales/sl.json'),
 };

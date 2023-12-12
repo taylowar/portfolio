@@ -1,55 +1,68 @@
 {
     "lang": "en",
+
+    "home": {
     
-    "contact-me": "contact me",
-    "download-cv": "download cv",
-    "home-text-greeting": "Hello, my name is",
-    "home-text-name": "Tilen",
-    "home-text-ima":  "I am a",
-    "home-text-software-engineer": "software engineer",
-    "home-text-with": "with",
-    "home-text-exp": "10 years of experience",
-    "home-text-joy": "I enjoy",
-    "home-text-mmrp": "music, mathematics and recreational programming",
-    "home-text-fcs": "My current focus is",
-    "home-text-react": "React (Next.js)",
+        "contact-me": "contact me",
+        "download-cv": "download cv",
+        "text-greeting": "Hello, my name is",
+        "text-name": "Tilen",
+        "text-ima":  "I am a",
+        "text-software-engineer": "software engineer",
+        "text-with": "with",
+        "text-exp": "10 years of experience",
+        "text-joy": "I enjoy",
+        "text-mmrp": "music, mathematics and recreational programming",
+        "text-fcs": "My current focus is",
+        "text-react": "React (Next.js)"
+    },
+    
+    "about": {
+        "title": "Get to know me",
+        "how-start": "My programming adventure started when I was 14 and I got my first laptop. I had only one wish: playing Minecraft. I was not able to buy myself a copy of the game, but lucky for me, I saw a post on the Minecraft forum website that stated that Minecraft modders that post their mods on said forum get a chance to acquire a copy of the game as a gift.",
+        "q1": "Why not? Programming in Java cannot be that hard, can it?",
+        "after-start": "After graduating high school and having moderate success within the Minecraft modding scene, I found programming to be my passion.  I am in love with creating new and useful solutions to problems I encounter on a day-to-day basis.",
+        "q2": "I enjoy problem-solving using computers and math.",
+        "end": "Exploring the realm of computer science and techonlogy is my dream!",
+        "music-p1-s": "Music is also a passion of mine. I am a selfthaught guitarirsti and bass player, I hope one day I will also ackwire the skill of  playing piano as it is one of my favorite instruments.",                 
+        "music-p2-s1": "I am intrested in exploring",                 
+        "music-p2-sb": "musical visualization",                
+        "music-p2-s2": "using computers in hope of achiving a now form of art expression through music and video.",
+        "music-p3": "In my free time I also like to write poetry. I find my muse in romanticism and post-modern styles of poetry."
+    },
 
-    "about-title": "Get to know me",
-    "about-how-start": "My programming adventure started when I was 14 and I got my first laptop. I had only one wish: playing Minecraft. I was not able to buy myself a copy of the game, but lucky for me, I saw a post on the Minecraft forum website that stated that Minecraft modders that post their mods on said forum get a chance to acquire a copy of the game as a gift.",
-    "about-q1": "Why not? Programming in Java cannot be that hard, can it?",
-    "about-after-start": "After graduating high school and having moderate success within the Minecraft modding scene, I found programming to be my passion.  I am in love with creating new and useful solutions to problems I encounter on a day-to-day basis.",
-    "about-q2": "I enjoy problem-solving using computers and math.",
-    "about-end": "Exploring the realm of computer science and techonlogy is my dream!",
+    "project": { 
+        "boat-title": "Boat Configurator",
+        "boat-description": "Users can create their own yacht configuration and send it as an inquiry.",
+        "rack-title": "Rack Configurator",
+        "rack-description": "Users can create and purchase their rack configurations.",
+        "pdfb-title": "PDFb",
+        "pdfb-description": "A library that can be used for generating pdf files.",
+        "ppp-title": "PDF PreProcessor",
+        "ppp-description": "An stb style header only library that can be used as a tool for extracting and parsing content from pdf files into different data formats.",
+        "zenc-title": "ZenChat.app",
+        "zenc-description": "A simple web based chat application that allows people to write and send messages.",
+        "gena-title": "Genetic Alghoritems",
+        "gena-description": "As a school project I implemented sequential, paralel and distributed solutions for the traveling salesman problem using generic algorithms."
+    },
 
-    "project-boat-title": "Boat Configurator",
-    "project-boat-description": "Users can create their own yacht configuration and send it as an inquiry.",
-    "project-rack-title": "Rack Configurator",
-    "project-rack-description": "Users can create and purchase their rack configurations.",
-    "project-pdfb-title": "PDFb",
-    "project-pdfb-description": "A library that can be used for generating pdf files.",
-    "project-ppp-title": "PDF PreProcessor",
-    "project-ppp-description": "An stb style header only library that can be used as a tool for extracting and parsing content from pdf files into different data formats.",
-    "project-zenc-title": "ZenChat.app",
-    "project-zenc-description": "A simple web based chat application that allows people to write and send messages.",
-    "project-gena-title": "Genetic Alghoritems",
-    "project-gena-description": "As a school project I implemented sequential, paralel and distributed solutions for the traveling salesman problem using generic algorithms.",
+    "experience": {
+        "title": "my experience",
+        "minmod-title": "mnecraft modding",
+        "minmod-location":   "slovenia",
+        "minmod-description":  "I started to learn Java - my first programing language. I was learning from youtube and other free internet resources. I alse uploaded my creations on MinecraftForums and other MInecraft related platforms (CurseForge, TehnicPlatform, ...)",
+        "govir-title": "gone viral",
+        "govir-location":   "internet",
+        "govir-description":  "I was collaborating with some friends I met online on a minecraft mod called 'Roots'. After about a year of development the project went viral and has reached over 5 milion downloads",
+        "ghs-title": "graduated high school",
+        "ghs-location":   "slovenia",
+        "ghs-description":  "I graduated from my tehnical school lol"
+    },
 
-    "experience-title": "my experience",
-
-    "experience-minmod-title": "mnecraft modding",
-    "experience-minmod-location":   "slovenia",
-    "experience-minmod-description":  "I started to learn Java - my first programing language. I was learning from youtube and other free internet resources. I alse uploaded my creations on MinecraftForums and other MInecraft related platforms (CurseForge, TehnicPlatform, ...)",
-
-    "experience-govir-title": "gone viral",
-    "experience-govir-location":   "internet",
-    "experience-govir-description":  "I was collaborating with some friends I met online on a minecraft mod called 'Roots'. After about a year of development the project went viral and has reached over 5 milion downloads",
-
-    "experience-ghs-title": "graduated high school",
-    "experience-ghs-location":   "slovenia",
-    "experience-ghs-description":  "I graduated from my tehnical school lol",
-
-    "contact-title": "contact me",
-    "contact-direct-1": "Please contatct me directly at",
-    "contact-direct-2": "or through this form:",
-    "contact-message-placeholder": "your message"
+    "contact": {
+        "title": "contact me",
+        "direct-1": "Please contatct me directly at",
+        "direct-2": "or through this form:",
+        "message-placeholder": "your message"
+    }
 }

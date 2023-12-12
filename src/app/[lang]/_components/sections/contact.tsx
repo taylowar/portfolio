@@ -3,7 +3,7 @@
 import SectionHeading from '../section-heading';
 import { SubmitButton } from '../submit-button';
 
-import { type Locale, type LocaleKey } from '~/server/i18n.config';
+import { type LocaleStruct, type Locale } from '~/server/i18n.config';
 import { api } from '~/trpc/react';
 import { processEmail } from '~/app/[lang]/_lib/actions';
 import { useSectionInView } from '~/app/[lang]/_lib/hooks';
@@ -15,7 +15,7 @@ import toast from 'react-hot-toast';
 
 export default function Contact({ lang }: { lang: Locale }) {
     const { ref } = useSectionInView('#contact');
-    type i18nT = Record<LocaleKey, string>;
+    type i18nT = LocaleStruct; 
     const [i18n, setI18n] = useState<i18nT>();
 
     const p = api.translator.i18n.useQuery({ locale: lang });
@@ -42,19 +42,15 @@ export default function Contact({ lang }: { lang: Locale }) {
                 once: true,
             }}
         >
-            {!i18n ? (
-                <Skeleton className="w-100 rounded-lg">
-                    <div className="w-100 bg-default-300 h-6" />
-                </Skeleton>
-            ) : (
-                <SectionHeading>{i18n?.['contact-title']}</SectionHeading>
-            )}
+            <Skeleton hasLoaded={!p.isLoading} className="w-100 rounded-lg">
+                <SectionHeading>{i18n?.contact.title}</SectionHeading>
+            </Skeleton>
             <p className="-mt-6 text-gray-700 dark:text-green-50">
-                {i18n?.['contact-direct-1']}{' '}
+                {i18n?.contact['direct-1']}{' '}
                 <a className="underline" href="mailto:tilen.okretic@gmail.com">
                     tilen.okretic@gmail.com
                 </a>{' '}
-                {i18n?.['contact-direct-2']}
+                {i18n?.contact['direct-2']}
             </p>
             <form
                 className="mt-10 flex flex-col"
@@ -89,7 +85,7 @@ export default function Contact({ lang }: { lang: Locale }) {
                         rounded-lg
                         p-4
                         dark:bg-white/10"
-                    placeholder={i18n?.['contact-message-placeholder']}
+                    placeholder={i18n?.contact['message-placeholder']}
                     maxLength={512}
                 />
                 <SubmitButton />

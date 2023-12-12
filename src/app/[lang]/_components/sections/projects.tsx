@@ -5,14 +5,14 @@ import Project from '../project';
 
 import { useSectionInView } from '~/app/[lang]/_lib/hooks';
 import { PROJECT_DATA } from '~/app/[lang]/_lib/data';
-import { type Locale, type LocaleKey } from '~/server/i18n.config';
+import { type LocaleStruct, type Locale, type LocaleKey } from '~/server/i18n.config';
 import { api } from '~/trpc/react';
 
 import React, { useEffect, useState } from 'react';
 
 export default function Projects({ lang }: { lang: Locale }) {
     const { ref } = useSectionInView('#projects', 0.2);
-    type i18nT = Record<LocaleKey, string>;
+    type i18nT = LocaleStruct; 
     const [i18n, setI18n] = useState<i18nT>();
 
     const p = api.translator.i18n.useQuery({ locale: lang });

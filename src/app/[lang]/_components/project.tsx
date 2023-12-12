@@ -1,6 +1,6 @@
 'use client';
 
-import { type LocaleKey } from '~/server/i18n.config';
+import { LocaleStruct } from '~/server/i18n.config';
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { PROJECT_DATA } from '../_lib/data';
 
 type ProjectProps = {
-    i18n: Record<LocaleKey, string> | undefined;
+    i18n: LocaleStruct | undefined;
     project: (typeof PROJECT_DATA)[number];
 };
 
@@ -69,7 +69,7 @@ export default function Project({
 		              sm:group-even:ml-[18rem]"
                 >
                     <h3 className="text-2xl font-semibold">
-                        {i18n?.[`project-${id}-title`]}
+                        {i18n?.project[`${id}-title`]}
                     </h3>
                     {gh !== '' && (
                         <span className="text-xl text-white sm:mt-2">
@@ -85,7 +85,7 @@ export default function Project({
                         text-gray-700
                         dark:text-gray-50"
                     >
-                        {i18n?.[`project-${id}-description`]}
+                        {i18n?.project[`${id}-description`]}
                     </p>
                     <ul className="mt-4 flex flex-wrap gap-2 sm:mt-auto">
                         {tags.map((tag, index) => (
@@ -100,7 +100,7 @@ export default function Project({
                 </div>
                 <Image
                     src={imageUrl}
-                    alt={`project-{id}-title`}
+                    alt={`project-${id}-title`}
                     quality={95}
                     className="
                        absolute

@@ -4,7 +4,7 @@ import logo from '../../../../../public/logo.svg';
 import { useSectionInView } from '~/app/[lang]/_lib/hooks';
 import { useSectionContext } from '~/app/[lang]/_context/section-context';
 import { api } from '~/trpc/react';
-import { type Locale, type LocaleKey } from '~/server/i18n.config';
+import { type LocaleStruct, type Locale, type LocaleKey } from '~/server/i18n.config';
 import { Skeleton } from '~/components/ui/skeleton';
 
 import React, { useEffect, useState } from 'react';
@@ -124,7 +124,7 @@ export default function Home({ lang }: { lang: Locale }) {
     const { setActive, setLastClickTime } = useSectionContext();
     const { ref } = useSectionInView('#home', 0.5);
 
-    type i18nT = Record<LocaleKey, string>;
+    type i18nT = LocaleStruct;
     const [i18n, setI18n] = useState<i18nT>();
 
     const p = api.translator.i18n.useQuery({ locale: lang });
@@ -150,14 +150,14 @@ export default function Home({ lang }: { lang: Locale }) {
                 data={
                     i18n
                         ? [
-                            i18n['home-text-ima'],
-                            i18n['home-text-software-engineer'],
-                            i18n['home-text-with'],
-                            i18n['home-text-exp'],
-                            i18n['home-text-joy'],
-                            i18n['home-text-mmrp'],
-                            i18n['home-text-fcs'],
-                            i18n['home-text-react'],
+                            i18n.home['text-ima'],
+                            i18n.home['text-software-engineer'],
+                            i18n.home['text-with'],
+                            i18n.home['text-exp'],
+                            i18n.home['text-joy'],
+                            i18n.home['text-mmrp'],
+                            i18n.home['text-fcs'],
+                            i18n.home['text-react'],
                         ]
                         : undefined
                 }
@@ -210,7 +210,7 @@ export default function Home({ lang }: { lang: Locale }) {
                             setLastClickTime(Date.now());
                         }}
                     >
-                        {i18n?.['contact-me']}
+                        {i18n?.home['contact-me']}
                         <FontAwesomeIcon
                             icon={faPaperPlane}
                             className="group-hover:scale-120 opacity-70 transition group-hover:-translate-y-[0.15rem] group-hover:translate-x-[0.15rem]"
@@ -247,7 +247,7 @@ export default function Home({ lang }: { lang: Locale }) {
                         href="/CV.pdf"
                         download={true}
                     >
-                        {i18n?.['download-cv']}
+                        {i18n?.home['download-cv']}
                         <FontAwesomeIcon
                             icon={faDownload}
                             className="opacity-60 transition group-hover:translate-y-[0.15rem]"
