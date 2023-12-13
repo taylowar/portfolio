@@ -1,12 +1,12 @@
 'use client';
 
-import { type LocaleStruct } from '~/server/i18n.config';
-
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { type LocaleStruct } from '~/server/i18n.config';
 
 import type { PROJECT_DATA } from '../_lib/data';
 

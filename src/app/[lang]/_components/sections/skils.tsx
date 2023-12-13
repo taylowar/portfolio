@@ -1,12 +1,12 @@
 'use client';
 
+import React from 'react';
+import { motion } from 'framer-motion';
+
 import SectionHeading from '../section-heading';
 
 import { useSectionInView } from '~/app/[lang]/_lib/hooks';
 import { SKILL_DATA } from '~/app/[lang]/_lib/data';
-
-import React from 'react';
-import { motion } from 'framer-motion';
 
 const fadeInAnimationVar = {
     initial: {

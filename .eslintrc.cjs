@@ -45,10 +45,10 @@ const config = {
             {
                 groups: [
                     'index',
-                    'sibling',
-                    'parent',
-                    'internal',
                     'external',
+                    'parent',
+                    'sibling',
+                    'internal',
                     'builtin',
                     'object',
                     'type',

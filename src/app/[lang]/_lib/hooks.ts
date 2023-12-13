@@ -1,7 +1,7 @@
-import { useSectionContext } from '../_context/section-context';
-
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+
+import { useSectionContext } from '../_context/section-context';
 
 import type { LINKS } from './data';
 

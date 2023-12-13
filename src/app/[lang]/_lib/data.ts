@@ -1,15 +1,15 @@
+import {
+    faGraduationCap,
+    faMedal,
+    faRocket,
+} from '@fortawesome/free-solid-svg-icons';
+
 import boatConfiguratorPng from '../../../../public/alfastreet_boat_configurator.png';
 import rackConfiguratorPng from '../../../../public/kingsbox_rack_configurator.png';
 import pdfbPng from '../../../../public/PDFb-logo.png';
 import pppPng from '../../../../public/PpP-logo.png';
 import tspGaPng from '../../../../public/TSP-GA.png';
 import zenchatPng from '../../../../public/zenchat-logo.png';
-
-import {
-    faGraduationCap,
-    faMedal,
-    faRocket,
-} from '@fortawesome/free-solid-svg-icons';
 
 export const LINKS = [
     {

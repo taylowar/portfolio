@@ -1,5 +1,9 @@
 'use client';
 
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import toast from 'react-hot-toast';
+
 import SectionHeading from '../section-heading';
 import { SubmitButton } from '../submit-button';
 
@@ -8,10 +12,6 @@ import { api } from '~/trpc/react';
 import { processEmail } from '~/app/[lang]/_lib/actions';
 import { useSectionInView } from '~/app/[lang]/_lib/hooks';
 import { Skeleton } from '~/components/ui/skeleton';
-
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import toast from 'react-hot-toast';
 
 export default function Contact({ lang }: { lang: Locale }) {
     const { ref } = useSectionInView('#contact');

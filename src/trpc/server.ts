@@ -1,13 +1,13 @@
-import { getUrl, transformer } from './shared';
-
-import { type AppRouter } from '~/server/api/root';
-
 import {
     createTRPCProxyClient,
     loggerLink,
     unstable_httpBatchStreamLink,
 } from '@trpc/client';
 import { headers } from 'next/headers';
+
+import { getUrl, transformer } from './shared';
+
+import { type AppRouter } from '~/server/api/root';
 
 export const api = createTRPCProxyClient<AppRouter>({
     transformer,

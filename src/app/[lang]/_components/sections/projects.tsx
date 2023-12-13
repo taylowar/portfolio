@@ -1,5 +1,7 @@
 'use client';
 
+import React, { useEffect, useState } from 'react';
+
 import SectionHeading from '../section-heading';
 import Project from '../project';
 
@@ -8,8 +10,6 @@ import { PROJECT_DATA } from '~/app/[lang]/_lib/data';
 import { type LocaleStruct, type Locale } from '~/server/i18n.config';
 import { api } from '~/trpc/react';
 import { Skeleton } from '~/components/ui/skeleton';
-
-import React, { useEffect, useState } from 'react';
 
 export default function Projects({ lang }: { lang: Locale }) {
     const { ref } = useSectionInView('#projects', 0.2);

@@ -1,11 +1,4 @@
 'use client';
-import logo from '../../../../../public/logo.svg';
-
-import { useSectionInView } from '~/app/[lang]/_lib/hooks';
-import { useSectionContext } from '~/app/[lang]/_context/section-context';
-import { api } from '~/trpc/react';
-import { type LocaleStruct, type Locale } from '~/server/i18n.config';
-import { Skeleton } from '~/components/ui/skeleton';
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
@@ -14,6 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import Image from 'next/image';
+
+import logo from '../../../../../public/logo.svg';
+
+import { Skeleton } from '~/components/ui/skeleton';
+import { type LocaleStruct, type Locale } from '~/server/i18n.config';
+import { api } from '~/trpc/react';
+import { useSectionContext } from '~/app/[lang]/_context/section-context';
+import { useSectionInView } from '~/app/[lang]/_lib/hooks';
 
 function LogoImage() {
     return (

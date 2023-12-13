@@ -1,5 +1,12 @@
 'use client';
 
+import {
+    VerticalTimeline,
+    VerticalTimelineElement,
+} from 'react-vertical-timeline-component';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect, useState } from 'react';
+
 import SectionHeading from '../section-heading';
 
 import { type LocaleStruct, type Locale } from '~/server/i18n.config';
@@ -8,13 +15,6 @@ import { useThemeContext } from '~/app/[lang]/_context/theme-context';
 import { EXPERIENCE_DATA } from '~/app/[lang]/_lib/data';
 import { useSectionInView } from '~/app/[lang]/_lib/hooks';
 import { Skeleton } from '~/components/ui/skeleton';
-
-import {
-    VerticalTimeline,
-    VerticalTimelineElement,
-} from 'react-vertical-timeline-component';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
 
 function ExperienceItem({
     i18n,

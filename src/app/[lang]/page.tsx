@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Home from './_components/sections/home';
 import Devider from './_components/devider';
 import About from './_components/sections/about';
@@ -6,8 +8,6 @@ import Skills from './_components/sections/skils';
 import Experience from './_components/sections/experience';
 import Contact from './_components/sections/contact';
 import ParticleContainer from './_components/ParticleContainer';
-
-import React from 'react';
 
 export default function Page() {
     return (

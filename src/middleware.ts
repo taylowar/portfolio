@@ -1,8 +1,8 @@
-import { i18n } from './server/i18n.config';
-
 import { match } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
 import { NextResponse, type NextRequest } from 'next/server';
+
+import { i18n } from './server/i18n.config';
 
 const _defaultLocale = i18n.defaultLocale;
 const _locales = [...i18n.locales]; // copy of locales haha

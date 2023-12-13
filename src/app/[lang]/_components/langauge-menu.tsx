@@ -1,4 +1,6 @@
 'use client';
+import React from 'react';
+
 import LangSwitch from './language-switch';
 
 import {
@@ -7,8 +9,6 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '~/components/ui/dropdown-menu';
-
-import React from 'react';
 
 export default function LangaugeMenu() {
     return (

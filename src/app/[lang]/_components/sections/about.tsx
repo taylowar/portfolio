@@ -1,14 +1,14 @@
 'use client';
 
+import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+
 import SectionHeading from '../section-heading';
 
 import { type LocaleStruct, type Locale } from '~/server/i18n.config';
 import { api } from '~/trpc/react';
 import { useSectionInView } from '~/app/[lang]/_lib/hooks';
 import { Skeleton } from '~/components/ui/skeleton';
-
-import { motion } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
 
 export default function About({ lang }: { lang: Locale }) {
     const { ref } = useSectionInView('#about');
