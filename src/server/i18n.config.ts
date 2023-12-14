@@ -68,41 +68,5 @@ export type LocaleStruct = {
     };
 };
 
-export type LocaleKey = [
-    'lang',
-    'about-title',
-    'about-how-start',
-    'about-q1',
-    'about-after-start',
-    'about-q2',
-    'about-end',
-    'project-boat-title',
-    'project-boat-description',
-    'project-rack-title',
-    'project-rack-description',
-    'project-pdfb-title',
-    'project-pdfb-description',
-    'project-ppp-title',
-    'project-ppp-description',
-    'project-zenc-title',
-    'project-zenc-description',
-    'project-gena-title',
-    'project-gena-description',
-    'experience-title',
-    'experience-minmod-title',
-    'experience-minmod-location',
-    'experience-minmod-description',
-    'experience-govir-title',
-    'experience-govir-location',
-    'experience-govir-description',
-    'experience-ghs-title',
-    'experience-ghs-location',
-    'experience-ghs-description',
-    'contact-title',
-    'contact-direct-1',
-    'contact-direct-2',
-    'contact-message-placeholder',
-][number];
-
 export type Locale = (typeof i18n)['locales'][number];
 export const DefaultLocale = i18n.defaultLocale;
