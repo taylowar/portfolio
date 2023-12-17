@@ -6,7 +6,7 @@ import { type Locale, i18n, type LocaleStruct } from '~/server/i18n.config';
 
 const LocaleDictionary: Record<Locale, Promise<LocaleStruct>> = {
     en: import('~/locales/en.json'),
-    sl: import('~/locales/sl.json'),
+    si: import('~/locales/si.json'),
 };
 
 async function getI18n(lang: Locale) {
@@ -21,12 +21,10 @@ async function getI18n(lang: Locale) {
 let l: Locale = 'en';
 
 export const translatorRouter = createTRPCRouter({
-    i18n: publicProcedure
-        .input(z.object({ locale: z.custom<Locale>() }))
-        .query(async () => {
-            const ld = await getI18n(l);
-            return ld;
-        }),
+    i18n: publicProcedure.query(async () => {
+        const ld = await getI18n(l);
+        return ld;
+    }),
     setI18n: publicProcedure
         .input(z.object({ locale: z.custom<Locale>() }))
         .query(({ input }) => {
