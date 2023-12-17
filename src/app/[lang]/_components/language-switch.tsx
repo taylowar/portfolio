@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 import { type Locale } from '~/server/i18n.config';
-import Image from 'next/image';
 
 type Props = {
     lang: Locale;

@@ -128,7 +128,7 @@ export default function Home({ lang }: { lang: Locale }) {
     type i18nT = LocaleStruct;
     const [i18n, setI18n] = useState<i18nT>();
 
-    const p = api.translator.i18n.useQuery({ locale: lang });
+    const p = api.translator.i18n.useQuery();
     useEffect(() => {
         setI18n(p.data);
     }, [lang, i18n, p.data]);
