@@ -12,16 +12,14 @@ export default function Navbar() {
     const { active, setActive, setLastClickTime } = useSectionContext();
 
     return (
-        <header className="relative z-[999]">
+        <header className="relative z-[999] flex w-full place-content-center">
             <motion.div
                 className="
                     bg-gray
                     fixed
-                    left-1/2
                     top-0
                     h-[6.5rem]
                     w-full
-                    -translate-x-1/2
                     rounded-none
                     border
                     border-white
@@ -39,17 +37,15 @@ export default function Navbar() {
                     sm:w-[42rem]
                     sm:rounded-xl
                 "
-                initial={{ y: -100, x: '-50%', opacity: 0 }}
-                animate={{ y: 0, x: '-50%', opacity: 1 }}
+                initial={{ y: -100, x: '0%', opacity: 0 }}
+                animate={{ y: 0, x: '0%', opacity: 1 }}
             ></motion.div>
             <nav
                 className="
                     fixed
-                    left-1/2
                     top-[1rem]
                     flex
                     h-16
-                    -translate-x-1/2
                     py-2
                     sm:top-[1.475rem]
                     sm:h-[initial]

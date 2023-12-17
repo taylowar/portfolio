@@ -8,10 +8,12 @@ import Skills from './_components/sections/skils';
 import Experience from './_components/sections/experience';
 import Contact from './_components/sections/contact';
 import ParticleContainer from './_components/ParticleContainer';
+import LanguageMenu from './_components/langauge-menu';
 
 export default function Page() {
     return (
         <main className="flex flex-col items-center px-4">
+            <LanguageMenu />
             <ParticleContainer />
             <Home lang={'en'} />
             <Devider />
