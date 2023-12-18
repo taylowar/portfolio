@@ -102,7 +102,8 @@ function QuickAboutMe({
                         className="h-[7.25rem] w-[74.75rem] max-w-full rounded-lg"
                     >
                         <span>
-                            {data?.[2]} <b className="underline">{data?.[3]}</b>{' '}
+                            {data?.[2]} <b className="underline">{data?.[3]}</b>
+                            {'. '}
                             {data?.[4]} <b className="underline">{data?.[5]}</b>
                             .
                         </span>

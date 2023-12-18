@@ -46,6 +46,10 @@
         "gena-description": "As a school project I implemented sequential, paralel and distributed solutions for the traveling salesman problem using generic algorithms."
     },
 
+    "skills": {
+        "title": "my skills"
+    },
+
     "experience": {
         "title": "my experience",
         "minmod-title": "mnecraft modding",

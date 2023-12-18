@@ -47,6 +47,9 @@ export type LocaleStruct = {
         'gena-title': string;
         'gena-description': string;
     };
+    skills: {
+        title: string;
+    };
     experience: {
         title: string;
         'minmod-title': string;

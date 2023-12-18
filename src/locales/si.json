@@ -9,7 +9,7 @@
         "text-ima": "Sem",
         "text-software-engineer": "programski inženir",
         "text-with": "in imam",
-        "text-exp": "10 let izkušenj s programiranjem ",
+        "text-exp": "10 let izkušenj s programiranjem",
         "text-joy": "Moje strasti so",
         "text-mmrp": "glasba, matematika in razvedrilno programiranje",
         "text-fcs": "Moj trenutni fokus je",
@@ -44,6 +44,10 @@
         "zenc-description": "Preprosta spletna aplikacija za klepet, ki ljudem omogoča pisanje in pošiljanje sporočil.",
         "gena-title": "Genetic Alghoritems",
         "gena-description": "Kot šolski projekt sem implementiral zaporedne, vzporedne in porazdeljene rešitve za problem potujočega prodajalca z uporabo generičnih algoritmov."
+    },
+
+    "skills": {
+        "title": "moje spretnosti"
     },
 
     "experience": {
