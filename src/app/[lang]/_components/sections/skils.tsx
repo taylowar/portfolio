@@ -9,7 +9,7 @@ import { useSectionInView } from '~/app/[lang]/_lib/hooks';
 import { SKILL_DATA } from '~/app/[lang]/_lib/data';
 import { api } from '~/trpc/react';
 import { Skeleton } from '~/components/ui/skeleton';
-import { type LocaleStruct } from '~/server/i18n.config';
+import { type Locale, type LocaleStruct } from '~/server/i18n.config';
 
 const fadeInAnimationVar = {
     initial: {
@@ -27,12 +27,12 @@ const fadeInAnimationVar = {
     },
 };
 
-export default function Skills() {
+export default function Skills({ lang }: { lang: Locale }) {
     const { ref } = useSectionInView('#skils', 0.2);
 
     const [i18n, setI18n] = useState<LocaleStruct>();
 
-    const p = api.translator.i18n.useQuery();
+    const p = api.translator.i18n.useQuery({ locale: lang });
     useEffect(() => {
         setI18n(p.data);
     }, [i18n, p.data]);

@@ -12,9 +12,10 @@ import {
 } from '~/components/ui/dropdown-menu';
 import { api } from '~/trpc/react';
 import { Button } from '~/components/ui/button';
+import { type Locale } from '~/server/i18n.config';
 
-export default function LangaugeMenu() {
-    const a = api.translator.i18n.useQuery();
+export default function LangaugeMenu({ lang }: { lang: Locale }) {
+    const a = api.translator.i18n.useQuery({ locale: lang });
 
     if (!a.isLoading) {
         console.log(a.data);

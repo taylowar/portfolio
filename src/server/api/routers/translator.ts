@@ -20,17 +20,11 @@ async function getI18n(lang: Locale) {
     return tmp;
 }
 
-let l: Locale = 'en';
-
 export const translatorRouter = createTRPCRouter({
-    i18n: publicProcedure.query(async () => {
-        const ld = await getI18n(l);
-        return ld;
-    }),
-    setI18n: publicProcedure
+    i18n: publicProcedure
         .input(z.object({ locale: z.custom<Locale>() }))
-        .query(({ input }) => {
-            l = input.locale;
-            return l;
+        .query(async ({ input }) => {
+            const ld = await getI18n(input.locale);
+            return ld;
         }),
 });

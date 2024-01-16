@@ -10,18 +10,20 @@ import Contact from './_components/sections/contact';
 import ParticleContainer from './_components/ParticleContainer';
 import LanguageMenu from './_components/langauge-menu';
 
-export default function Page() {
+import { type Locale } from '~/server/i18n.config';
+
+export default function Page({ params }: { params: { lang: Locale } }) {
     return (
         <main className="flex flex-col items-center px-4">
-            <LanguageMenu />
+            <LanguageMenu lang={params.lang} />
             <ParticleContainer />
-            <Home lang={'en'} />
+            <Home lang={params.lang} />
             <Devider />
-            <About lang={'en'} />
-            <Projects lang={'en'} />
-            <Skills />
-            <Experience lang={'en'} />
-            <Contact lang={'en'} />
+            <About lang={params.lang} />
+            <Projects lang={params.lang} />
+            <Skills lang={params.lang} />
+            <Experience lang={params.lang} />
+            <Contact lang={params.lang} />
         </main>
     );
 }

@@ -94,7 +94,7 @@ function QuickAboutMe({
                             rounded-t-lg"
                     >
                         <span>
-                            {data?.['text-greeting']} {data?.['text-name']}
+                            {data?.['text-greeting']} {data?.['text-name']}.{' '}
                             {data?.['text-ima']}{' '}
                             <b className="underline">
                                 {data?.['text-software-engineer']}
@@ -134,7 +134,7 @@ export default function Home({ lang }: { lang: Locale }) {
     type i18nT = LocaleStruct;
     const [i18n, setI18n] = useState<i18nT>();
 
-    const p = api.translator.i18n.useQuery();
+    const p = api.translator.i18n.useQuery({ locale: lang });
     useEffect(() => {
         setI18n(p.data);
     }, [lang, i18n, p.data]);
