@@ -12,7 +12,6 @@ import Footer from './_components/footer';
 
 import { TRPCReactProvider } from '~/trpc/react';
 import { DefaultLocale, type Locale } from '~/server/i18n.config';
-import { api } from '~/trpc/server';
 
 const anonpro = Anonymous_Pro({
     weight: '400',
