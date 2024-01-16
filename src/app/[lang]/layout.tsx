@@ -33,7 +33,7 @@ export default async function RootLayout({
     children: React.ReactNode;
     params: { lang: Locale };
 }) {
-    await api.translator.setI18n.query({ locale: params.lang });
+    await api.translator.setI18n.query({ locale: 'en' });
 
     return (
         <html lang={params.lang ?? DefaultLocale} className="!scroll-smooth">
