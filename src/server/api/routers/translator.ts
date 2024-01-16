@@ -15,7 +15,9 @@ async function getI18n(lang: Locale) {
         console.warn(`[404]: i18n for '${lang}' does not exist!`);
         return await LocaleDictionary[i18n.defaultLocale];
     }
-    return olng;
+    const ztp = z.custom<LocaleStruct>();
+    const tmp = ztp.parse(olng);
+    return tmp;
 }
 
 let l: Locale = 'en';
