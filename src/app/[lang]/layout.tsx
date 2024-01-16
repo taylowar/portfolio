@@ -25,7 +25,7 @@ export const metadata = {
 };
 
 // TODO: move the section context provider functionality inside the TRPC !
-export default async function RootLayout({
+export default function RootLayout({
     children,
     params,
 }: {
