@@ -2,8 +2,6 @@
     "lang": "en",
 
     "home": {
-        "contact-me": "contact me",
-        "download-cv": "download cv",
         "text-greeting": "Hello, my name is",
         "text-name": "Tilen",
         "text-ima": "I am a",
@@ -13,7 +11,9 @@
         "text-joy": "I enjoy",
         "text-mmrp": "music, mathematics and recreational programming",
         "text-fcs": "My current focus is",
-        "text-react": "React (Next.js)"
+        "text-react": "React (Next.js)",
+        "contact-me": "contact me",
+        "download-cv": "download cv"
     },
 
     "about": {

@@ -65,7 +65,7 @@ function QuickAboutMe({
     isLoading,
 }: {
     isLoading: boolean;
-    data: string[] | undefined;
+    data: LocaleStruct['home'] | undefined;
 }) {
     return (
         <>
@@ -94,7 +94,11 @@ function QuickAboutMe({
                             rounded-t-lg"
                     >
                         <span>
-                            {data?.[0]} <b className="underline">{data?.[1]}</b>
+                            {data?.['text-greeting']} {data?.['text-name']}
+                            {data?.['text-ima']}{' '}
+                            <b className="underline">
+                                {data?.['text-software-engineer']}
+                            </b>
                         </span>
                     </Skeleton>
                     <Skeleton
@@ -102,10 +106,11 @@ function QuickAboutMe({
                         className="h-[7.25rem] w-[74.75rem] max-w-full rounded-lg"
                     >
                         <span>
-                            {data?.[2]} <b className="underline">{data?.[3]}</b>
+                            {data?.['text-with']}{' '}
+                            <b className="underline">{data?.['text-exp']}</b>
                             {'. '}
-                            {data?.[4]} <b className="underline">{data?.[5]}</b>
-                            .
+                            {data?.['text-joy']}{' '}
+                            <b className="underline">{data?.['text-mmrp']}</b>.
                         </span>
                     </Skeleton>
                     <Skeleton
@@ -113,7 +118,7 @@ function QuickAboutMe({
                         className="h-[3.375rem] w-[45.25rem] max-w-full rounded-lg"
                     >
                         <span>
-                            {data?.[6]} <i>{data?.[7]}</i>.
+                            {data?.['text-fcs']} <i>{data?.['text-react']}</i>.
                         </span>
                     </Skeleton>
                 </div>
@@ -149,20 +154,7 @@ export default function Home({ lang }: { lang: Locale }) {
             <LogoImage />
             <QuickAboutMe
                 isLoading={p.isLoading}
-                data={
-                    i18n
-                        ? [
-                              i18n.home['text-ima'],
-                              i18n.home['text-software-engineer'],
-                              i18n.home['text-with'],
-                              i18n.home['text-exp'],
-                              i18n.home['text-joy'],
-                              i18n.home['text-mmrp'],
-                              i18n.home['text-fcs'],
-                              i18n.home['text-react'],
-                          ]
-                        : undefined
-                }
+                data={i18n ? i18n.home : undefined}
             />
             <motion.div
                 className="
