@@ -9,12 +9,14 @@ import Experience from './_components/sections/experience';
 import Contact from './_components/sections/contact';
 import ParticleContainer from './_components/ParticleContainer';
 import LanguageMenu from './_components/langauge-menu';
+import Navbar from './_components/navbar';
 
 import { type Locale } from '~/server/i18n.config';
 
 export default function Page({ params }: { params: { lang: Locale } }) {
     return (
         <main className="flex flex-col items-center px-4">
+            <Navbar />
             <LanguageMenu lang={params.lang} />
             <ParticleContainer />
             <Home lang={params.lang} />

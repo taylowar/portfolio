@@ -43,7 +43,6 @@ export default function RootLayout({
             >
                 <ThemeContextProvider>
                     <SectionContextProvider>
-                        <Navbar />
                         <TRPCReactProvider headers={headers()}>
                             {children}
                         </TRPCReactProvider>
