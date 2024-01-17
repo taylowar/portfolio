@@ -7,7 +7,6 @@ import { Anonymous_Pro } from 'next/font/google';
 
 import SectionContextProvider from './_context/section-context';
 import ThemeContextProvider from './_context/theme-context';
-import Navbar from './_components/navbar';
 import Footer from './_components/footer';
 
 import { TRPCReactProvider } from '~/trpc/react';
