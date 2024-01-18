@@ -15,6 +15,8 @@ import {
 import ModelView from './model-view';
 
 import DreiKit from '~/DreiKit/src/DreiKit';
+import { cn } from '~/lib/util';
+import Loading from '~/components/ui/Loading';
 
 const ModelViewer = ({
     postprocessor,
@@ -48,7 +50,6 @@ const ModelViewer = ({
                 zoom={0.5}
                 position={[4, 2, 8]}
             />
-            <color args={[1, 1, 1]} attach="background" />
             <CubeCamera resolution={128} frames={60}>
                 {(_texture) => (
                     <>
@@ -79,6 +80,7 @@ const ModelViewer = ({
 
 export default function Page() {
     const [graph, setGraph] = useState<Object3D<Object3DEventMap>[]>([]);
+    const [laoded, setLoaded] = useState(false);
 
     const postprocessor = () => {
         // RackAssemblyConsole.urlQueryParser.consume(
@@ -94,6 +96,7 @@ export default function Page() {
         // );
 
         // Load motorization when page is loaded hahaha i feel very anxious
+        setLoaded(true);
     };
 
     return (
@@ -119,17 +122,25 @@ export default function Page() {
         >
             <main
                 className="
+                relative
+                grid 
                 h-[30rem]
                 overflow-hidden"
             >
-                <Suspense fallback={<h1>loading...</h1>}>
-                    <Canvas shadows className="cursor-grab">
-                        <ModelViewer
-                            postprocessor={postprocessor}
-                            grapher={[graph, setGraph]}
-                        />
-                    </Canvas>
-                </Suspense>
+                {!laoded && (
+                    <span className="absolute place-self-center">
+                        <Loading />
+                    </span>
+                )}
+                <Canvas
+                    shadows
+                    className={cn(laoded && 'bg-white', 'cursor-grab')}
+                >
+                    <ModelViewer
+                        postprocessor={postprocessor}
+                        grapher={[graph, setGraph]}
+                    />
+                </Canvas>
             </main>
         </motion.section>
     );

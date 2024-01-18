@@ -49,7 +49,7 @@ function Indexer(
         }
 
         dictioanry.set(ekey, e);
-        e.visible = false;
+        e.visible = true;
     });
 
     return dictioanry;
