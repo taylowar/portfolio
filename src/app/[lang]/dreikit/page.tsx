@@ -151,7 +151,6 @@ export default function Page({
             className="
                 m-auto
                 mb-20
-                max-h-[40rem]
                 w-[min(100%,60rem)]
                 scroll-mt-28
                 p-16
@@ -170,7 +169,7 @@ export default function Page({
                 className="
                 relative
                 grid 
-                h-[30rem]
+                min-h-[30rem]
                 overflow-hidden"
             >
                 {!laoded && (
@@ -187,10 +186,10 @@ export default function Page({
                         grapher={[graph, setGraph]}
                     />
                 </Canvas>
-                <div>
+                <div gap-2>
                     {laoded && (
-                        <div className="right-48 flex place-content-center gap-12 p-4">
-                            <div className="flex flex-col items-center gap-1 text-left">
+                        <div className="right-48 flex flex-col place-content-center gap-2 p-4 sm:flex-row sm:gap-12">
+                            <div className="flex flex-col gap-1 text-left">
                                 <h2 className="uppercase text-green-400">
                                     Wood Type
                                 </h2>
