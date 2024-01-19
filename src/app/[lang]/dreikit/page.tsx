@@ -11,12 +11,28 @@ import {
     PerspectiveCamera,
     Stage,
 } from '@react-three/drei';
+import { createSearchParamsBailoutProxy } from 'next/dist/client/components/searchparams-bailout-proxy';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import ModelView from './model-view';
+import {
+    ChairAssemblyConsole,
+    PARSERS,
+    type ConfigurationModel,
+    CHAIR_DEFAULT,
+    P_CHAIR_CUSHION_TOP,
+    P_CHAIR_CUSHION_BOTTOM,
+    P_CHAIR_TYPE,
+    type ChairType,
+    type ChairCushionTop,
+    type ChairCushionBottom,
+} from './Chair.mac';
 
 import DreiKit from '~/DreiKit/src/DreiKit';
 import { cn } from '~/lib/util';
 import Loading from '~/components/ui/Loading';
+import { type LexiconDevil } from '~/DreiKit/src/URLQueryParser';
+import { type Locale } from '~/server/i18n.config';
 
 const ModelViewer = ({
     postprocessor,
@@ -63,7 +79,7 @@ const ModelViewer = ({
                                 <mesh position={[0, 0.75, 0]}>
                                     <ModelView
                                         // eslint-disable-next-line
-                                        url={`/models/chair/scene-cmp.gltf`}
+                                        url={`/models/chair08/scene-cmp.glb`}
                                         preprocessor={preprocessor}
                                         postprocessor={postprocessor}
                                         grapher={grapher}
@@ -77,26 +93,56 @@ const ModelViewer = ({
         </>
     );
 };
+const colors: ChairType[] = ['oak', 'chalk', 'wallnut'];
+const tushin: ChairCushionTop[] = ['none', 'blue', 'anarcho-green'];
+const bushin: ChairCushionBottom[] = [
+    'none',
+    'blue',
+    'anarcho-green',
+    'leather-1',
+    'leather-2',
+    'leather-3',
+];
 
-export default function Page() {
+export default function Page({
+    params: { lang },
+}: {
+    params: { lang: Locale };
+}) {
+    const searchParams = useSearchParams();
+    const pathname = usePathname();
+    const router = useRouter();
+
     const [graph, setGraph] = useState<Object3D<Object3DEventMap>[]>([]);
     const [laoded, setLoaded] = useState(false);
 
-    const postprocessor = () => {
-        // RackAssemblyConsole.urlQueryParser.consume(
-        //     PARSERS,
-        //     SX_15_DEFAULT,
-        //     searchParams,
-        //     LD,
-        // );
-        DreiKit.Renderer.showAll();
-        // RackAssemblyConsole.render(
-        //     { router, pathname, mutSearchParams, lang },
-        //     LD,
-        // );
+    const LD: LexiconDevil<keyof ConfigurationModel> = new Map();
+    const mutSearchParams = new URLSearchParams(
+        Array.from(searchParams.entries()),
+    );
+    const RP = { router, pathname, mutSearchParams, lang };
 
-        // Load motorization when page is loaded hahaha i feel very anxious
+    const [cushTop, setCushTop] = useState(
+        P_CHAIR_CUSHION_TOP.parse(LD.get('cushTop')?.value),
+    );
+
+    const [cushBottom, setCushBottom] = useState(
+        P_CHAIR_CUSHION_BOTTOM.parse(LD.get('cushBottom')?.value),
+    );
+
+    const [woodType, setWoodType] = useState(
+        P_CHAIR_TYPE.parse(LD.get('chairType')?.value),
+    );
+
+    const postprocessor = () => {
         setLoaded(true);
+        ChairAssemblyConsole.urlQueryParser.consume(
+            PARSERS,
+            CHAIR_DEFAULT,
+            searchParams,
+            LD,
+        );
+        ChairAssemblyConsole.render(RP, LD);
     };
 
     return (
@@ -141,6 +187,96 @@ export default function Page() {
                         grapher={[graph, setGraph]}
                     />
                 </Canvas>
+                <div>
+                    {laoded && (
+                        <div className="right-48 flex place-content-center gap-12 p-4">
+                            <div className="flex flex-col items-center gap-1 text-left">
+                                <h2 className="uppercase text-green-400">
+                                    Wood Type
+                                </h2>
+                                <ul>
+                                    {colors.map((color) => (
+                                        <li key={color}>
+                                            <button
+                                                className={cn(
+                                                    woodType === color &&
+                                                        'underline',
+                                                )}
+                                                type="button"
+                                                onClick={() => {
+                                                    ChairAssemblyConsole.urlQueryParser.mutate(
+                                                        RP,
+                                                        'chairType',
+                                                        color,
+                                                    );
+                                                    setWoodType(color);
+                                                }}
+                                            >
+                                                {color}
+                                            </button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <br />
+                            <div className="flex flex-col text-left">
+                                <h2 className="uppercase text-green-400">
+                                    Cushion Bottom
+                                </h2>
+                                <ul>
+                                    {bushin.map((bc) => (
+                                        <li key={`bottom-${bc}`}>
+                                            <button
+                                                className={cn(
+                                                    cushBottom == bc &&
+                                                        'underline',
+                                                )}
+                                                onClick={() => {
+                                                    ChairAssemblyConsole.urlQueryParser.mutate(
+                                                        RP,
+                                                        'cushBottom',
+                                                        bc,
+                                                    );
+                                                    setCushBottom(bc);
+                                                }}
+                                            >
+                                                {bc}
+                                            </button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <br />
+                            <div className="flex flex-col text-left">
+                                <h2 className="uppercase text-green-400">
+                                    Cushion Top
+                                </h2>
+                                <ul>
+                                    {tushin.map((bc) => (
+                                        <li key={`top-${bc}`}>
+                                            <button
+                                                className={cn(
+                                                    cushTop == bc &&
+                                                        'underline',
+                                                )}
+                                                onClick={() => {
+                                                    ChairAssemblyConsole.urlQueryParser.mutate(
+                                                        RP,
+                                                        'cushTop',
+                                                        bc,
+                                                    );
+                                                    setCushTop(bc);
+                                                }}
+                                            >
+                                                {bc}
+                                            </button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    )}
+                </div>
             </main>
         </motion.section>
     );

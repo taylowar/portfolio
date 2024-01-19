@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useGLTF } from '@react-three/drei';
-import { type Object3D, type Object3DEventMap, REVISION } from 'three';
+import { useGLTF, useKTX2 } from '@react-three/drei';
+import { type Object3D, type Object3DEventMap } from 'three';
 import { useThree } from '@react-three/fiber';
 import { KTX2Loader } from 'three-stdlib';
 
@@ -17,14 +17,9 @@ type ModelProps = {
 };
 
 const Model = ({ url, grapher: [, setGraph], preprocessor }: ModelProps) => {
-    const { gl } = useThree();
-    const gltf = useGLTF(url, true, true, (loader) => {
-        const THREE_PATH = `https://unpkg.com/three@0.${REVISION}.x`;
-        const ktx2Loader = new KTX2Loader().setTranscoderPath(
-            `${THREE_PATH}/examples/jsm/libs/basis/`,
-        );
-        loader.setKTX2Loader(ktx2Loader.detectSupport(gl));
-    });
+    const gltf = useGLTF(url, true, true);
+
+    console.log('g', gltf.scene.children);
 
     useEffect(() => {
         const graph = gltf.scene.children;
