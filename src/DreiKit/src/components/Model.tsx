@@ -19,8 +19,6 @@ type ModelProps = {
 const Model = ({ url, grapher: [, setGraph], preprocessor }: ModelProps) => {
     const gltf = useGLTF(url, true, true);
 
-    console.log('g', gltf.scene.children);
-
     useEffect(() => {
         const graph = gltf.scene.children;
 

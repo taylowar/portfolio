@@ -79,7 +79,7 @@ const ModelViewer = ({
                                 <mesh position={[0, 0.75, 0]}>
                                     <ModelView
                                         // eslint-disable-next-line
-                                        url={`/models/chair08/scene-cmp.glb`}
+                                        url={`/models/chair/scene-cmp.glb`}
                                         preprocessor={preprocessor}
                                         postprocessor={postprocessor}
                                         grapher={grapher}
@@ -186,7 +186,7 @@ export default function Page({
                         grapher={[graph, setGraph]}
                     />
                 </Canvas>
-                <div gap-2>
+                <div className="gap-2">
                     {laoded && (
                         <div className="right-48 flex flex-col place-content-center gap-2 p-4 sm:flex-row sm:gap-12">
                             <div className="flex flex-col gap-1 text-left">

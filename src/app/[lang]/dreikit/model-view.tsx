@@ -30,10 +30,6 @@ const Sx15 = ({
         postprocessor();
     }, [graph, postprocessor, preprocessor]);
 
-    // const preprocessor = (_updateKey: (okey: string, nkey: string) => void) => {
-    //     console.log('nothing here');
-    // };
-
     return (
         <>
             <Model
