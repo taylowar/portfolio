@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Suspense, useState } from 'react';
+import { useState } from 'react';
 import { type Object3D, type Object3DEventMap } from 'three';
 import { Canvas } from '@react-three/fiber';
 import {
@@ -11,7 +11,6 @@ import {
     PerspectiveCamera,
     Stage,
 } from '@react-three/drei';
-import { createSearchParamsBailoutProxy } from 'next/dist/client/components/searchparams-bailout-proxy';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import ModelView from './model-view';
@@ -28,7 +27,6 @@ import {
     type ChairCushionBottom,
 } from './Chair.mac';
 
-import DreiKit from '~/DreiKit/src/DreiKit';
 import { cn } from '~/lib/util';
 import Loading from '~/components/ui/Loading';
 import { type LexiconDevil } from '~/DreiKit/src/URLQueryParser';

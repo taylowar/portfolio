@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
-import { useGLTF, useKTX2 } from '@react-three/drei';
+import { useGLTF } from '@react-three/drei';
 import { type Object3D, type Object3DEventMap } from 'three';
-import { useThree } from '@react-three/fiber';
-import { KTX2Loader } from 'three-stdlib';
 
 type ModelProps = {
     url: string;
