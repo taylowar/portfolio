@@ -76,7 +76,6 @@ const ModelViewer = ({
                             >
                                 <mesh position={[0, 0.75, 0]}>
                                     <ModelView
-                                        // eslint-disable-next-line
                                         url={`/models/chair/scene-cmp.glb`}
                                         preprocessor={preprocessor}
                                         postprocessor={postprocessor}
